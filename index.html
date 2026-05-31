@@ -108,20 +108,8 @@
             "name": "¿Cómo puedo reservar con BESTUR?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Puedes reservar por WhatsApp enviando fecha, ruta, número de personas, equipaje, horario, vuelo si aplica y dirección de recogida o destino."
+              "text": "Puedes reservar por WhatsApp o email enviando fecha, ruta, número de personas, equipaje, horario, vuelo si aplica y dirección de recogida o destino."
             }
-          }
-        ]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://bestur.mx/#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Inicio",
-            "item": "https://bestur.mx/"
           }
         ]
       }
@@ -178,6 +166,13 @@
       display:block;
     }
 
+    button,
+    input,
+    select,
+    textarea {
+      font:inherit;
+    }
+
     .container {
       width:min(calc(100% - 32px),var(--container));
       margin-inline:auto;
@@ -226,7 +221,8 @@
 
     .btn,
     .btn-outline,
-    .btn-wa {
+    .btn-wa,
+    .btn-social {
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -260,9 +256,19 @@
       box-shadow:0 18px 48px rgba(0,89,156,.34);
     }
 
+    .btn-social {
+      background:rgba(0,89,156,.14);
+      border-color:rgba(95,184,220,.24);
+      color:#fff;
+      min-height:48px;
+      padding:12px 16px;
+      font-size:13px;
+    }
+
     .btn:hover,
     .btn-outline:hover,
-    .btn-wa:hover {
+    .btn-wa:hover,
+    .btn-social:hover {
       transform:translateY(-3px);
     }
 
@@ -576,6 +582,156 @@
       color:rgba(255,255,255,.78);
       line-height:1.8;
       font-size:16px;
+    }
+
+    /* QUOTE FORM */
+
+    .quote-section {
+      background:
+        radial-gradient(circle at 10% 10%, rgba(95,184,220,.12), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(0,89,156,.22), transparent 32%),
+        linear-gradient(180deg,#061321 0%,#0B2238 100%);
+    }
+
+    .quote-grid {
+      display:grid;
+      grid-template-columns:.82fr 1.18fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .quote-intro {
+      padding:34px;
+      position:sticky;
+      top:120px;
+    }
+
+    .quote-intro h2 {
+      margin:0 0 16px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:50px;
+      line-height:.95;
+    }
+
+    .quote-intro p {
+      color:rgba(255,255,255,.78);
+      line-height:1.78;
+      margin-bottom:22px;
+    }
+
+    .quote-list {
+      display:grid;
+      gap:14px;
+      list-style:none;
+    }
+
+    .quote-list li {
+      padding:16px 17px;
+      border-radius:22px;
+      background:rgba(0,89,156,.16);
+      border:1px solid rgba(95,184,220,.18);
+      color:rgba(255,255,255,.78);
+      line-height:1.6;
+    }
+
+    .quote-list strong {
+      display:block;
+      color:#fff;
+      margin-bottom:4px;
+    }
+
+    .quote-panel {
+      padding:34px;
+    }
+
+    .quote-panel h3 {
+      margin:0 0 10px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:42px;
+      line-height:1;
+    }
+
+    .quote-panel > p {
+      color:rgba(255,255,255,.72);
+      line-height:1.7;
+      margin-bottom:24px;
+    }
+
+    .quote-form {
+      display:grid;
+      gap:18px;
+    }
+
+    .quote-row {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .quote-field {
+      display:grid;
+      gap:8px;
+    }
+
+    .quote-field label {
+      color:#fff;
+      font-size:14px;
+      font-weight:900;
+    }
+
+    .quote-field input,
+    .quote-field select,
+    .quote-field textarea {
+      width:100%;
+      min-width:0;
+      padding:15px 16px;
+      border-radius:18px;
+      border:1px solid rgba(95,184,220,.20);
+      background:rgba(6,19,33,.72);
+      color:#fff;
+      outline:none;
+      font-size:15px;
+    }
+
+    .quote-field input::placeholder,
+    .quote-field textarea::placeholder {
+      color:rgba(255,255,255,.42);
+    }
+
+    .quote-field input:focus,
+    .quote-field select:focus,
+    .quote-field textarea:focus {
+      border-color:rgba(215,246,255,.45);
+      box-shadow:0 0 0 4px rgba(95,184,220,.12);
+    }
+
+    .quote-field select option {
+      color:#061321;
+      background:#fff;
+    }
+
+    .quote-preview {
+      white-space:pre-wrap;
+      min-height:260px;
+      padding:18px;
+      border-radius:22px;
+      background:rgba(6,19,33,.74);
+      border:1px solid rgba(95,184,220,.18);
+      color:rgba(255,255,255,.82);
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    .quote-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .quote-note {
+      color:rgba(255,255,255,.58);
+      line-height:1.65;
+      font-size:13px;
     }
 
     /* SERVICES */
@@ -1005,6 +1161,13 @@
       font-size:15px;
     }
 
+    .footer-socials {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
+
     .footer-bottom {
       margin-top:26px;
       padding-top:20px;
@@ -1045,8 +1208,14 @@
       .worldcup,
       .location-grid,
       .footer-grid,
-      .quick-card {
+      .quick-card,
+      .quote-grid {
         grid-template-columns:1fr;
+      }
+
+      .quote-intro {
+        position:relative;
+        top:auto;
       }
 
       .grid-4 {
@@ -1069,6 +1238,7 @@
       .header-actions {
         width:100%;
         justify-content:space-between;
+        flex-wrap:wrap;
       }
 
       .logo-img,
@@ -1096,7 +1266,8 @@
 
       .grid-4,
       .grid-3,
-      .feature-grid {
+      .feature-grid,
+      .quote-row {
         grid-template-columns:1fr;
       }
 
@@ -1105,14 +1276,21 @@
       }
 
       .location-actions,
-      .hero-actions {
+      .hero-actions,
+      .quote-actions {
         flex-direction:column;
       }
 
       .btn,
       .btn-outline,
-      .btn-wa {
+      .btn-wa,
+      .btn-social {
         width:100%;
+      }
+
+      .quote-panel,
+      .quote-intro {
+        padding:24px;
       }
 
       .map-card,
@@ -1156,6 +1334,7 @@
 
         <nav class="nav" aria-label="Menú principal BESTUR">
           <a href="#servicios">Servicios</a>
+          <a href="#reservar">Reservar</a>
           <a href="#aeropuertos">Aeropuertos</a>
           <a href="#tours">Tours</a>
           <a href="#flotilla">Flotilla</a>
@@ -1196,8 +1375,8 @@
             </p>
 
             <div class="hero-actions">
-              <a class="btn-wa" href="https://wa.me/524151035353?text=Hola%20BESTUR,%20quiero%20cotizar%20un%20servicio%20privado.">
-                Cotizar por WhatsApp
+              <a class="btn-wa" href="#reservar">
+                Reservar o cotizar
               </a>
               <a class="btn-outline" href="#servicios">
                 Explorar servicios
@@ -1241,6 +1420,179 @@
               Es recomendable para turistas extranjeros, familias, parejas, grupos e
               invitados de boda que buscan transporte privado y atención directa por WhatsApp.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESERVATION / QUOTE -->
+      <section class="section quote-section" id="reservar">
+        <div class="container">
+          <div class="section-head">
+            <span class="kicker">Reserva o cotización</span>
+            <h2 class="title">Solicita tu <em>servicio privado</em></h2>
+            <p class="copy">
+              Completa los datos principales y envía tu solicitud por WhatsApp o email.
+              BESTUR revisará disponibilidad, vehículo recomendado, ruta y condiciones del servicio.
+            </p>
+          </div>
+
+          <div class="quote-grid">
+            <aside class="glass quote-intro">
+              <h2>Datos claros. Respuesta más rápida.</h2>
+              <p>
+                Este formulario evita mensajes incompletos y ayuda a recibir una cotización
+                más precisa para traslados, tours, bodas, viñedos o servicios especiales.
+              </p>
+
+              <ul class="quote-list">
+                <li>
+                  <strong>Servicios disponibles</strong>
+                  Aeropuertos, tours privados, viñedos, bodas, grupos, familias y servicios especiales.
+                </li>
+                <li>
+                  <strong>Datos importantes</strong>
+                  Fecha, horario, ruta, pasajeros, equipaje, dirección y tipo de servicio.
+                </li>
+                <li>
+                  <strong>Confirmación final</strong>
+                  La disponibilidad, vehículo y tarifa se confirman directamente con BESTUR.
+                </li>
+              </ul>
+            </aside>
+
+            <div class="glass quote-panel">
+              <h3>Formulario de solicitud</h3>
+              <p>
+                Llena la información disponible. Si todavía no tienes todos los datos,
+                puedes enviarnos una solicitud inicial para orientación.
+              </p>
+
+              <form class="quote-form" id="besturQuoteForm" onsubmit="return false;">
+
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qName">Nombre completo *</label>
+                    <input id="qName" type="text" placeholder="Ej. Paula Hough" oninput="besturQuoteUpdate()">
+                  </div>
+
+                  <div class="quote-field">
+                    <label for="qPhone">Teléfono / WhatsApp *</label>
+                    <input id="qPhone" type="tel" placeholder="+52 415 000 0000" oninput="besturQuoteUpdate()">
+                  </div>
+                </div>
+
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qEmail">Email</label>
+                    <input id="qEmail" type="email" placeholder="cliente@email.com" oninput="besturQuoteUpdate()">
+                  </div>
+
+                  <div class="quote-field">
+                    <label for="qDate">Fecha del servicio *</label>
+                    <input id="qDate" type="date" onchange="besturQuoteUpdate()" oninput="besturQuoteUpdate()">
+                  </div>
+                </div>
+
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qService">Tipo de servicio *</label>
+                    <select id="qService" onchange="besturQuoteUpdate()" oninput="besturQuoteUpdate()">
+                      <option value="">Selecciona un servicio</option>
+                      <option value="Traslado a aeropuerto">Traslado a aeropuerto</option>
+                      <option value="Llegada desde aeropuerto">Llegada desde aeropuerto</option>
+                      <option value="Tour privado">Tour privado</option>
+                      <option value="Tour a viñedos">Tour a viñedos</option>
+                      <option value="Transporte para boda">Transporte para boda</option>
+                      <option value="Transporte para grupo">Transporte para grupo</option>
+                      <option value="Servicio especial">Servicio especial</option>
+                    </select>
+                  </div>
+
+                  <div class="quote-field">
+                    <label for="qPassengers">Número de personas *</label>
+                    <input id="qPassengers" type="number" min="1" placeholder="Ej. 6" oninput="besturQuoteUpdate()">
+                  </div>
+                </div>
+
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qOrigin">Dirección de recogida / origen</label>
+                    <input id="qOrigin" type="text" placeholder="Hotel, Airbnb, domicilio o aeropuerto" oninput="besturQuoteUpdate()">
+                  </div>
+
+                  <div class="quote-field">
+                    <label for="qDestination">Destino / ruta solicitada</label>
+                    <input id="qDestination" type="text" placeholder="Ej. BJX, QRO, viñedos, Guanajuato, venue de boda" oninput="besturQuoteUpdate()">
+                  </div>
+                </div>
+
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qTime">Hora aproximada</label>
+                    <input id="qTime" type="time" onchange="besturQuoteUpdate()" oninput="besturQuoteUpdate()">
+                  </div>
+
+                  <div class="quote-field">
+                    <label for="qLuggage">Equipaje</label>
+                    <select id="qLuggage" onchange="besturQuoteUpdate()" oninput="besturQuoteUpdate()">
+                      <option value="">Selecciona equipaje</option>
+                      <option value="Ligero">Ligero</option>
+                      <option value="Moderado">Moderado</option>
+                      <option value="Alto / voluminoso">Alto / voluminoso</option>
+                      <option value="No aplica">No aplica</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qFlight">Vuelo / referencia</label>
+                    <input id="qFlight" type="text" placeholder="Ej. UA 2068, Volaris 3352 o referencia del evento" oninput="besturQuoteUpdate()">
+                  </div>
+
+                  <div class="quote-field">
+                    <label for="qPayment">Forma de pago estimada</label>
+                    <select id="qPayment" onchange="besturQuoteUpdate()" oninput="besturQuoteUpdate()">
+                      <option value="">Por definir</option>
+                      <option value="Efectivo">Efectivo</option>
+                      <option value="Transferencia">Transferencia</option>
+                      <option value="Tarjeta">Tarjeta</option>
+                      <option value="Requiero factura">Requiero factura</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="quote-field">
+                  <label for="qNotes">Notas adicionales</label>
+                  <textarea id="qNotes" rows="5" placeholder="Ej. llevamos 4 maletas, necesitamos silla infantil, somos invitados de boda, queremos visitar 2 viñedos, etc." oninput="besturQuoteUpdate()"></textarea>
+                </div>
+
+                <div class="quote-field">
+                  <label>Vista previa de solicitud</label>
+                  <div class="quote-preview" id="qPreview">Completa el formulario para generar tu solicitud.</div>
+                </div>
+
+                <div class="quote-actions">
+                  <button type="button" class="btn-wa" onclick="besturQuoteWhatsApp()">
+                    Enviar por WhatsApp
+                  </button>
+
+                  <button type="button" class="btn" onclick="besturQuoteEmail()">
+                    Enviar por email
+                  </button>
+
+                  <button type="button" class="btn-outline" onclick="besturQuoteCopy()">
+                    Copiar solicitud
+                  </button>
+                </div>
+
+                <p class="quote-note">
+                  Esta solicitud no confirma automáticamente la reserva. BESTUR revisará disponibilidad,
+                  ruta, vehículo recomendado y condiciones del servicio antes de confirmar.
+                </p>
+
+              </form>
+            </div>
           </div>
         </div>
       </section>
@@ -1521,8 +1873,17 @@
                   <strong>Email</strong>
                   <p>
                     <a href="mailto:otbestur@gmail.com">otbestur@gmail.com</a><br>
-                    <a href="mailto:otbestur@yahoo.com">otbestur@yahoo.com</a>
+                    <a href="mailto:otbestur@yahoo.com">otbestur@yahoo.com</a><br>
+                    <a href="mailto:otbestur@hotmail.com">otbestur@hotmail.com</a>
                   </p>
+                </div>
+
+                <div class="contact-item">
+                  <strong>Síguenos</strong>
+                  <div class="footer-socials">
+                    <a class="btn-social" href="https://www.facebook.com/profile.php?id=100042187006901" target="_blank" rel="noopener">Facebook</a>
+                    <a class="btn-social" href="https://www.instagram.com/operadoraturisticabestur/" target="_blank" rel="noopener">Instagram</a>
+                  </div>
                 </div>
               </div>
 
@@ -1566,7 +1927,7 @@
           <div class="grid-3">
             <article class="faq-item">
               <h3>¿Cómo cotizo un servicio?</h3>
-              <p>Envía por WhatsApp fecha, ruta, número de personas, equipaje, horario y tipo de servicio.</p>
+              <p>Envía por WhatsApp o email fecha, ruta, número de personas, equipaje, horario y tipo de servicio.</p>
             </article>
 
             <article class="faq-item">
@@ -1593,6 +1954,11 @@
               For the pleasure of good travel. Traslados privados, airport transfers,
               tours culturales, bodas, viñedos y experiencias privadas desde San Miguel de Allende.
             </p>
+
+            <div class="footer-socials">
+              <a class="btn-social" href="https://www.facebook.com/profile.php?id=100042187006901" target="_blank" rel="noopener">Facebook</a>
+              <a class="btn-social" href="https://www.instagram.com/operadoraturisticabestur/" target="_blank" rel="noopener">Instagram</a>
+            </div>
           </div>
 
           <div>
@@ -1616,7 +1982,9 @@
             <p>
               <a href="tel:+524151035353">+52 415 103 5353</a><br>
               <a href="tel:+524151212540">+52 415 121 2540</a><br>
-              <a href="mailto:otbestur@gmail.com">otbestur@gmail.com</a>
+              <a href="mailto:otbestur@gmail.com">otbestur@gmail.com</a><br>
+              <a href="mailto:otbestur@yahoo.com">otbestur@yahoo.com</a><br>
+              <a href="mailto:otbestur@hotmail.com">otbestur@hotmail.com</a>
             </p>
           </div>
         </div>
@@ -1628,9 +1996,158 @@
       </div>
     </footer>
 
-    <a class="float-wa" href="https://wa.me/524151035353?text=Hola%20BESTUR,%20quiero%20cotizar%20un%20servicio.">
-      WhatsApp
+    <a class="float-wa" href="#reservar">
+      Reservar / Cotizar
     </a>
   </div>
+
+  <script>
+    function besturQuoteGet(id) {
+      const el = document.getElementById(id);
+      return el ? String(el.value || '').trim() : '';
+    }
+
+    function besturQuoteDate(dateValue) {
+      if (!dateValue) return '';
+      const parts = dateValue.split('-');
+      if (parts.length === 3) {
+        return parts[2] + '/' + parts[1] + '/' + parts[0];
+      }
+      return dateValue;
+    }
+
+    function besturQuoteTime(timeValue) {
+      if (!timeValue) return '';
+      const parts = timeValue.split(':');
+      let h = Number(parts[0]);
+      const m = parts[1] || '00';
+      if (Number.isNaN(h)) return timeValue;
+      const ampm = h >= 12 ? 'PM' : 'AM';
+      h = h % 12;
+      if (h === 0) h = 12;
+      return String(h).padStart(2, '0') + ':' + m + ' ' + ampm;
+    }
+
+    function besturQuoteMessage() {
+      const name = besturQuoteGet('qName');
+      const phone = besturQuoteGet('qPhone');
+      const email = besturQuoteGet('qEmail');
+      const date = besturQuoteGet('qDate');
+      const service = besturQuoteGet('qService');
+      const passengers = besturQuoteGet('qPassengers');
+      const origin = besturQuoteGet('qOrigin');
+      const destination = besturQuoteGet('qDestination');
+      const time = besturQuoteGet('qTime');
+      const luggage = besturQuoteGet('qLuggage');
+      const flight = besturQuoteGet('qFlight');
+      const payment = besturQuoteGet('qPayment');
+      const notes = besturQuoteGet('qNotes');
+
+      let message = '';
+
+      message += '🚘 BESTUR · Solicitud de servicio\\n\\n';
+      message += '👤 Nombre: ' + (name || '') + '\\n';
+      message += '📱 Teléfono / WhatsApp: ' + (phone || '') + '\\n';
+      message += '📧 Email: ' + (email || '') + '\\n';
+      message += '📅 Fecha: ' + (besturQuoteDate(date) || '') + '\\n';
+      message += '🕒 Hora aproximada: ' + (besturQuoteTime(time) || '') + '\\n\\n';
+
+      message += '🧭 Servicio solicitado: ' + (service || '') + '\\n';
+      message += '👥 Personas: ' + (passengers || '') + '\\n';
+      message += '🧳 Equipaje: ' + (luggage || '') + '\\n\\n';
+
+      message += '📍 Origen / recogida: ' + (origin || '') + '\\n';
+      message += '🏁 Destino / ruta: ' + (destination || '') + '\\n';
+      message += '✈️ Vuelo / referencia: ' + (flight || '') + '\\n\\n';
+
+      message += '🧾 Forma de pago estimada: ' + (payment || 'Por definir') + '\\n';
+      message += '📝 Notas: ' + (notes || '') + '\\n\\n';
+
+      message += 'Quedo atento(a) a disponibilidad, vehículo recomendado y cotización final.';
+
+      return message;
+    }
+
+    function besturQuoteUpdate() {
+      const preview = document.getElementById('qPreview');
+      if (preview) {
+        preview.textContent = besturQuoteMessage();
+      }
+    }
+
+    function besturQuoteValidate() {
+      const required = [
+        ['qName', 'nombre completo'],
+        ['qPhone', 'teléfono / WhatsApp'],
+        ['qDate', 'fecha del servicio'],
+        ['qService', 'tipo de servicio'],
+        ['qPassengers', 'número de personas']
+      ];
+
+      for (let i = 0; i < required.length; i++) {
+        const id = required[i][0];
+        const label = required[i][1];
+
+        if (!besturQuoteGet(id)) {
+          alert('Falta completar: ' + label);
+          const field = document.getElementById(id);
+          if (field) field.focus();
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    function besturQuoteWhatsApp() {
+      besturQuoteUpdate();
+
+      if (!besturQuoteValidate()) {
+        return;
+      }
+
+      const message = besturQuoteMessage();
+      const url = 'https://wa.me/524151035353?text=' + encodeURIComponent(message);
+      window.open(url, '_blank');
+    }
+
+    function besturQuoteEmail() {
+      besturQuoteUpdate();
+
+      if (!besturQuoteValidate()) {
+        return;
+      }
+
+      const name = besturQuoteGet('qName') || 'Cliente';
+      const subject = 'Solicitud de servicio BESTUR - ' + name;
+      const body = besturQuoteMessage();
+
+      window.location.href =
+        'mailto:otbestur@gmail.com' +
+        '?cc=' + encodeURIComponent('otbestur@yahoo.com,otbestur@hotmail.com') +
+        '&subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+    }
+
+    function besturQuoteCopy() {
+      besturQuoteUpdate();
+
+      const message = besturQuoteMessage();
+
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(message).then(function() {
+          alert('Solicitud copiada.');
+        }).catch(function() {
+          alert(message);
+        });
+      } else {
+        alert(message);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      besturQuoteUpdate();
+    });
+  </script>
 </body>
 </html>
