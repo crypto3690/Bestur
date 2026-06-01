@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>BESTUR | Traslados privados, tours y transporte premium en San Miguel de Allende</title>
-  <meta name="description" content="BESTUR ofrece traslados privados, airport transfers, tours culturales, bodas, viñedos y servicios especiales desde San Miguel de Allende, Guanajuato. For the pleasure of good travel." />
-  <meta name="keywords" content="BESTUR, San Miguel de Allende, traslados privados, airport transfers, tours privados, bodas, viñedos, Guanajuato, Querétaro, BJX, CDMX, transporte turístico" />
-  <meta name="robots" content="index,follow" />
+  <title>BESTUR | Traslados privados, airport transfers y tours en San Miguel de Allende</title>
+  <meta name="description" content="Operadora Turística BESTUR coordina traslados privados, airport transfers, tours privados, viñedos, bodas y transporte para grupos desde San Miguel de Allende, Guanajuato y el Bajío mexicano." />
+  <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#061321" />
+  <meta name="author" content="Operadora Turística BESTUR" />
+  <link rel="canonical" href="https://bestur.mx/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="BESTUR | Private Tours & Transfers in San Miguel de Allende" />
-  <meta property="og:description" content="Traslados privados, airport transfers, tours culturales, bodas y viñedos desde San Miguel de Allende." />
-  <meta property="og:image" content="https://bestur.mx/wp-content/uploads/2026/05/Fotos-Bestur-5-scaled.jpg" />
+  <meta property="og:site_name" content="BESTUR" />
+  <meta property="og:title" content="BESTUR | Traslados privados, airport transfers y tours en San Miguel de Allende" />
+  <meta property="og:description" content="Traslados privados, airport transfers, tours culturales, viñedos, bodas y servicios especiales desde San Miguel de Allende." />
+  <meta property="og:url" content="https://bestur.mx/" />
   <meta property="og:locale" content="es_MX" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1200&q=80" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="BESTUR | Traslados privados, airport transfers y tours en San Miguel de Allende" />
+  <meta name="twitter:description" content="Operadora turística premium en San Miguel de Allende para traslados privados, tours, bodas y grupos." />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1200&q=80" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,129 +30,96 @@
   <style>
     :root{
       --navy:#061321;
-      --navy2:#0B2238;
-      --navy3:#102E4A;
+      --navy-2:#0B2238;
       --blue:#00599C;
-      --blue2:#004D89;
-      --blue3:#0070BA;
       --cyan:#5FB8DC;
-      --cyan2:#D7F6FF;
+      --cyan-soft:#D7F6FF;
       --white:#FFFFFF;
-      --muted:rgba(235,245,255,.76);
-      --muted2:rgba(235,245,255,.62);
-      --line:rgba(95,184,220,.20);
-      --shadow:0 28px 90px rgba(0,0,0,.38);
-      --radius:30px;
-      --container:1180px;
+      --text-soft:rgba(235,245,255,.78);
+      --text-muted:rgba(235,245,255,.62);
+      --line:rgba(95,184,220,.18);
+      --line-strong:rgba(95,184,220,.28);
+      --glass:linear-gradient(180deg,rgba(0,89,156,.18),rgba(255,255,255,.04));
+      --shadow:0 30px 80px rgba(0,0,0,.35);
+      --shadow-soft:0 18px 50px rgba(0,0,0,.24);
+      --radius-xl:32px;
+      --radius-lg:26px;
+      --radius-md:20px;
       --header-h:96px;
       --wa:#25D366;
-      --wa2:#1DA851;
+      --wa-dark:#1DA851;
+      --max:1200px;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
     body{
       font-family:'Inter',sans-serif;
       color:var(--white);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(0,89,156,.26), transparent 28%),
+        radial-gradient(circle at 88% 14%, rgba(95,184,220,.14), transparent 24%),
+        linear-gradient(180deg,var(--navy) 0%,var(--navy-2) 45%,var(--navy) 100%);
       overflow-x:hidden;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+    button{border:none}
+    .container{width:min(calc(100% - 32px),var(--max));margin-inline:auto}
+    .section{padding:104px 0;position:relative}
+    .section.alt{
       background:
-        radial-gradient(circle at 12% 8%, rgba(0,89,156,.28), transparent 30%),
-        radial-gradient(circle at 88% 12%, rgba(95,184,220,.12), transparent 28%),
-        linear-gradient(180deg,#061321 0%,#0B2238 46%,#061321 100%);
+        radial-gradient(circle at 85% 10%, rgba(0,89,156,.22), transparent 28%),
+        radial-gradient(circle at 15% 80%, rgba(95,184,220,.10), transparent 22%),
+        linear-gradient(180deg,var(--navy-2) 0%,var(--navy) 100%);
     }
-
-    a{
-      color:inherit;
-      text-decoration:none;
+    .glass{
+      background:var(--glass);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(20px) saturate(150%);
+      border-radius:var(--radius-xl);
     }
-
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    button,
-    input,
-    select,
-    textarea{
-      font:inherit;
-    }
-
-    .container{
-      width:min(calc(100% - 32px),var(--container));
-      margin-inline:auto;
-    }
-
-    .section{
-      position:relative;
-      padding:100px 0;
-    }
-
-    .section-tight{
-      padding:72px 0;
-    }
-
-    .section-alt{
-      background:
-        radial-gradient(circle at 85% 10%, rgba(0,89,156,.22), transparent 30%),
-        radial-gradient(circle at 15% 80%, rgba(95,184,220,.12), transparent 28%),
-        linear-gradient(180deg,#0B2238 0%,#061321 100%);
-    }
-
     .kicker{
       display:inline-flex;
       align-items:center;
       gap:10px;
-      margin-bottom:18px;
       padding:10px 16px;
       border-radius:999px;
-      border:1px solid rgba(95,184,220,.24);
-      background:rgba(0,89,156,.16);
-      color:var(--cyan2);
+      border:1px solid var(--line);
+      background:rgba(0,89,156,.14);
+      color:var(--cyan-soft);
       font-size:12px;
       font-weight:900;
-      letter-spacing:.18em;
+      letter-spacing:.16em;
       text-transform:uppercase;
+      margin-bottom:18px;
     }
-
-    .title{
-      margin:0 0 18px;
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2.65rem,5vw,5rem);
-      line-height:.94;
-      color:#fff;
-    }
-
-    .title em{
-      color:var(--cyan2);
-      font-style:normal;
-    }
-
-    .copy{
-      margin:0;
-      color:var(--muted);
-      font-size:17px;
-      line-height:1.84;
-    }
-
     .section-head{
-      max-width:900px;
-      margin:0 auto 46px;
+      max-width:860px;
+      margin:0 auto 44px;
       text-align:center;
+    }
+    .title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.7rem,5vw,5.2rem);
+      line-height:.92;
+      margin-bottom:18px;
+      color:#fff;
+      letter-spacing:-.025em;
+    }
+    .title em{font-style:normal;color:var(--cyan-soft)}
+    .copy{
+      color:var(--text-soft);
+      font-size:17px;
+      line-height:1.8;
     }
 
     .btn,
     .btn-outline,
     .btn-wa,
-    .btn-social{
+    .btn-soft{
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -154,253 +128,117 @@
       padding:15px 24px;
       border-radius:999px;
       font-weight:900;
-      transition:.25s ease;
-      border:1px solid transparent;
       cursor:pointer;
+      transition:transform .22s ease, box-shadow .22s ease, background .22s ease;
       white-space:nowrap;
     }
-
     .btn{
       background:linear-gradient(135deg,#FFFFFF 0%,#D7F6FF 100%);
-      color:#061321;
+      color:var(--navy);
       box-shadow:0 18px 48px rgba(0,89,156,.28);
     }
-
     .btn-outline{
-      background:rgba(0,89,156,.12);
-      border-color:rgba(95,184,220,.22);
-      color:#FFFFFF;
+      background:rgba(0,89,156,.14);
+      color:#fff;
+      border:1px solid var(--line-strong);
       backdrop-filter:blur(14px);
     }
-
     .btn-wa{
-      background:linear-gradient(135deg,var(--wa) 0%,var(--wa2) 100%);
-      color:#FFFFFF;
-      box-shadow:0 18px 48px rgba(37,211,102,.32);
-    }
-
-    .btn-social{
-      background:rgba(0,89,156,.14);
-      border-color:rgba(95,184,220,.24);
+      background:linear-gradient(135deg,var(--wa) 0%,var(--wa-dark) 100%);
       color:#fff;
-      min-height:48px;
-      padding:12px 16px;
-      font-size:13px;
+      box-shadow:0 18px 50px rgba(37,211,102,.34);
     }
-
-    .btn:hover,
-    .btn-outline:hover,
-    .btn-wa:hover,
-    .btn-social:hover{
+    .btn-soft{
+      background:rgba(255,255,255,.07);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .btn:hover,.btn-outline:hover,.btn-wa:hover,.btn-soft:hover{
       transform:translateY(-3px);
     }
 
-    .pulse{
-      animation:pulseWa 2.2s infinite;
-    }
-
-    @keyframes pulseWa{
-      0%{box-shadow:0 0 0 0 rgba(37,211,102,.45);}
-      70%{box-shadow:0 0 0 16px rgba(37,211,102,0);}
-      100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
-    }
-
-    .glass{
-      border:1px solid rgba(95,184,220,.18);
-      background:
-        linear-gradient(180deg,rgba(0,89,156,.18),rgba(255,255,255,.035));
-      box-shadow:var(--shadow);
-      backdrop-filter:blur(24px) saturate(140%);
-      border-radius:var(--radius);
-    }
-
-    /* HEADER */
-
+    /* Header */
     .header{
-      position:fixed;
-      top:0;
-      left:0;
-      right:0;
-      z-index:9999;
-      height:var(--header-h);
-      background:rgba(6,19,33,.90);
-      backdrop-filter:blur(24px) saturate(160%);
-      border-bottom:1px solid rgba(255,255,255,.10);
-      box-shadow:0 18px 60px rgba(0,0,0,.22);
+      position:fixed;inset:0 0 auto 0;z-index:9999;height:var(--header-h);
+      background:rgba(6,19,33,.84);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(22px) saturate(160%);
+      transition:background .25s ease, box-shadow .25s ease, height .25s ease;
     }
-
+    .header.scrolled{
+      background:rgba(6,19,33,.95);
+      box-shadow:0 16px 40px rgba(0,0,0,.22);
+    }
     .header-inner{
       height:100%;
       display:grid;
-      grid-template-columns:280px minmax(0,1fr) auto;
+      grid-template-columns:290px minmax(0,1fr) auto;
       align-items:center;
       gap:18px;
     }
-
     .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-      max-width:280px;
-      overflow:hidden;
+      display:flex;align-items:center;gap:12px;min-width:0;
     }
-
     .logo img{
-      width:58px;
-      height:auto;
-      object-fit:contain;
-      flex-shrink:0;
-      display:block;
-      filter:drop-shadow(0 12px 22px rgba(0,0,0,.34));
+      width:60px;height:auto;object-fit:contain;flex-shrink:0;
+      filter:drop-shadow(0 12px 24px rgba(0,0,0,.35));
     }
-
-    .logo-text{
-      display:flex;
-      flex-direction:column;
-      line-height:1;
-      min-width:0;
-    }
-
+    .logo-copy{display:flex;flex-direction:column;line-height:1;min-width:0}
     .logo-title{
-      display:block;
       font-family:'Cormorant Garamond',serif;
-      font-size:25px;
-      line-height:.9;
-      font-weight:700;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:#FFFFFF;
-      white-space:nowrap;
+      font-size:26px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      color:#fff;white-space:nowrap;
     }
-
     .logo-sub{
-      display:block;
       margin-top:7px;
-      color:#7EC8E6;
-      font-size:10px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      font-weight:800;
-      line-height:1.1;
+      color:var(--cyan);
+      font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;
       white-space:nowrap;
     }
-
     .logo-slogan{
-      display:block;
       margin-top:8px;
       color:rgba(255,255,255,.76);
-      font-size:12px;
-      font-style:italic;
-      line-height:1.15;
-      max-width:190px;
+      font-size:12px;font-style:italic;line-height:1.15;
+      max-width:200px;
     }
-
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-width:0;
-      overflow:hidden;
-    }
-
+    .nav{display:flex;justify-content:center;min-width:0}
     .nav-links{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:4px;
-      padding:8px;
-      border-radius:999px;
-      border:1px solid rgba(95,184,220,.18);
+      display:flex;align-items:center;gap:4px;
+      padding:8px;border-radius:999px;
       background:rgba(0,89,156,.13);
+      border:1px solid var(--line);
       max-width:100%;
       overflow:hidden;
     }
-
     .nav-links a{
-      padding:11px 11px;
-      border-radius:999px;
-      color:rgba(255,255,255,.86);
-      font-size:13px;
-      font-weight:900;
-      white-space:nowrap;
+      padding:11px 12px;border-radius:999px;
+      font-size:13px;font-weight:900;color:rgba(255,255,255,.86);white-space:nowrap;
     }
-
-    .nav-links a:hover{
-      background:rgba(0,89,156,.30);
-      color:#fff;
-    }
-
+    .nav-links a:hover{background:rgba(0,89,156,.28);color:#fff}
     .header-actions{
-      display:flex;
-      align-items:center;
-      justify-content:flex-end;
-      gap:8px;
-      flex-shrink:0;
+      display:flex;align-items:center;gap:8px;justify-content:flex-end;
     }
-
     .lang{
-      display:flex;
-      align-items:center;
-      overflow:hidden;
-      border-radius:999px;
-      border:1px solid rgba(95,184,220,.18);
-      background:rgba(0,89,156,.13);
+      display:flex;overflow:hidden;border-radius:999px;
+      background:rgba(0,89,156,.13);border:1px solid var(--line);
     }
-
-    .lang a{
-      padding:11px 13px;
-      font-size:13px;
-      font-weight:900;
-    }
-
-    .lang a.active{
-      background:rgba(0,89,156,.38);
-      color:#fff;
-    }
-
-    .header-actions .btn-wa{
-      min-height:52px;
-      padding:13px 22px;
-      font-size:15px;
-    }
-
+    .lang a{padding:11px 13px;font-size:13px;font-weight:900}
+    .lang a.active{background:rgba(0,89,156,.36);color:#fff}
     .burger{
-      display:none;
-      width:50px;
-      height:50px;
-      border:none;
-      border-radius:16px;
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      font-size:22px;
-      cursor:pointer;
+      display:none;width:50px;height:50px;border-radius:16px;
+      background:rgba(255,255,255,.08);color:#fff;font-size:22px;cursor:pointer;
     }
 
     .mobile-panel{
-      position:fixed;
-      inset:0;
-      z-index:9998;
+      position:fixed;inset:0;z-index:9998;
       background:rgba(6,19,33,.98);
-      backdrop-filter:blur(12px);
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-      transition:.28s ease;
-      padding:calc(var(--header-h) + 26px) 24px 32px;
+      backdrop-filter:blur(14px);
+      opacity:0;visibility:hidden;pointer-events:none;
+      transition:.25s ease;
+      padding:calc(var(--header-h) + 24px) 24px 32px;
     }
-
-    .mobile-panel.open{
-      opacity:1;
-      visibility:visible;
-      pointer-events:auto;
-    }
-
-    .mobile-nav{
-      display:grid;
-      gap:12px;
-    }
-
+    .mobile-panel.open{opacity:1;visibility:visible;pointer-events:auto}
+    .mobile-nav{display:grid;gap:12px}
     .mobile-nav a{
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.08);
@@ -409,877 +247,391 @@
       font-size:20px;
       font-weight:800;
     }
-
-    .mobile-actions{
-      display:grid;
-      gap:12px;
-      margin-top:18px;
-    }
-
-    /* HERO */
+    .mobile-actions{display:grid;gap:12px;margin-top:18px}
 
     .hero{
       position:relative;
-      min-height:88svh;
-      display:flex;
-      align-items:center;
-      padding:calc(var(--header-h) + 70px) 0 78px;
-      overflow:hidden;
+      min-height:100svh;
+      padding:calc(var(--header-h) + 64px) 0 84px;
+      display:flex;align-items:center;overflow:hidden;
       background:
-        linear-gradient(90deg,rgba(6,19,33,.96) 0%,rgba(0,89,156,.62) 48%,rgba(6,19,33,.92) 100%),
-        radial-gradient(circle at 72% 26%, rgba(95,184,220,.20), transparent 30%),
-        url('https://bestur.mx/wp-content/uploads/2026/05/Fotos-Bestur-5-scaled.jpg') center/cover no-repeat;
+        linear-gradient(90deg,rgba(6,19,33,.96) 0%,rgba(0,89,156,.56) 46%,rgba(6,19,33,.92) 100%),
+        radial-gradient(circle at 72% 28%, rgba(95,184,220,.24), transparent 30%),
+        url('https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
     }
-
     .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg,transparent 0%,rgba(6,19,33,.15) 55%,rgba(6,19,33,.86) 100%);
-      pointer-events:none;
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,transparent 0%,rgba(6,19,33,.12) 58%,rgba(6,19,33,.82) 100%);
     }
-
     .hero-grid{
-      position:relative;
-      z-index:2;
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:34px;
-      align-items:center;
+      position:relative;z-index:2;
+      display:grid;grid-template-columns:1.08fr .92fr;gap:32px;align-items:center;
     }
-
-    .slogan-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:18px;
-      padding:12px 18px;
-      border-radius:999px;
-      border:1px solid rgba(215,246,255,.22);
-      background:rgba(255,255,255,.07);
-      color:#fff;
-      font-size:14px;
-      font-weight:800;
-      letter-spacing:.04em;
-      font-style:italic;
-    }
-
     .hero h1{
-      margin:0 0 18px;
       font-family:'Cormorant Garamond',serif;
-      font-size:clamp(4rem,8vw,8.2rem);
+      font-size:clamp(3.7rem,8vw,8rem);
       line-height:.84;
-      letter-spacing:-.025em;
-      color:#fff;
-      text-shadow:0 34px 80px rgba(0,0,0,.36);
+      letter-spacing:-.03em;
+      text-shadow:0 30px 80px rgba(0,0,0,.38);
+      margin-bottom:18px;
     }
-
-    .hero h1 span{
-      display:block;
-    }
-
-    .hero h1 em{
-      color:var(--cyan2);
-      font-style:normal;
-    }
-
+    .hero h1 em{color:var(--cyan-soft);font-style:normal}
     .hero-text{
       max-width:760px;
       color:rgba(255,255,255,.86);
-      font-size:18px;
-      line-height:1.78;
-      margin:0 0 28px;
-    }
-
-    .hero-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:13px;
+      font-size:18px;line-height:1.8;
       margin-bottom:28px;
     }
-
-    .hero-chips{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:9px;
-      padding:10px 14px;
+    .slogan-pill{
+      display:inline-block;
+      margin-bottom:18px;
+      padding:12px 18px;
       border-radius:999px;
-      background:rgba(0,89,156,.16);
-      border:1px solid rgba(95,184,220,.22);
-      color:rgba(255,255,255,.86);
-      font-size:13px;
-      font-weight:800;
-    }
-
-    .hero-card{
-      padding:34px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .hero-card::before{
-      content:"";
-      position:absolute;
-      top:-80px;
-      right:-80px;
-      width:220px;
-      height:220px;
-      border-radius:50%;
-      background:radial-gradient(circle,rgba(95,184,220,.22),transparent 68%);
-    }
-
-    .hero-card h2{
-      position:relative;
-      margin:0 0 14px;
-      font-family:'Cormorant Garamond',serif;
-      font-size:52px;
-      line-height:1;
-    }
-
-    .hero-card p{
-      position:relative;
-      margin:0 0 22px;
-      color:rgba(255,255,255,.80);
-      line-height:1.78;
-      font-size:16px;
-    }
-
-    .card-list{
-      position:relative;
-      list-style:none;
-      display:grid;
-      gap:14px;
-      margin-bottom:22px;
-    }
-
-    .card-list li{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      color:rgba(255,255,255,.86);
-      line-height:1.55;
-    }
-
-    .card-list li::before{
-      content:"";
-      width:9px;
-      height:9px;
-      margin-top:8px;
-      border-radius:50%;
-      background:var(--cyan2);
-      box-shadow:0 0 20px rgba(95,184,220,.6);
-      flex-shrink:0;
-    }
-
-    /* FAST RESERVE */
-
-    .fast-reserve{
-      margin-top:-40px;
-      position:relative;
-      z-index:4;
-    }
-
-    .fast-card{
-      padding:26px;
-      display:grid;
-      grid-template-columns:.8fr 1.2fr;
-      gap:22px;
-      align-items:center;
-    }
-
-    .fast-card h2{
-      font-family:'Cormorant Garamond',serif;
-      font-size:42px;
-      line-height:1;
-      margin-bottom:10px;
-    }
-
-    .fast-card p{
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    .fast-actions{
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:12px;
-    }
-
-    .fast-action{
-      padding:18px;
-      border-radius:22px;
-      background:rgba(6,19,33,.58);
-      border:1px solid rgba(95,184,220,.18);
-    }
-
-    .fast-action strong{
-      display:block;
-      color:#fff;
-      margin-bottom:6px;
-    }
-
-    .fast-action span{
-      display:block;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.5;
-    }
-
-    /* QUOTE FORM */
-
-    .quote-section{
-      background:
-        radial-gradient(circle at 10% 10%, rgba(95,184,220,.12), transparent 30%),
-        radial-gradient(circle at 90% 80%, rgba(0,89,156,.22), transparent 32%),
-        linear-gradient(180deg,#061321 0%,#0B2238 100%);
-    }
-
-    .quote-grid{
-      display:grid;
-      grid-template-columns:.82fr 1.18fr;
-      gap:24px;
-      align-items:start;
-    }
-
-    .quote-intro{
-      padding:34px;
-      position:sticky;
-      top:120px;
-    }
-
-    .quote-intro h2{
-      margin:0 0 16px;
-      font-family:'Cormorant Garamond',serif;
-      font-size:50px;
-      line-height:.95;
-    }
-
-    .quote-intro p{
-      color:rgba(255,255,255,.78);
-      line-height:1.78;
-      margin-bottom:22px;
-    }
-
-    .quote-list{
-      display:grid;
-      gap:14px;
-      list-style:none;
-    }
-
-    .quote-list li{
-      padding:16px 17px;
-      border-radius:22px;
-      background:rgba(0,89,156,.16);
-      border:1px solid rgba(95,184,220,.18);
-      color:rgba(255,255,255,.78);
-      line-height:1.6;
-    }
-
-    .quote-list strong{
-      display:block;
-      color:#fff;
-      margin-bottom:4px;
-    }
-
-    .quote-panel{
-      padding:34px;
-    }
-
-    .quote-panel h3{
-      margin:0 0 10px;
-      font-family:'Cormorant Garamond',serif;
-      font-size:42px;
-      line-height:1;
-    }
-
-    .quote-panel > p{
-      color:rgba(255,255,255,.72);
-      line-height:1.7;
-      margin-bottom:24px;
-    }
-
-    .quote-form{
-      display:grid;
-      gap:18px;
-    }
-
-    .quote-row{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .quote-field{
-      display:grid;
-      gap:8px;
-    }
-
-    .quote-field label{
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.08);
       color:#fff;
       font-size:14px;
-      font-weight:900;
+      font-weight:800;
+      font-style:italic;
+    }
+    .hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:28px}
+    .hero-chips{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{
+      display:inline-flex;align-items:center;
+      padding:10px 14px;border-radius:999px;
+      background:rgba(0,89,156,.16);
+      border:1px solid var(--line);
+      color:rgba(255,255,255,.86);
+      font-size:13px;font-weight:800;
+    }
+    .hero-card{padding:34px;position:relative;overflow:hidden}
+    .hero-card::before{
+      content:"";position:absolute;top:-70px;right:-70px;width:200px;height:200px;border-radius:50%;
+      background:radial-gradient(circle,rgba(95,184,220,.18),transparent 68%);
+    }
+    .hero-card h2{
+      position:relative;
+      font-family:'Cormorant Garamond',serif;
+      font-size:46px;line-height:.96;margin-bottom:14px;
+    }
+    .hero-card p{
+      position:relative;
+      color:rgba(255,255,255,.80);
+      font-size:16px;line-height:1.78;margin-bottom:22px;
+    }
+    .card-list{list-style:none;display:grid;gap:14px;margin-bottom:22px}
+    .card-list li{
+      display:flex;gap:12px;align-items:flex-start;
+      color:rgba(255,255,255,.86);line-height:1.58;
+    }
+    .card-list li::before{
+      content:"";width:9px;height:9px;margin-top:8px;border-radius:50%;
+      background:var(--cyan-soft);box-shadow:0 0 20px rgba(95,184,220,.55);flex-shrink:0;
     }
 
+    .fast-reserve{margin-top:-38px;position:relative;z-index:3}
+    .fast-card{
+      display:grid;grid-template-columns:.85fr 1.15fr;gap:22px;align-items:center;
+      padding:28px;
+    }
+    .fast-card h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:42px;line-height:.96;margin-bottom:10px;
+    }
+    .fast-card p{color:var(--text-soft);line-height:1.72}
+    .fast-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .fast-action{
+      padding:18px;border-radius:22px;
+      background:rgba(6,19,33,.64);
+      border:1px solid var(--line);
+      text-align:center;
+    }
+    .fast-action strong{display:block;color:#fff;margin-bottom:6px}
+    .fast-action span{display:block;color:var(--text-soft);font-size:13px;line-height:1.55}
+
+    .quote-grid{display:grid;grid-template-columns:.84fr 1.16fr;gap:24px;align-items:start}
+    .quote-intro{padding:34px;position:sticky;top:118px}
+    .quote-intro h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:48px;line-height:.95;margin-bottom:16px;
+    }
+    .quote-intro p{color:var(--text-soft);line-height:1.78;margin-bottom:22px}
+    .quote-list{list-style:none;display:grid;gap:14px}
+    .quote-list li{
+      padding:16px 17px;border-radius:22px;
+      background:rgba(0,89,156,.16);
+      border:1px solid var(--line);
+      color:var(--text-soft);line-height:1.6;
+    }
+    .quote-list strong{display:block;color:#fff;margin-bottom:4px}
+    .quote-panel{padding:34px}
+    .quote-panel h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:42px;line-height:1;margin-bottom:10px;
+    }
+    .quote-panel > p{color:var(--text-soft);line-height:1.72;margin-bottom:24px}
+    .quote-form{display:grid;gap:18px}
+    .quote-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .quote-field{display:grid;gap:8px}
+    .quote-field label{color:#fff;font-size:14px;font-weight:900}
     .quote-field input,
     .quote-field select,
     .quote-field textarea{
-      width:100%;
-      min-width:0;
-      padding:15px 16px;
-      border-radius:18px;
-      border:1px solid rgba(95,184,220,.20);
+      width:100%;min-width:0;
+      padding:15px 16px;border-radius:18px;
+      border:1px solid var(--line);
       background:rgba(6,19,33,.72);
-      color:#fff;
-      outline:none;
-      font-size:15px;
+      color:#fff;font-size:15px;outline:none;
     }
-
     .quote-field input::placeholder,
-    .quote-field textarea::placeholder{
-      color:rgba(255,255,255,.42);
-    }
-
+    .quote-field textarea::placeholder{color:rgba(255,255,255,.42)}
     .quote-field input:focus,
     .quote-field select:focus,
     .quote-field textarea:focus{
       border-color:rgba(215,246,255,.45);
       box-shadow:0 0 0 4px rgba(95,184,220,.12);
     }
-
-    .quote-field select option{
-      color:#061321;
-      background:#fff;
+    .quote-field select option{color:var(--navy);background:#fff}
+    .dynamic-block{
+      padding:22px;border-radius:24px;
+      background:rgba(0,89,156,.12);
+      border:1px solid var(--line);
+      display:none;
     }
-
-    .quote-summary{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
+    .dynamic-block.active{display:block}
+    .dynamic-block h4{
+      font-family:'Cormorant Garamond',serif;
+      font-size:28px;line-height:1;margin-bottom:14px;
     }
-
-    .quote-box{
-      padding:18px;
-      border-radius:22px;
-      background:rgba(6,19,33,.74);
-      border:1px solid rgba(95,184,220,.18);
-    }
-
-    .quote-box small{
-      display:block;
-      color:var(--cyan2);
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      margin-bottom:8px;
-    }
-
-    .quote-box strong{
-      display:block;
-      font-size:20px;
-      line-height:1.3;
-    }
-
-    .quote-preview{
-      white-space:pre-wrap;
-      min-height:240px;
-      padding:18px;
-      border-radius:22px;
-      background:rgba(6,19,33,.74);
-      border:1px solid rgba(95,184,220,.18);
-      color:rgba(255,255,255,.82);
+    .tip{
+      padding:14px 16px;
+      border-radius:18px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--text-soft);
       line-height:1.6;
       font-size:14px;
     }
-
-    .quote-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
+    .summary-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+    .summary-box{
+      padding:18px;border-radius:22px;
+      background:rgba(6,19,33,.74);
+      border:1px solid var(--line);
     }
-
-    .quote-note{
-      color:rgba(255,255,255,.58);
-      line-height:1.65;
-      font-size:13px;
+    .summary-box small{
+      display:block;margin-bottom:8px;
+      color:var(--cyan-soft);
+      font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;
     }
-
-    /* CARDS */
-
-    .grid-4{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:18px;
+    .summary-box strong{
+      display:block;font-size:18px;line-height:1.35;word-break:break-word;
     }
-
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:18px;
+    .quote-preview{
+      white-space:pre-wrap;
+      min-height:280px;
+      padding:18px;border-radius:22px;
+      background:rgba(6,19,33,.74);
+      border:1px solid var(--line);
+      color:rgba(255,255,255,.84);
+      line-height:1.6;font-size:14px;
     }
+    .quote-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .quote-note{color:rgba(255,255,255,.58);line-height:1.65;font-size:13px}
 
+    .grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
     .service-card{
-      position:relative;
-      overflow:hidden;
-      min-height:420px;
-      display:flex;
-      align-items:flex-end;
-      border-radius:var(--radius);
-      border:1px solid rgba(95,184,220,.18);
-      box-shadow:var(--shadow);
-      background:#0B2238;
+      position:relative;min-height:420px;overflow:hidden;
+      display:flex;align-items:flex-end;border-radius:var(--radius-xl);
+      border:1px solid var(--line);box-shadow:var(--shadow);background:var(--navy-2);
     }
-
     .service-card img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition:.8s ease;
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.8s ease;
     }
-
     .service-card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg,rgba(6,19,33,.10) 0%,rgba(0,89,156,.32) 42%,rgba(6,19,33,.96) 100%);
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(6,19,33,.08) 0%,rgba(0,89,156,.28) 42%,rgba(6,19,33,.96) 100%);
     }
-
-    .service-card:hover img{
-      transform:scale(1.08);
-    }
-
-    .service-content{
-      position:relative;
-      z-index:2;
-      padding:26px;
-    }
-
+    .service-card:hover img{transform:scale(1.08)}
+    .service-content{position:relative;z-index:2;padding:26px}
     .service-tag{
-      display:inline-flex;
-      margin-bottom:14px;
-      padding:8px 12px;
-      border-radius:999px;
+      display:inline-flex;padding:8px 12px;border-radius:999px;
       background:rgba(0,89,156,.36);
       border:1px solid rgba(215,246,255,.20);
-      color:#FFFFFF;
-      font-size:11px;
-      font-weight:900;
-      letter-spacing:.12em;
-      text-transform:uppercase;
+      color:#fff;font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;
     }
-
     .service-content h3{
-      margin:0 0 10px;
       font-family:'Cormorant Garamond',serif;
-      font-size:32px;
-      line-height:1;
+      font-size:32px;line-height:1;margin-bottom:10px;
     }
-
-    .service-content p{
-      margin:0 0 18px;
-      color:rgba(255,255,255,.78);
-      line-height:1.68;
-      font-size:14px;
-    }
-
-    .card-link{
-      display:inline-flex;
-      color:#fff;
-      font-weight:900;
-      font-size:14px;
-    }
+    .service-content p{color:rgba(255,255,255,.78);line-height:1.68;font-size:14px;margin-bottom:18px}
+    .card-link{font-weight:900;font-size:14px}
 
     .premium-card,
     .fleet-card,
-    .faq-item{
-      padding:28px;
-      border-radius:var(--radius);
-      background:linear-gradient(180deg,rgba(0,89,156,.18),rgba(255,255,255,.035));
-      border:1px solid rgba(95,184,220,.18);
-      box-shadow:0 24px 70px rgba(0,0,0,.24);
+    .info-card{
+      padding:28px;border-radius:var(--radius-xl);
+      background:var(--glass);
+      border:1px solid var(--line);box-shadow:var(--shadow-soft);
     }
-
     .premium-card small,
     .fleet-card small{
-      display:block;
-      margin-bottom:12px;
-      color:var(--cyan2);
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.14em;
-      text-transform:uppercase;
+      display:block;margin-bottom:12px;
+      color:var(--cyan-soft);
+      font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;
     }
-
     .premium-card h3,
     .fleet-card h3,
-    .faq-item h3{
-      margin:0 0 12px;
+    .info-card h3{
       font-family:'Cormorant Garamond',serif;
-      font-size:32px;
-      line-height:1;
+      font-size:32px;line-height:1;margin-bottom:12px;
     }
-
     .premium-card p,
     .fleet-card p,
-    .faq-item p{
-      margin:0 0 20px;
-      color:rgba(255,255,255,.74);
-      line-height:1.72;
+    .info-card p{
+      color:var(--text-soft);line-height:1.72;margin-bottom:18px;
     }
-
     .fleet-img{
-      height:210px;
-      margin:-28px -28px 24px;
-      overflow:hidden;
-      position:relative;
+      height:210px;overflow:hidden;margin:-28px -28px 24px;position:relative;
     }
-
-    .fleet-img img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
+    .fleet-img img{width:100%;height:100%;object-fit:cover}
     .fleet-img::after{
-      content:"";
-      position:absolute;
-      inset:0;
+      content:"";position:absolute;inset:0;
       background:linear-gradient(180deg,transparent,rgba(7,22,37,.68));
     }
-
     .fleet-meta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin:14px 0 0;
+      display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;
     }
-
     .fleet-meta span{
-      display:inline-flex;
-      padding:8px 11px;
-      border-radius:999px;
-      background:rgba(0,89,156,.22);
-      border:1px solid rgba(95,184,220,.20);
-      color:var(--cyan2);
-      font-size:12px;
-      font-weight:900;
+      display:inline-flex;padding:8px 11px;border-radius:999px;
+      background:rgba(0,89,156,.22);border:1px solid var(--line);
+      color:var(--cyan-soft);font-size:12px;font-weight:900;
     }
-
     .price-row{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      margin-top:14px;
-      padding-top:14px;
-      border-top:1px solid rgba(255,255,255,.10);
-      color:rgba(255,255,255,.75);
-      font-size:14px;
+      display:flex;justify-content:space-between;gap:12px;
+      padding-top:14px;margin-top:14px;border-top:1px solid rgba(255,255,255,.10);
+      color:var(--text-soft);font-size:14px;
     }
+    .price-row strong{color:var(--cyan-soft);font-size:16px}
 
-    .price-row strong{
-      color:var(--cyan2);
-      font-size:16px;
+    .info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .faq-list{display:grid;gap:14px;max-width:980px;margin:0 auto}
+    .faq-item{
+      border-radius:24px;
+      background:var(--glass);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-soft);
+      overflow:hidden;
     }
-
-    /* INFO UTIL */
-
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:18px;
+    .faq-item summary{
+      cursor:pointer;list-style:none;
+      padding:22px 24px;
+      font-weight:900;color:#fff;position:relative;
     }
-
-    .info-card{
-      padding:28px;
-      border-radius:var(--radius);
-      background:linear-gradient(180deg,rgba(0,89,156,.18),rgba(255,255,255,.035));
-      border:1px solid rgba(95,184,220,.18);
-      box-shadow:0 24px 70px rgba(0,0,0,.24);
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{
+      content:"+";
+      position:absolute;right:24px;top:15px;
+      font-size:28px;color:var(--cyan-soft);
     }
-
-    .info-card small{
-      display:block;
-      margin-bottom:12px;
-      color:var(--cyan2);
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.14em;
-      text-transform:uppercase;
+    .faq-item[open] summary::after{content:"–"}
+    .faq-item p{
+      padding:0 24px 22px;
+      color:var(--text-soft);line-height:1.7;
     }
-
-    .info-card h3{
-      margin:0 0 12px;
-      font-family:'Cormorant Garamond',serif;
-      font-size:32px;
-      line-height:1;
-    }
-
-    .info-card p{
-      margin:0;
-      color:rgba(255,255,255,.74);
-      line-height:1.72;
-    }
-
-    /* LOCATION */
 
     .location-grid{
-      display:grid;
-      grid-template-columns:.82fr 1.18fr;
-      gap:24px;
-      align-items:stretch;
+      display:grid;grid-template-columns:.82fr 1.18fr;gap:24px;align-items:stretch;
     }
-
-    .location-card{
-      padding:34px;
-    }
-
+    .location-card{padding:34px}
     .location-card h2{
-      margin:0 0 16px;
       font-family:'Cormorant Garamond',serif;
-      font-size:50px;
-      line-height:.95;
+      font-size:48px;line-height:.95;margin-bottom:16px;
     }
-
     .location-card > p{
-      margin:0 0 24px;
-      color:rgba(255,255,255,.78);
-      line-height:1.78;
+      color:var(--text-soft);line-height:1.78;margin-bottom:24px;
     }
-
-    .contact-list{
-      display:grid;
-      gap:14px;
-    }
-
+    .contact-list{display:grid;gap:14px}
     .contact-item{
-      padding:17px;
-      border-radius:22px;
+      padding:17px;border-radius:22px;
       background:rgba(0,89,156,.16);
-      border:1px solid rgba(95,184,220,.18);
+      border:1px solid var(--line);
     }
-
-    .contact-item strong{
-      display:block;
-      margin-bottom:6px;
-      color:#fff;
-    }
-
-    .contact-item p,
-    .contact-item a{
-      color:rgba(255,255,255,.73);
-      line-height:1.65;
-    }
-
-    .location-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:24px;
-    }
-
+    .contact-item strong{display:block;color:#fff;margin-bottom:6px}
+    .contact-item p,.contact-item a{color:rgba(255,255,255,.74);line-height:1.65}
+    .location-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
     .map-card{
-      position:relative;
-      min-height:560px;
-      overflow:hidden;
-      border-radius:var(--radius);
-      border:1px solid rgba(95,184,220,.22);
-      box-shadow:0 28px 90px rgba(0,0,0,.42);
-      background:#0b1727;
+      position:relative;min-height:560px;overflow:hidden;
+      border-radius:var(--radius-xl);border:1px solid var(--line-strong);
+      box-shadow:var(--shadow);background:#0b1727;
     }
-
     .map-card iframe{
-      width:100%;
-      height:100%;
-      min-height:560px;
-      border:0;
-      display:block;
+      width:100%;height:100%;min-height:560px;border:0;display:block;
       filter:saturate(.92) contrast(.98);
     }
-
     .map-overlay{
-      position:absolute;
-      left:22px;
-      right:22px;
-      bottom:22px;
-      padding:18px;
-      border-radius:22px;
-      border:1px solid rgba(95,184,220,.22);
+      position:absolute;left:22px;right:22px;bottom:22px;
+      padding:18px;border-radius:22px;
       background:rgba(6,19,33,.86);
+      border:1px solid var(--line-strong);
       backdrop-filter:blur(18px);
     }
-
     .map-overlay strong{
       display:block;
-      margin-bottom:5px;
       font-family:'Cormorant Garamond',serif;
-      font-size:28px;
+      font-size:28px;margin-bottom:5px;
     }
-
-    .map-overlay span{
-      color:rgba(255,255,255,.72);
-      line-height:1.6;
-    }
-
-    /* FOOTER */
+    .map-overlay span{color:rgba(255,255,255,.72);line-height:1.6}
 
     .footer{
       padding:34px 0 42px;
-      border-top:1px solid rgba(255,255,255,.1);
+      border-top:1px solid rgba(255,255,255,.10);
       background:#06111f;
     }
-
     .footer-grid{
-      display:grid;
-      grid-template-columns:1.1fr .9fr .9fr .9fr;
-      gap:24px;
+      display:grid;grid-template-columns:1.15fr .95fr .95fr .95fr;gap:24px;
     }
-
     .footer h4{
-      margin:0 0 12px;
       font-family:'Cormorant Garamond',serif;
-      font-size:26px;
+      font-size:26px;margin-bottom:12px;color:#fff;
     }
-
-    .footer p,
-    .footer a{
-      color:rgba(255,255,255,.68);
-      line-height:1.7;
-      font-size:15px;
-    }
-
-    .footer-socials{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:18px;
-    }
-
+    .footer p,.footer a{color:rgba(255,255,255,.68);line-height:1.72}
+    .footer-socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
     .footer-bottom{
-      margin-top:26px;
-      padding-top:20px;
-      border-top:1px solid rgba(255,255,255,.08);
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
+      margin-top:26px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);
+      display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
     }
 
     .float-wa{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:9998;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      min-height:60px;
-      padding:16px 22px;
-      border-radius:999px;
-      background:linear-gradient(135deg,var(--wa) 0%,var(--wa2) 100%);
-      color:#FFFFFF !important;
-      font-weight:900;
+      position:fixed;right:20px;bottom:20px;z-index:9998;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      min-height:60px;padding:16px 22px;border-radius:999px;
+      background:linear-gradient(135deg,var(--wa) 0%,var(--wa-dark) 100%);
+      color:#fff;font-weight:900;
       box-shadow:0 22px 60px rgba(37,211,102,.38);
     }
 
-    /* RESPONSIVE */
-
     @media (max-width:1320px){
-      .header-inner{
-        grid-template-columns:250px minmax(0,1fr) auto;
-        gap:14px;
-      }
-
-      .logo{
-        max-width:250px;
-      }
-
-      .logo img{
-        width:52px;
-      }
-
-      .logo-title{
-        font-size:22px;
-      }
-
-      .logo-sub{
-        font-size:9px;
-        letter-spacing:.12em;
-      }
-
-      .logo-slogan{
-        font-size:11px;
-        max-width:160px;
-      }
-
-      .nav-links a{
-        padding:10px 9px;
-        font-size:12px;
-      }
-
-      .header-actions .btn-wa{
-        padding:12px 18px;
-        font-size:14px;
-      }
+      .header-inner{grid-template-columns:260px minmax(0,1fr) auto}
+      .logo img{width:54px}
+      .logo-title{font-size:23px}
+      .logo-sub{font-size:9px}
+      .logo-slogan{font-size:11px;max-width:170px}
+      .nav-links a{padding:10px 10px;font-size:12px}
     }
 
     @media (max-width:1180px){
-      :root{
-        --header-h:88px;
-      }
-
-      .header-inner{
-        grid-template-columns:auto auto;
-        justify-content:space-between;
-      }
-
-      .nav{
-        display:none;
-      }
-
-      .header-actions .lang,
-      .header-actions .btn-wa{
-        display:none;
-      }
-
-      .burger{
-        display:grid;
-        place-items:center;
-      }
-
-      .logo{
-        max-width:260px;
-      }
-
-      .logo img{
-        width:54px;
-      }
-
-      .logo-title{
-        font-size:24px;
-      }
-
-      .logo-sub{
-        font-size:10px;
-      }
-
-      .logo-slogan{
-        display:none;
-      }
-
-      .hero{
-        min-height:auto;
-        padding-top:calc(var(--header-h) + 54px);
-      }
-
+      :root{--header-h:88px}
+      .header-inner{grid-template-columns:auto auto;justify-content:space-between}
+      .nav{display:none}
+      .lang,.header-actions .btn-wa{display:none}
+      .burger{display:grid;place-items:center}
+      .logo img{width:50px}
+      .logo-title{font-size:22px}
+      .logo-sub{font-size:9px}
+      .logo-slogan{display:none}
+      .hero,
+      .section{padding-top:82px}
       .hero-grid,
       .quote-grid,
       .location-grid,
@@ -1287,193 +639,68 @@
       .fast-card{
         grid-template-columns:1fr;
       }
-
-      .quote-intro{
-        position:relative;
-        top:auto;
-      }
-
-      .grid-4{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-
-      .grid-3,
-      .info-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-
-      .quote-summary,
-      .fast-actions{
-        grid-template-columns:1fr;
-      }
+      .quote-intro{position:relative;top:auto}
+      .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
 
     @media (max-width:760px){
-      .logo{
-        gap:10px;
-        max-width:220px;
+      .section{padding:78px 0}
+      .hero{
+        min-height:auto;
+        padding:calc(var(--header-h) + 44px) 0 68px;
       }
-
-      .logo img{
-        width:48px;
-      }
-
-      .logo-title{
-        font-size:21px;
-      }
-
-      .logo-sub{
-        font-size:9px;
-      }
-
-      .hero h1{
-        font-size:clamp(3rem,15vw,5rem);
-      }
-
-      .hero-card h2{
-        font-size:38px;
-      }
-
-      .section{
-        padding:82px 0;
-      }
-
-      .section-tight{
-        padding:58px 0;
-      }
-
-      .grid-4,
-      .grid-3,
-      .quote-row,
-      .info-grid{
-        grid-template-columns:1fr;
-      }
-
-      .service-card{
-        min-height:360px;
-      }
-
-      .location-actions,
-      .hero-actions,
-      .quote-actions{
-        flex-direction:column;
-      }
-
-      .btn,
-      .btn-outline,
-      .btn-wa,
-      .btn-social{
-        width:100%;
-      }
-
-      .quote-panel,
-      .quote-intro,
-      .location-card,
-      .fast-card{
-        padding:24px;
-      }
-
-      .map-card,
-      .map-card iframe{
-        min-height:430px;
-      }
-
-      .map-overlay{
-        position:relative;
-        left:auto;
-        right:auto;
-        bottom:auto;
-        margin:14px;
-      }
-
-      .float-wa{
-        left:16px;
-        right:16px;
-        bottom:16px;
-      }
+      .hero h1{font-size:clamp(3rem,15vw,5rem)}
+      .hero-card h2,
+      .quote-intro h2,
+      .quote-panel h3,
+      .location-card h2,
+      .fast-card h2{font-size:36px}
+      .grid-4,.grid-3,.quote-row,.fast-actions,.info-grid,.summary-grid{grid-template-columns:1fr}
+      .btn,.btn-outline,.btn-wa,.btn-soft{width:100%}
+      .hero-actions,.quote-actions,.location-actions{flex-direction:column}
+      .quote-intro,.quote-panel,.location-card,.hero-card{padding:24px}
+      .service-card{min-height:360px}
+      .map-card,.map-card iframe{min-height:440px}
+      .map-overlay{position:relative;left:auto;right:auto;bottom:auto;margin:14px}
+      .float-wa{left:16px;right:16px;bottom:16px}
     }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":["Organization","LocalBusiness","TravelAgency"],
-        "@id":"https://bestur.mx/#organization",
-        "name":"Operadora Turística BESTUR",
-        "url":"https://bestur.mx/",
-        "logo":"https://bestur.mx/wp-content/uploads/2026/05/logo-bestur.png",
-        "description":"BESTUR es una operadora turística en San Miguel de Allende, Guanajuato, especializada en traslados privados, airport transfers, tours privados, bodas, viñedos y experiencias culturales en el Bajío mexicano.",
-        "telephone":"+524151035353",
-        "email":"otbestur@gmail.com",
-        "address":{
-          "@type":"PostalAddress",
-          "streetAddress":"Carlos del Castillo 6, Guadalupe",
-          "addressLocality":"San Miguel de Allende",
-          "addressRegion":"Guanajuato",
-          "postalCode":"37710",
-          "addressCountry":"MX"
-        },
-        "areaServed":[
-          "San Miguel de Allende",
-          "Guanajuato",
-          "Bajío mexicano",
-          "Aeropuerto de Querétaro",
-          "Aeropuerto del Bajío",
-          "Ciudad de México",
-          "Querétaro",
-          "Dolores Hidalgo",
-          "Atotonilco",
-          "Mineral de Pozos"
-        ],
-        "sameAs":[
-          "https://www.instagram.com/operadoraturisticabestur/",
-          "https://www.facebook.com/profile.php?id=100042187006901"
-        ]
-      },
-      {
-        "@type":"FAQPage",
-        "@id":"https://bestur.mx/#faq",
-        "mainEntity":[
-          {
-            "@type":"Question",
-            "name":"¿Cómo cotizo un servicio con BESTUR?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"Para cotizar un servicio con BESTUR se recomienda enviar fecha, ruta, número de personas, horario aproximado, origen, destino y tipo de servicio por WhatsApp o email."
-            }
-          },
-          {
-            "@type":"Question",
-            "name":"¿BESTUR ofrece traslados a aeropuertos?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"Sí. BESTUR coordina traslados privados desde y hacia San Miguel de Allende a aeropuertos como Querétaro, Bajío BJX, Ciudad de México y otros destinos bajo solicitud."
-            }
-          },
-          {
-            "@type":"Question",
-            "name":"¿BESTUR ofrece tours privados?",
-            "acceptedAnswer":{
-              "@type":"Answer",
-              "text":"Sí. BESTUR ofrece tours privados y experiencias culturales en San Miguel de Allende, Guanajuato, Dolores Hidalgo, Atotonilco, Mineral de Pozos, Querétaro, viñedos y otros destinos regionales."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
 </head>
-
 <body>
-  <div class="bestur-site">
+  <div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+    <div class="container">
+      <nav class="mobile-nav" aria-label="Menú móvil BESTUR">
+        <a href="#reservar">Reservar</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#flotilla">Flotilla</a>
+        <a href="#aeropuertos">Aeropuertos</a>
+        <a href="#tours">Tours</a>
+        <a href="#info-util">Info útil</a>
+        <a href="#faq">FAQ</a>
+        <a href="#ubicacion">Ubicación</a>
+      </nav>
+      <div class="mobile-actions">
+        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado" target="_blank" rel="noopener">Quiero cotizar un traslado</a>
+        <a class="btn-outline" href="#reservar">Llenar formulario</a>
+      </div>
+    </div>
+  </div>
 
-    <!-- MOBILE PANEL -->
-    <div class="mobile-panel" id="mobilePanel">
-      <div class="container">
-        <nav class="mobile-nav" aria-label="Menú móvil BESTUR">
+  <header class="header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="#inicio" aria-label="Operadora Turística BESTUR">
+        <img src="Logo%20Bestur.png" alt="Logo de Operadora Turística BESTUR" />
+        <span class="logo-copy">
+          <span class="logo-title">BESTUR</span>
+          <span class="logo-sub">Operadora Turística</span>
+          <span class="logo-slogan">for the pleasure of good travel</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Menú principal BESTUR">
+        <div class="nav-links">
           <a href="#reservar">Reservar</a>
           <a href="#servicios">Servicios</a>
           <a href="#flotilla">Flotilla</a>
@@ -1482,1029 +709,1223 @@
           <a href="#info-util">Info útil</a>
           <a href="#faq">FAQ</a>
           <a href="#ubicacion">Ubicación</a>
-        </nav>
-
-        <div class="mobile-actions">
-          <a class="btn-wa pulse" href="#reservar">Reservar / Cotizar</a>
-          <a class="btn-outline" href="tel:+524151035353">Llamar ahora</a>
         </div>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang" aria-label="Selector de idioma">
+          <a class="active" href="index.html">ES</a>
+          <a href="en/index.html">EN</a>
+        </div>
+        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado" target="_blank" rel="noopener">WhatsApp</a>
+        <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobilePanel">☰</button>
       </div>
     </div>
+  </header>
 
-    <!-- HEADER -->
-    <header class="header">
-      <div class="container header-inner">
-        <a class="logo" href="#inicio" aria-label="Operadora Turística BESTUR">
-          <img src="Logo%20Bestur.png" alt="Logo Operadora Turística BESTUR">
-          <span class="logo-text">
-            <span class="logo-title">BESTUR</span>
-            <span class="logo-sub">Operadora Turística</span>
-            <span class="logo-slogan">for the pleasure of good travel</span>
-          </span>
-        </a>
-
-        <nav class="nav" aria-label="Menú principal BESTUR">
-          <div class="nav-links">
-            <a href="#reservar">Reservar</a>
-            <a href="#servicios">Servicios</a>
-            <a href="#flotilla">Flotilla</a>
-            <a href="#aeropuertos">Aeropuertos</a>
-            <a href="#tours">Tours</a>
-            <a href="#info-util">Info útil</a>
-            <a href="#faq">FAQ</a>
-            <a href="#ubicacion">Ubicación</a>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="kicker">Operadora turística premium · San Miguel de Allende</span>
+          <span class="slogan-pill">for the pleasure of good travel</span>
+          <h1>Private <em>tours</em> & transfers</h1>
+          <p class="hero-text">
+            BESTUR coordina traslados privados, airport transfers, tours culturales, viñedos, bodas y servicios especiales desde San Miguel de Allende hacia Guanajuato, Querétaro, Ciudad de México y el Bajío mexicano.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado" target="_blank" rel="noopener">Quiero cotizar un traslado</a>
+            <a class="btn-outline" href="#reservar">Llenar formulario</a>
           </div>
-        </nav>
-
-        <div class="header-actions">
-          <div class="lang">
-            <a class="active" href="index.html">ES</a>
-            <a href="en.html">EN</a>
+          <div class="hero-chips">
+            <span class="chip">Airport transfers</span>
+            <span class="chip">Tours privados</span>
+            <span class="chip">Bodas</span>
+            <span class="chip">Viñedos</span>
+            <span class="chip">Grupos y familias</span>
           </div>
-
-          <a class="btn-wa pulse" href="#reservar">WhatsApp</a>
-
-          <button class="burger" id="burgerBtn" aria-label="Abrir menú">
-            ☰
-          </button>
         </div>
+
+        <aside class="glass hero-card">
+          <h2>Agenda fácil y rápida</h2>
+          <p>
+            Todo está organizado para que el cliente entienda qué servicio necesita, complete los datos esenciales y envíe una solicitud clara por WhatsApp.
+          </p>
+          <ul class="card-list">
+            <li>Traslados privados desde y hacia aeropuertos con referencia de tarifa.</li>
+            <li>Tours culturales y experiencias regionales con atención personalizada.</li>
+            <li>Logística para bodas, grupos, familias y servicios especiales.</li>
+            <li>Confirmación final con disponibilidad, ruta, vehículo recomendado y condiciones del servicio.</li>
+          </ul>
+          <a class="btn-wa" href="#reservar">Llenar formulario</a>
+        </aside>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <!-- HERO -->
-      <section class="hero" id="inicio">
-        <div class="container hero-grid">
-          <div>
-            <span class="kicker">Operadora turística premium · San Miguel de Allende</span>
-            <span class="slogan-pill">for the pleasure of good travel</span>
-
-            <h1>
-              <span>Private</span>
-              <span><em>tours</em> & transfers</span>
-            </h1>
-
-            <p class="hero-text">
-              BESTUR coordina traslados privados, airport transfers, tours culturales,
-              viñedos, bodas y servicios especiales desde San Miguel de Allende hacia
-              Guanajuato, Querétaro, Ciudad de México y el Bajío mexicano.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn-wa pulse" href="#reservar">Reservar o cotizar</a>
-              <a class="btn-outline" href="#servicios">Ver servicios</a>
-            </div>
-
-            <div class="hero-chips">
-              <span class="chip">Airport transfers</span>
-              <span class="chip">Private tours</span>
-              <span class="chip">Weddings</span>
-              <span class="chip">Wineries</span>
-            </div>
-          </div>
-
-          <aside class="glass hero-card">
-            <h2>Agenda fácil y rápida</h2>
-            <p>
-              Envía una solicitud clara por WhatsApp con fecha, ruta, pasajeros,
-              horario y tipo de servicio. BESTUR revisa disponibilidad y confirma
-              la mejor opción.
-            </p>
-
-            <ul class="card-list">
-              <li>Traslados privados desde aeropuertos y entre destinos.</li>
-              <li>Tours culturales e históricos con perspectiva local.</li>
-              <li>Logística para bodas, familias, grupos y viajeros internacionales.</li>
-              <li>Coordinación directa por WhatsApp antes de reservar.</li>
-            </ul>
-
-            <a class="btn-wa pulse" href="#reservar">Cotizar ahora</a>
-          </aside>
-        </div>
-      </section>
-
-      <!-- FAST RESERVE -->
-      <section class="fast-reserve" aria-label="Reserva rápida">
-        <div class="container">
-          <div class="glass fast-card">
-            <div>
-              <h2>Reserva en menos pasos</h2>
-              <p>
-                Primero envía los datos esenciales. Después confirmamos disponibilidad,
-                vehículo, tarifa y detalles finales como equipaje o requerimientos especiales.
-              </p>
-            </div>
-
-            <div class="fast-actions">
-              <a class="fast-action" href="#reservar">
-                <strong>1. Llena la solicitud</strong>
-                <span>Nombre, fecha, ruta, pasajeros y horario.</span>
-              </a>
-
-              <a class="fast-action" href="#reservar">
-                <strong>2. Envíala por WhatsApp</strong>
-                <span>El mensaje sale ordenado para responder más rápido.</span>
-              </a>
-
-              <a class="fast-action" href="#servicios">
-                <strong>3. Revisa servicios</strong>
-                <span>Aeropuertos, tours, bodas, viñedos y grupos.</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- RESERVATION / QUOTE -->
-      <section class="section quote-section" id="reservar">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">Reserva o cotización</span>
-            <h2 class="title">Solicita tu <em>servicio privado</em></h2>
-            <p class="copy">
-              Completa los datos principales y envía tu solicitud por WhatsApp o email.
-              BESTUR revisará disponibilidad, vehículo recomendado, ruta y condiciones del servicio.
-            </p>
-          </div>
-
-          <div class="quote-grid">
-            <aside class="glass quote-intro">
-              <h2>Datos claros. Respuesta más rápida.</h2>
-              <p>
-                Este formulario evita mensajes incompletos y ayuda a recibir una cotización
-                más precisa para traslados, tours, bodas, viñedos o servicios especiales.
-              </p>
-
-              <ul class="quote-list">
-                <li>
-                  <strong>Servicios disponibles</strong>
-                  Aeropuertos, tours privados, viñedos, bodas, grupos, familias y servicios especiales.
-                </li>
-                <li>
-                  <strong>Datos importantes</strong>
-                  Fecha, horario, ruta, pasajeros, dirección de recogida y destino.
-                </li>
-                <li>
-                  <strong>Equipaje</strong>
-                  Lo confirmamos cuando se reserva. Como referencia, normalmente consideramos 1 maleta documentada y 1 carry-on por pasajero.
-                </li>
-                <li>
-                  <strong>Confirmación final</strong>
-                  La disponibilidad, vehículo y tarifa se confirman directamente con BESTUR.
-                </li>
-              </ul>
-            </aside>
-
-            <div class="glass quote-panel">
-              <h3>Formulario de solicitud</h3>
-              <p>
-                Llena la información disponible. El mensaje se enviará ordenado, con cada dato en una línea diferente.
-              </p>
-
-              <form class="quote-form" id="besturQuoteForm" onsubmit="return false;">
-
-                <div class="quote-row">
-                  <div class="quote-field">
-                    <label for="qName">Nombre completo *</label>
-                    <input id="qName" type="text" placeholder="Ej. Paula Hough">
-                  </div>
-
-                  <div class="quote-field">
-                    <label for="qPhone">Teléfono / WhatsApp *</label>
-                    <input id="qPhone" type="tel" placeholder="+52 415 000 0000">
-                  </div>
-                </div>
-
-                <div class="quote-row">
-                  <div class="quote-field">
-                    <label for="qEmail">Email</label>
-                    <input id="qEmail" type="email" placeholder="cliente@email.com">
-                  </div>
-
-                  <div class="quote-field">
-                    <label for="qDate">Fecha del servicio *</label>
-                    <input id="qDate" type="date">
-                  </div>
-                </div>
-
-                <div class="quote-row">
-                  <div class="quote-field">
-                    <label for="qService">Tipo de servicio *</label>
-                    <select id="qService">
-                      <option value="">Selecciona un servicio</option>
-                      <option value="Traslado a aeropuerto">Traslado a aeropuerto</option>
-                      <option value="Llegada desde aeropuerto">Llegada desde aeropuerto</option>
-                      <option value="Tour privado">Tour privado</option>
-                      <option value="Tour a viñedos">Tour a viñedos</option>
-                      <option value="Transporte para boda">Transporte para boda</option>
-                      <option value="Transporte para grupo">Transporte para grupo</option>
-                      <option value="Servicio especial">Servicio especial</option>
-                    </select>
-                  </div>
-
-                  <div class="quote-field">
-                    <label for="qPassengers">Número de personas *</label>
-                    <input id="qPassengers" type="number" min="1" placeholder="Ej. 6">
-                  </div>
-                </div>
-
-                <div class="quote-row">
-                  <div class="quote-field">
-                    <label for="qOrigin">Dirección de recogida / origen</label>
-                    <input id="qOrigin" type="text" placeholder="Hotel, Airbnb, domicilio o aeropuerto">
-                  </div>
-
-                  <div class="quote-field">
-                    <label for="qDestination">Destino / ruta solicitada</label>
-                    <input id="qDestination" type="text" placeholder="Ej. BJX, QRO, viñedos, Guanajuato, venue de boda">
-                  </div>
-                </div>
-
-                <div class="quote-row">
-                  <div class="quote-field">
-                    <label for="qTime">Hora aproximada</label>
-                    <input id="qTime" type="time">
-                  </div>
-
-                  <div class="quote-field">
-                    <label for="qFlight">Vuelo / referencia</label>
-                    <input id="qFlight" type="text" placeholder="Ej. UA 2068, Volaris 3352 o referencia del evento">
-                  </div>
-                </div>
-
-                <div class="quote-row">
-                  <div class="quote-field">
-                    <label for="qPayment">Forma de pago estimada</label>
-                    <select id="qPayment">
-                      <option value="">Por definir</option>
-                      <option value="Efectivo">Efectivo</option>
-                      <option value="Transferencia">Transferencia</option>
-                      <option value="Tarjeta">Tarjeta</option>
-                      <option value="Requiero factura">Requiero factura</option>
-                    </select>
-                  </div>
-
-                  <div class="quote-field">
-                    <label for="qLanguage">Idioma de atención</label>
-                    <select id="qLanguage">
-                      <option value="Español">Español</option>
-                      <option value="English">English</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="quote-summary">
-                  <div class="quote-box">
-                    <small>Vehículo sugerido</small>
-                    <strong id="qVehicle">Por definir</strong>
-                  </div>
-
-                  <div class="quote-box">
-                    <small>Tarifa efectivo</small>
-                    <strong id="qCash">Por definir</strong>
-                  </div>
-
-                  <div class="quote-box">
-                    <small>Tarifa tarjeta</small>
-                    <strong id="qCard">Por definir</strong>
-                  </div>
-                </div>
-
-                <div class="quote-field">
-                  <label for="qNotes">Notas adicionales</label>
-                  <textarea id="qNotes" rows="5" placeholder="Ej. horario especial, evento, tour privado, número de vuelo, hotel, venue o cualquier detalle importante."></textarea>
-                </div>
-
-                <div class="quote-field">
-                  <label>Vista previa de solicitud</label>
-                  <div class="quote-preview" id="qPreview">Completa el formulario para generar tu solicitud.</div>
-                </div>
-
-                <div class="quote-actions">
-                  <button type="button" class="btn-wa pulse" onclick="besturQuoteWhatsApp()">
-                    Enviar por WhatsApp
-                  </button>
-
-                  <button type="button" class="btn" onclick="besturQuoteEmail()">
-                    Enviar por email
-                  </button>
-
-                  <button type="button" class="btn-outline" onclick="besturQuoteCopy()">
-                    Copiar solicitud
-                  </button>
-                </div>
-
-                <p class="quote-note">
-                  Esta solicitud no confirma automáticamente la reserva. BESTUR revisará disponibilidad,
-                  ruta, vehículo recomendado y condiciones del servicio antes de confirmar.
-                </p>
-
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SERVICES -->
-      <section class="section" id="servicios">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">Servicios principales</span>
-            <h2 class="title">Servicios privados, <em>bien coordinados</em></h2>
-            <p class="copy">
-              Primero reserva o cotiza. Después elige el servicio que mejor se adapta a tu viaje:
-              aeropuertos, tours, bodas, viñedos, grupos o servicios especiales.
-            </p>
-          </div>
-
-          <div class="grid-4">
-            <a class="service-card" href="transporte-aeropuertos.html">
-              <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1200&q=85&auto=format&fit=crop" alt="Traslados privados a aeropuertos desde San Miguel de Allende">
-              <div class="service-content">
-                <span class="service-tag">Airport transfers</span>
-                <h3>Aeropuertos</h3>
-                <p>Traslados privados hacia QRO, BJX y Ciudad de México desde San Miguel de Allende.</p>
-                <span class="card-link">Ver servicio →</span>
-              </div>
-            </a>
-
-            <a class="service-card" href="tours.html">
-              <img src="https://bestur.mx/wp-content/uploads/2026/03/turismo.jpg" alt="Tours privados y experiencias culturales en San Miguel de Allende">
-              <div class="service-content">
-                <span class="service-tag">Private tours</span>
-                <h3>Tours privados</h3>
-                <p>Rutas culturales, históricas y regionales para conocer San Miguel y el Bajío.</p>
-                <span class="card-link">Planear tour →</span>
-              </div>
-            </a>
-
-            <a class="service-card" href="bodas.html">
-              <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=85&auto=format&fit=crop" alt="Transporte privado para bodas en San Miguel de Allende">
-              <div class="service-content">
-                <span class="service-tag">Weddings</span>
-                <h3>Bodas</h3>
-                <p>Logística privada para invitados, hoteles, venues, iglesias y aeropuertos.</p>
-                <span class="card-link">Cotizar boda →</span>
-              </div>
-            </a>
-
-            <a class="service-card" href="vinedos.html">
-              <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1200&q=85&auto=format&fit=crop" alt="Tours privados a viñedos de Guanajuato y Querétaro">
-              <div class="service-content">
-                <span class="service-tag">Wineries</span>
-                <h3>Viñedos</h3>
-                <p>Traslados y tours privados a viñedos de Guanajuato y Querétaro.</p>
-                <span class="card-link">Ver viñedos →</span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- FLEET -->
-      <section class="section section-alt" id="flotilla">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">Flotilla BESTUR</span>
-            <h2 class="title">Vehículos para cada <em>tipo de viaje</em></h2>
-            <p class="copy">
-              La unidad final se confirma según disponibilidad, número de personas,
-              ruta y condiciones del servicio.
-            </p>
-          </div>
-
-          <div class="grid-4">
-            <article class="fleet-card">
-              <div class="fleet-img">
-                <img src="https://bestur.mx/wp-content/uploads/2024/02/Xtrail-perfil-2048x1365.jpg" alt="Kia o X-Trail BESTUR">
-              </div>
-              <small>Sedán / SUV</small>
-              <h3>Kia / X-Trail</h3>
-              <p>Vehículos para parejas, viajeros individuales o grupos pequeños.</p>
-              <div class="fleet-meta">
-                <span>1–3 pasajeros</span>
-                <span>Servicio privado</span>
-              </div>
-              <div class="price-row">
-                <span>Desde</span>
-                <strong>$1,995 MXN</strong>
-              </div>
-            </article>
-
-            <article class="fleet-card">
-              <div class="fleet-img">
-                <img src="https://bestur.mx/wp-content/uploads/2024/02/Suburban-perfil-2048x1365.jpg" alt="Suburban BESTUR">
-              </div>
-              <small>SUV Premium</small>
-              <h3>Suburban</h3>
-              <p>Mayor comodidad para familias, grupos pequeños y servicios premium.</p>
-              <div class="fleet-meta">
-                <span>1–7 pasajeros</span>
-                <span>Mayor confort</span>
-              </div>
-              <div class="price-row">
-                <span>Desde</span>
-                <strong>$2,625 MXN</strong>
-              </div>
-            </article>
-
-            <article class="fleet-card">
-              <div class="fleet-img">
-                <img src="https://bestur.mx/wp-content/uploads/2024/02/Hiace-nueva-perfil-1-scaled.jpg" alt="Hiace BESTUR">
-              </div>
-              <small>Van ejecutiva</small>
-              <h3>Hiace</h3>
-              <p>Ideal para tours privados, familias grandes, grupos y eventos.</p>
-              <div class="fleet-meta">
-                <span>Hasta 14 pasajeros</span>
-                <span>Grupos y tours</span>
-              </div>
-              <div class="price-row">
-                <span>Desde</span>
-                <strong>$3,150 MXN</strong>
-              </div>
-            </article>
-
-            <article class="fleet-card">
-              <div class="fleet-img">
-                <img src="https://images.unsplash.com/photo-1588609465063-f0f8f4f75887?w=1200&q=85&auto=format&fit=crop" alt="Transit BESTUR">
-              </div>
-              <small>Van de grupo</small>
-              <h3>Transit</h3>
-              <p>Se maneja generalmente como categoría Hiace, según disponibilidad.</p>
-              <div class="fleet-meta">
-                <span>Grupo mediano</span>
-                <span>Categoría van</span>
-              </div>
-              <div class="price-row">
-                <span>Desde</span>
-                <strong>$3,150 MXN</strong>
-              </div>
-            </article>
-          </div>
-
-          <div class="grid-3" style="margin-top:18px;">
-            <article class="fleet-card">
-              <div class="fleet-img">
-                <img src="https://bestur.mx/wp-content/uploads/2025/09/crafter-1.jpg" alt="Crafter BESTUR">
-              </div>
-              <small>Van amplia</small>
-              <h3>Crafter</h3>
-              <p>Para grupos numerosos, eventos, bodas y movimientos más amplios.</p>
-              <div class="fleet-meta">
-                <span>Hasta 20 pasajeros</span>
-                <span>Mayor capacidad</span>
-              </div>
-              <div class="price-row">
-                <span>Desde</span>
-                <strong>$3,675 MXN</strong>
-              </div>
-            </article>
-
-            <article class="premium-card">
-              <small>Rutas principales</small>
-              <h3>Aeropuertos y ciudades</h3>
-              <p>QRO, BJX, CDMX, Guanajuato, Querétaro, Dolores Hidalgo, Atotonilco, Mineral de Pozos, Peña de Bernal y viñedos.</p>
-            </article>
-
-            <article class="premium-card">
-              <small>Cotización directa</small>
-              <h3>Servicio personalizado</h3>
-              <p>Si tu ruta requiere cálculo especial, BESTUR la revisa por WhatsApp con fecha, ruta y pasajeros.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- AIRPORTS -->
-      <section class="section" id="aeropuertos">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">Airport transfers</span>
-            <h2 class="title">Llegadas y salidas <em>sin fricción</em></h2>
-            <p class="copy">
-              Transporte privado desde y hacia San Miguel de Allende con rutas frecuentes
-              a los aeropuertos más utilizados por viajeros nacionales e internacionales.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <article class="premium-card">
-              <small>QRO</small>
-              <h3>Aeropuerto de Querétaro</h3>
-              <p>Ruta frecuente para viajeros que conectan San Miguel de Allende con Querétaro.</p>
-              <a class="btn-outline" href="aeropuerto-queretaro.html">Ver ruta</a>
-            </article>
-
-            <article class="premium-card">
-              <small>BJX</small>
-              <h3>Aeropuerto del Bajío</h3>
-              <p>Servicio privado hacia León, Silao, Guanajuato y el Bajío mexicano.</p>
-              <a class="btn-outline" href="aeropuerto-bajio-bjx.html">Ver ruta</a>
-            </article>
-
-            <article class="premium-card">
-              <small>CDMX</small>
-              <h3>Ciudad de México</h3>
-              <p>Traslados largos y servicios especiales para conexiones nacionales e internacionales.</p>
-              <a class="btn-outline" href="aeropuerto-cdmx.html">Ver ruta</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- TOURS -->
-      <section class="section section-alt" id="tours">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">Cultural routes</span>
-            <h2 class="title">Tours privados en <em>Guanajuato y el Bajío</em></h2>
-            <p class="copy">
-              Experiencias culturales para conocer San Miguel de Allende, Guanajuato,
-              Dolores Hidalgo, Atotonilco, Querétaro, Mineral de Pozos, viñedos y más.
-            </p>
-          </div>
-
-          <div class="grid-3">
-            <article class="premium-card">
-              <small>Heritage</small>
-              <h3>San Miguel & alrededores</h3>
-              <p>Centro histórico, miradores, arquitectura, cultura local y rutas cercanas.</p>
-              <a class="btn-outline" href="san-miguel-tour.html">Ver tour</a>
-            </article>
-
-            <article class="premium-card">
-              <small>History</small>
-              <h3>Dolores Hidalgo & Atotonilco</h3>
-              <p>Ruta cultural ligada a la historia de México, arte sacro y tradición regional.</p>
-              <a class="btn-outline" href="dolores-hidalgo-atotonilco.html">Ver tour</a>
-            </article>
-
-            <article class="premium-card">
-              <small>Regional</small>
-              <h3>Guanajuato capital</h3>
-              <p>Ciudad histórica, callejones, arquitectura, túneles y experiencia cultural privada.</p>
-              <a class="btn-outline" href="guanajuato.html">Ver tour</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- INFO UTIL -->
-      <section class="section" id="info-util">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">Información útil antes de reservar</span>
-            <h2 class="title">Todo claro para planear tu <em>servicio privado</em></h2>
-            <p class="copy">
-              Antes de cotizar, conoce cómo opera BESTUR, qué servicios ofrece y qué datos ayudan a coordinar mejor tu traslado, tour privado, boda, viñedo o experiencia en San Miguel de Allende y el Bajío mexicano.
-            </p>
-          </div>
-
-          <div class="info-grid">
-            <article class="info-card">
-              <small>Quiénes somos</small>
-              <h3>Operadora Turística BESTUR</h3>
-              <p>
-                BESTUR es una empresa de transporte privado y tours con base en San Miguel de Allende, Guanajuato. Coordinamos servicios turísticos privados para viajeros que buscan atención clara y personalizada.
-              </p>
-            </article>
-
-            <article class="info-card">
-              <small>Dónde operamos</small>
-              <h3>San Miguel, Guanajuato y Bajío</h3>
-              <p>
-                Atendemos rutas desde San Miguel de Allende hacia aeropuertos, Guanajuato capital, Querétaro, Dolores Hidalgo, Atotonilco, viñedos, Mineral de Pozos y otros destinos regionales.
-              </p>
-            </article>
-
-            <article class="info-card">
-              <small>Qué puedes reservar</small>
-              <h3>Traslados, tours y eventos</h3>
-              <p>
-                Puedes solicitar airport transfers, tours privados, transporte para bodas, viñedos, grupos, familias, servicios especiales y experiencias culturales en el Bajío mexicano.
-              </p>
-            </article>
-
-            <article class="info-card">
-              <small>Para quién es ideal</small>
-              <h3>Viajeros, familias y grupos</h3>
-              <p>
-                BESTUR es recomendable para turistas nacionales e internacionales, parejas, familias, grupos pequeños, invitados de boda y viajeros que prefieren transporte privado con coordinación directa.
-              </p>
-            </article>
-
-            <article class="info-card">
-              <small>Cómo cotizar</small>
-              <h3>Envía datos completos</h3>
-              <p>
-                Para responder mejor, envía fecha, hora, número de personas, origen, destino, tipo de servicio, vuelo o referencia del evento. El equipo confirma disponibilidad y tarifa final.
-              </p>
-            </article>
-
-            <article class="info-card">
-              <small>Confirmación</small>
-              <h3>Revisión personalizada</h3>
-              <p>
-                Cada servicio se revisa según ruta, horario, pasajeros, vehículo recomendado y condiciones del viaje. La reserva queda sujeta a disponibilidad y confirmación directa.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section class="section section-alt" id="faq">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">FAQ</span>
-            <h2 class="title">Preguntas <em>frecuentes</em></h2>
-            <p class="copy">Información útil antes de solicitar un traslado, tour privado o servicio especial.</p>
-          </div>
-
-          <div class="grid-3">
-            <article class="faq-item">
-              <h3>¿Cómo cotizo un servicio?</h3>
-              <p>Envía por WhatsApp o email fecha, ruta, número de personas, horario y tipo de servicio.</p>
-            </article>
-
-            <article class="faq-item">
-              <h3>¿Ofrecen traslados a aeropuertos?</h3>
-              <p>Sí. Coordinamos traslados privados a QRO, BJX, Ciudad de México y otros destinos bajo solicitud.</p>
-            </article>
-
-            <article class="faq-item">
-              <h3>¿Los tours son privados?</h3>
-              <p>BESTUR puede coordinar tours privados y experiencias regionales para parejas, familias y grupos.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- LOCATION -->
-      <section class="section" id="ubicacion">
-        <div class="container">
-          <div class="section-head">
-            <span class="kicker">Ubicación</span>
-            <h2 class="title">BESTUR en <em>San Miguel de Allende</em></h2>
-            <p class="copy">Nuestra base operativa se encuentra en San Miguel de Allende, Guanajuato.</p>
-          </div>
-
-          <div class="location-grid">
-            <aside class="glass location-card">
-              <h2>Operadora Turística BESTUR</h2>
-              <p>
-                Desde nuestra base coordinamos traslados privados, tours culturales,
-                bodas, viñedos, airport transfers y experiencias regionales en el Bajío mexicano.
-              </p>
-
-              <div class="contact-list">
-                <div class="contact-item">
-                  <strong>Dirección</strong>
-                  <p>Carlos del Castillo 6, Guadalupe, 37710 San Miguel de Allende, Guanajuato, México.</p>
-                </div>
-
-                <div class="contact-item">
-                  <strong>Teléfonos</strong>
-                  <p>
-                    <a href="tel:+524151035353">+52 415 103 5353</a><br>
-                    <a href="tel:+524151212540">+52 415 121 2540</a>
-                  </p>
-                </div>
-
-                <div class="contact-item">
-                  <strong>Email</strong>
-                  <p>
-                    <a href="mailto:otbestur@gmail.com">otbestur@gmail.com</a><br>
-                    <a href="mailto:otbestur@yahoo.com">otbestur@yahoo.com</a><br>
-                    <a href="mailto:otbestur@hotmail.com">otbestur@hotmail.com</a>
-                  </p>
-                </div>
-
-                <div class="contact-item">
-                  <strong>Síguenos</strong>
-                  <div class="footer-socials">
-                    <a class="btn-social" href="https://www.facebook.com/profile.php?id=100042187006901" target="_blank" rel="noopener">Facebook</a>
-                    <a class="btn-social" href="https://www.instagram.com/operadoraturisticabestur/" target="_blank" rel="noopener">Instagram</a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="location-actions">
-                <a class="btn-wa pulse" href="#reservar">Cotizar por WhatsApp</a>
-
-                <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=Operadora%20Tur%C3%ADstica%20Bestur%20Carlos%20del%20Castillo%206%20Guadalupe%2037710%20San%20Miguel%20de%20Allende%20Gto" target="_blank" rel="noopener">
-                  Abrir en Google Maps
-                </a>
-              </div>
-            </aside>
-
-            <div class="map-card">
-              <iframe
-                title="Ubicación Operadora Turística BESTUR en San Miguel de Allende"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Operadora%20Tur%C3%ADstica%20Bestur%2C%20Carlos%20del%20Castillo%206%2C%20Guadalupe%2C%2037710%20San%20Miguel%20de%20Allende%2C%20Gto&output=embed">
-              </iframe>
-
-              <div class="map-overlay">
-                <strong>BESTUR · San Miguel de Allende</strong>
-                <span>Base operativa para traslados privados, tours, bodas, viñedos y servicios especiales.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
+    <section class="fast-reserve">
       <div class="container">
-        <div class="footer-grid">
+        <div class="glass fast-card">
           <div>
-            <h4>BESTUR</h4>
+            <h2>Reserva en 3 pasos</h2>
             <p>
-              For the pleasure of good travel. Traslados privados, airport transfers,
-              tours culturales, bodas, viñedos y experiencias privadas desde San Miguel de Allende.
-            </p>
-
-            <div class="footer-socials">
-              <a class="btn-social" href="https://www.facebook.com/profile.php?id=100042187006901" target="_blank" rel="noopener">Facebook</a>
-              <a class="btn-social" href="https://www.instagram.com/operadoraturisticabestur/" target="_blank" rel="noopener">Instagram</a>
-            </div>
-          </div>
-
-          <div>
-            <h4>Aeropuertos</h4>
-            <a href="transporte-aeropuertos.html">Transporte aeropuertos</a><br>
-            <a href="aeropuerto-queretaro.html">Aeropuerto Querétaro</a><br>
-            <a href="aeropuerto-bajio-bjx.html">Aeropuerto BJX</a><br>
-            <a href="aeropuerto-cdmx.html">Aeropuerto CDMX</a>
-          </div>
-
-          <div>
-            <h4>Tours</h4>
-            <a href="tours.html">Tours privados</a><br>
-            <a href="guanajuato.html">Guanajuato</a><br>
-            <a href="dolores-hidalgo-atotonilco.html">Dolores Hidalgo & Atotonilco</a><br>
-            <a href="vinedos.html">Viñedos</a>
-          </div>
-
-          <div>
-            <h4>Contacto</h4>
-            <p>
-              <a href="tel:+524151035353">+52 415 103 5353</a><br>
-              <a href="tel:+524151212540">+52 415 121 2540</a><br>
-              <a href="mailto:otbestur@gmail.com">otbestur@gmail.com</a><br>
-              <a href="mailto:otbestur@yahoo.com">otbestur@yahoo.com</a><br>
-              <a href="mailto:otbestur@hotmail.com">otbestur@hotmail.com</a>
+              Diseñamos esta página para que el proceso sea claro, rápido y útil antes de enviar tu mensaje.
             </p>
           </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>© 2026 Operadora Turística BESTUR. Todos los derechos reservados.</p>
-          <p>for the pleasure of good travel</p>
+          <div class="fast-actions">
+            <article class="fast-action">
+              <strong>1. Elige servicio</strong>
+              <span>Aeropuerto, tour, viñedo, boda, grupo o servicio especial.</span>
+            </article>
+            <article class="fast-action">
+              <strong>2. Llena tus datos</strong>
+              <span>Fecha, pasajeros, ruta o detalle del servicio.</span>
+            </article>
+            <article class="fast-action">
+              <strong>3. Envíalo por WhatsApp</strong>
+              <span>La solicitud se genera en formato claro y ordenado.</span>
+            </article>
+          </div>
         </div>
       </div>
-    </footer>
+    </section>
 
-    <a class="float-wa pulse" href="#reservar">
-      Reservar / Cotizar
-    </a>
-  </div>
+    <section class="section alt" id="reservar">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Reserva o cotización</span>
+          <h2 class="title">Solicita tu <em>servicio privado</em></h2>
+          <p class="copy">
+            Completa el formulario y obtén una solicitud clara para WhatsApp o email. La lógica cambia según el tipo de servicio que selecciones.
+          </p>
+        </div>
+
+        <div class="quote-grid">
+          <aside class="glass quote-intro">
+            <h2>Todo claro antes de reservar</h2>
+            <p>
+              Esta sección está pensada para evitar mensajes incompletos y para mostrar de inmediato lo importante: tipo de servicio, vehículo sugerido, referencia de tarifa y horario recomendado.
+            </p>
+            <ul class="quote-list">
+              <li><strong>Traslados a aeropuerto</strong> Muestran precio de referencia y hora sugerida de pick-up según la ruta.</li>
+              <li><strong>Tours y viñedos</strong> Se manejan con cotización directa para revisar fecha, idioma, ruta y disponibilidad.</li>
+              <li><strong>Bodas, grupos y servicios especiales</strong> Quedan como cotización directa para definir la logística correcta.</li>
+              <li><strong>Confirmación final</strong> BESTUR revisa disponibilidad, ruta, vehículo recomendado y condiciones del servicio antes de confirmar.</li>
+            </ul>
+          </aside>
+
+          <div class="glass quote-panel">
+            <h3>Formulario de solicitud</h3>
+            <p>
+              Llena la información disponible. La vista previa se actualiza en automático y el mensaje se enviará con saltos de línea para que sea fácil de revisar.
+            </p>
+
+            <form class="quote-form" id="besturQuoteForm" onsubmit="return false;">
+              <div class="quote-row">
+                <div class="quote-field">
+                  <label for="qName">Nombre completo *</label>
+                  <input id="qName" type="text" placeholder="Ej. María Fernanda López" />
+                </div>
+                <div class="quote-field">
+                  <label for="qPhone">Teléfono / WhatsApp *</label>
+                  <input id="qPhone" type="tel" placeholder="+52 415 000 0000" />
+                </div>
+              </div>
+
+              <div class="quote-row">
+                <div class="quote-field">
+                  <label for="qEmail">Email</label>
+                  <input id="qEmail" type="email" placeholder="cliente@email.com" />
+                </div>
+                <div class="quote-field">
+                  <label for="qDate">Fecha del servicio *</label>
+                  <input id="qDate" type="date" />
+                </div>
+              </div>
+
+              <div class="quote-row">
+                <div class="quote-field">
+                  <label for="qService">Tipo de servicio *</label>
+                  <select id="qService">
+                    <option value="">Selecciona un servicio</option>
+                    <option value="Traslado a aeropuerto">Traslado a aeropuerto</option>
+                    <option value="Llegada desde aeropuerto">Llegada desde aeropuerto</option>
+                    <option value="Tour privado">Tour privado</option>
+                    <option value="Tour a viñedos">Tour a viñedos</option>
+                    <option value="Transporte para boda">Transporte para boda</option>
+                    <option value="Transporte para grupo">Transporte para grupo</option>
+                    <option value="Servicio especial">Servicio especial</option>
+                  </select>
+                </div>
+                <div class="quote-field">
+                  <label for="qPassengers">Número de personas *</label>
+                  <input id="qPassengers" type="number" min="1" placeholder="Ej. 6" />
+                </div>
+              </div>
+
+              <div class="quote-row">
+                <div class="quote-field">
+                  <label for="qPayment">Forma de pago estimada</label>
+                  <select id="qPayment">
+                    <option value="">Por definir</option>
+                    <option value="Efectivo / transferencia">Efectivo / transferencia</option>
+                    <option value="Tarjeta / factura">Tarjeta / factura</option>
+                  </select>
+                </div>
+                <div class="quote-field">
+                  <label for="qLanguage">Idioma de atención</label>
+                  <select id="qLanguage">
+                    <option value="Español">Español</option>
+                    <option value="English">English</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="dynamic-block" id="airportFields">
+                <h4>Datos del aeropuerto</h4>
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qAirport">Aeropuerto</label>
+                    <select id="qAirport">
+                      <option value="">Selecciona un aeropuerto</option>
+                      <option value="BJX">Aeropuerto del Bajío BJX</option>
+                      <option value="QRO">Aeropuerto de Querétaro QRO</option>
+                      <option value="CDMX">Ciudad de México / AICM</option>
+                    </select>
+                  </div>
+                  <div class="quote-field">
+                    <label for="qFlightNumber">Número de vuelo</label>
+                    <input id="qFlightNumber" type="text" placeholder="Ej. AM 456" />
+                  </div>
+                </div>
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qFlightTime">Hora de vuelo / llegada</label>
+                    <input id="qFlightTime" type="time" />
+                  </div>
+                  <div class="quote-field">
+                    <label for="qAirline">Aerolínea</label>
+                    <input id="qAirline" type="text" placeholder="Ej. Aeroméxico, United, Volaris" />
+                  </div>
+                </div>
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qPickupAddress">Dirección de recogida</label>
+                    <input id="qPickupAddress" type="text" placeholder="Hotel, Airbnb o domicilio" />
+                  </div>
+                  <div class="quote-field">
+                    <label for="qDropoffAddress">Dirección donde se deja</label>
+                    <input id="qDropoffAddress" type="text" placeholder="Hotel, Airbnb o domicilio" />
+                  </div>
+                </div>
+                <div class="tip" id="airportTip">Selecciona aeropuerto y hora del vuelo para ver la hora sugerida de pick-up.</div>
+              </div>
+
+              <div class="dynamic-block" id="tourFields">
+                <h4>Datos del tour</h4>
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qTourName">Tour solicitado</label>
+                    <select id="qTourName">
+                      <option value="">Selecciona un tour</option>
+                      <option>San Miguel de Allende & Surroundings</option>
+                      <option>Walking San Miguel</option>
+                      <option>Cañada de la Virgen</option>
+                      <option>Atotonilco & Dolores Hidalgo</option>
+                      <option>Guanajuato</option>
+                      <option>Guanajuato City + Dolores Hidalgo + Atotonilco</option>
+                      <option>Mineral de Pozos</option>
+                      <option>Querétaro</option>
+                      <option>Bernal Viñedos</option>
+                      <option>Teotihuacán</option>
+                      <option>Santuario Mariposas Monarca</option>
+                    </select>
+                  </div>
+                  <div class="quote-field">
+                    <label for="qTourTime">Hora deseada</label>
+                    <input id="qTourTime" type="time" />
+                  </div>
+                </div>
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qTourOrigin">Lugar de salida</label>
+                    <input id="qTourOrigin" type="text" placeholder="Hotel, Airbnb o punto de encuentro" />
+                  </div>
+                  <div class="quote-field">
+                    <label for="qTourLanguage">Idioma del tour / atención</label>
+                    <select id="qTourLanguage">
+                      <option value="">Selecciona un idioma</option>
+                      <option>Español</option>
+                      <option>English</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dynamic-block" id="eventFields">
+                <h4>Datos del evento o servicio</h4>
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qEventType">Tipo de evento / servicio</label>
+                    <input id="qEventType" type="text" placeholder="Ej. boda, grupo familiar, evento corporativo" />
+                  </div>
+                  <div class="quote-field">
+                    <label for="qVenue">Venue / lugar principal</label>
+                    <input id="qVenue" type="text" placeholder="Ej. hotel, hacienda, viñedo, venue" />
+                  </div>
+                </div>
+                <div class="quote-row">
+                  <div class="quote-field">
+                    <label for="qEventOrigin">Origen / punto de salida</label>
+                    <input id="qEventOrigin" type="text" placeholder="Hotel, domicilio, aeropuerto u otro punto" />
+                  </div>
+                  <div class="quote-field">
+                    <label for="qEventDestination">Destino / ruta</label>
+                    <input id="qEventDestination" type="text" placeholder="Ruta principal o destino final" />
+                  </div>
+                </div>
+                <div class="quote-field">
+                  <label for="qEventSchedule">Horario general</label>
+                  <input id="qEventSchedule" type="text" placeholder="Ej. 3:00 PM a 11:30 PM / salida flexible" />
+                </div>
+              </div>
+
+              <div class="quote-field">
+                <label for="qNotes">Notas adicionales</label>
+                <textarea id="qNotes" rows="4" placeholder="Equipaje, terminal, silla infantil, necesidades especiales o cualquier detalle importante."></textarea>
+              </div>
+
+              <div class="summary-grid">
+                <div class="summary-box">
+                  <small>Servicio</small>
+                  <strong id="sumService">Por definir</strong>
+                </div>
+                <div class="summary-box">
+                  <small>Vehículo sugerido</small>
+                  <strong id="sumVehicle">Por definir</strong>
+                </div>
+                <div class="summary-box">
+                  <small>Efectivo / transferencia</small>
+                  <strong id="sumCash">Cotización directa</strong>
+                </div>
+                <div class="summary-box">
+                  <small>Tarjeta / factura</small>
+                  <strong id="sumCard">Cotización directa</strong>
+                </div>
+                <div class="summary-box">
+                  <small>Horario sugerido</small>
+                  <strong id="sumSchedule">Por definir</strong>
+                </div>
+              </div>
+
+              <div class="quote-field">
+                <label for="qPreview">Vista previa</label>
+                <div class="quote-preview" id="qPreview">Completa el formulario para generar tu solicitud.</div>
+              </div>
+
+              <div class="quote-actions">
+                <button type="button" class="btn-wa" id="sendWhatsappBtn">Enviar por WhatsApp</button>
+                <button type="button" class="btn" id="sendEmailBtn">Enviar por email</button>
+                <button type="button" class="btn-outline" id="copyRequestBtn">Copiar solicitud</button>
+              </div>
+
+              <p class="quote-note">
+                La solicitud no confirma automáticamente una reserva. BESTUR revisará disponibilidad, vehículo recomendado, ruta, horario y condiciones finales antes de confirmar.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Servicios principales</span>
+          <h2 class="title">Servicios privados <em>bien coordinados</em></h2>
+          <p class="copy">
+            BESTUR no vende solo transporte. Coordina viajes privados, rutas culturales y logística para viajeros, familias, grupos y eventos.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80" alt="Traslados privados a aeropuertos desde San Miguel de Allende con Operadora Turística BESTUR" />
+            <div class="service-content">
+              <span class="service-tag">Airport transfers</span>
+              <h3>Aeropuertos</h3>
+              <p>Traslados privados hacia y desde BJX, QRO y Ciudad de México con atención directa.</p>
+              <a class="card-link" href="#aeropuertos">Ver rutas →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1568402102990-bc541580b59f?auto=format&fit=crop&w=1200&q=80" alt="Tours privados y experiencias culturales en San Miguel de Allende y Guanajuato" />
+            <div class="service-content">
+              <span class="service-tag">Private tours</span>
+              <h3>Tours privados</h3>
+              <p>Rutas culturales, históricas y regionales para conocer San Miguel y el Bajío mexicano.</p>
+              <a class="card-link" href="#tours">Ver tours →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80" alt="Transporte privado para bodas, invitados y venues en San Miguel de Allende" />
+            <div class="service-content">
+              <span class="service-tag">Weddings</span>
+              <h3>Bodas</h3>
+              <p>Logística privada para invitados, hoteles, venues, iglesias y movimientos del evento.</p>
+              <a class="card-link" href="#reservar">Cotizar boda →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1200&q=80" alt="Tours y traslados privados a viñedos de Guanajuato y Querétaro" />
+            <div class="service-content">
+              <span class="service-tag">Wineries</span>
+              <h3>Viñedos</h3>
+              <p>Experiencias privadas y traslados a viñedos de Guanajuato y Querétaro.</p>
+              <a class="card-link" href="#tours">Ver opciones →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="flotilla">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Flotilla BESTUR</span>
+          <h2 class="title">Vehículos para cada <em>tipo de viaje</em></h2>
+          <p class="copy">
+            La unidad final se confirma según número de personas, ruta, equipaje y disponibilidad del servicio.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <article class="fleet-card">
+            <div class="fleet-img">
+              <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80" alt="Kia o X-Trail para traslados privados en San Miguel de Allende" />
+            </div>
+            <small>1 a 3 pasajeros</small>
+            <h3>Kia / X-Trail</h3>
+            <p>Ideal para parejas, viajeros individuales o grupos pequeños con equipaje moderado.</p>
+            <div class="fleet-meta">
+              <span>Servicio privado</span>
+              <span>Ciudad y aeropuertos</span>
+            </div>
+            <div class="price-row">
+              <span>Uso recomendado</span>
+              <strong>Traslados ejecutivos</strong>
+            </div>
+          </article>
+
+          <article class="fleet-card">
+            <div class="fleet-img">
+              <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=1200&q=80" alt="Suburban para familias y grupos pequeños en San Miguel de Allende" />
+            </div>
+            <small>4 a 7 pasajeros</small>
+            <h3>Suburban</h3>
+            <p>Mayor comodidad para familias, viajeros premium, bodas y grupos pequeños.</p>
+            <div class="fleet-meta">
+              <span>Más espacio</span>
+              <span>Premium</span>
+            </div>
+            <div class="price-row">
+              <span>Uso recomendado</span>
+              <strong>Familias y eventos</strong>
+            </div>
+          </article>
+
+          <article class="fleet-card">
+            <div class="fleet-img">
+              <img src="https://images.unsplash.com/photo-1580834657432-0f7dd4d5fc6c?auto=format&fit=crop&w=1200&q=80" alt="Hiace para tours privados y grupos en Guanajuato y Querétaro" />
+            </div>
+            <small>8 a 14 pasajeros</small>
+            <h3>Hiace</h3>
+            <p>Excelente para tours privados, familias grandes, invitados de boda y grupos.</p>
+            <div class="fleet-meta">
+              <span>Capacidad grupal</span>
+              <span>Tours y traslados</span>
+            </div>
+            <div class="price-row">
+              <span>Uso recomendado</span>
+              <strong>Grupos medianos</strong>
+            </div>
+          </article>
+
+          <article class="fleet-card">
+            <div class="fleet-img">
+              <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1200&q=80" alt="Transit para transporte privado de grupos en San Miguel de Allende" />
+            </div>
+            <small>Categoría van</small>
+            <h3>Transit</h3>
+            <p>Normalmente se vende como categoría Hiace y se confirma según disponibilidad.</p>
+            <div class="fleet-meta">
+              <span>Capacidad similar</span>
+              <span>Grupos</span>
+            </div>
+            <div class="price-row">
+              <span>Uso recomendado</span>
+              <strong>Traslados grupales</strong>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid-3" style="margin-top:18px;">
+          <article class="fleet-card">
+            <div class="fleet-img">
+              <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=1200&q=80" alt="Crafter para grupos grandes, bodas y eventos en el Bajío" />
+            </div>
+            <small>15 a 20 pasajeros</small>
+            <h3>Crafter</h3>
+            <p>Ideal para grupos grandes, bodas, eventos y logística más amplia. Con equipaje amplio puede trabajarse para 16 pasajeros.</p>
+            <div class="fleet-meta">
+              <span>Mayor capacidad</span>
+              <span>Cotización especial si aplica</span>
+            </div>
+            <div class="price-row">
+              <span>Uso recomendado</span>
+              <strong>Eventos y grupos grandes</strong>
+            </div>
+          </article>
+
+          <article class="premium-card">
+            <small>Servicio flexible</small>
+            <h3>Rutas personalizadas</h3>
+            <p>Además de aeropuertos y tours, BESTUR coordina viajes entre ciudades, rutas especiales y movimientos privados en el Bajío mexicano.</p>
+          </article>
+
+          <article class="premium-card">
+            <small>Atención directa</small>
+            <h3>WhatsApp como canal principal</h3>
+            <p>La mejor forma de cotizar es enviar la solicitud completa. Así la respuesta llega con mejor contexto y menos pasos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="aeropuertos">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Airport transfers</span>
+          <h2 class="title">Llegadas y salidas <em>sin fricción</em></h2>
+          <p class="copy">
+            Tres rutas clave para viajeros nacionales e internacionales que llegan o salen desde San Miguel de Allende.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="premium-card">
+            <small>QRO</small>
+            <h3>Aeropuerto de Querétaro</h3>
+            <p>Una de las rutas más cómodas para viajeros que conectan con San Miguel de Allende.</p>
+            <a class="btn-outline" href="#reservar">Cotizar QRO</a>
+          </article>
+
+          <article class="premium-card">
+            <small>BJX</small>
+            <h3>Aeropuerto del Bajío</h3>
+            <p>Ruta frecuente para conectar con León, Silao, Guanajuato y la zona del Bajío.</p>
+            <a class="btn-outline" href="#reservar">Cotizar BJX</a>
+          </article>
+
+          <article class="premium-card">
+            <small>CDMX</small>
+            <h3>Ciudad de México / AICM</h3>
+            <p>Traslados largos para viajeros que requieren puntualidad, claridad y logística bien organizada.</p>
+            <a class="btn-outline" href="#reservar">Cotizar CDMX</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="tours">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Tours privados</span>
+          <h2 class="title">Experiencias culturales en <em>Guanajuato y el Bajío</em></h2>
+          <p class="copy">
+            Rutas ideales para viajeros que quieren conocer mejor la región con atención privada y organización clara.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="premium-card">
+            <small>San Miguel</small>
+            <h3>San Miguel & Surroundings</h3>
+            <p>Centro histórico, puntos icónicos y contexto cultural de San Miguel de Allende y sus alrededores.</p>
+            <a class="btn-outline" href="#reservar">Solicitar tour</a>
+          </article>
+
+          <article class="premium-card">
+            <small>Historia</small>
+            <h3>Dolores Hidalgo & Atotonilco</h3>
+            <p>Ruta cultural e histórica con identidad regional, arte sacro y paradas de alto valor para el visitante.</p>
+            <a class="btn-outline" href="#reservar">Solicitar tour</a>
+          </article>
+
+          <article class="premium-card">
+            <small>Ciudad</small>
+            <h3>Guanajuato</h3>
+            <p>Ciudad histórica, callejones, arquitectura y una experiencia privada muy atractiva para visitantes extranjeros.</p>
+            <a class="btn-outline" href="#reservar">Solicitar tour</a>
+          </article>
+
+          <article class="premium-card">
+            <small>Escapada</small>
+            <h3>Mineral de Pozos</h3>
+            <p>Destino con personalidad propia, fotografía, historia y una atmósfera distinta dentro de la región.</p>
+            <a class="btn-outline" href="#reservar">Solicitar tour</a>
+          </article>
+
+          <article class="premium-card">
+            <small>Viñedos</small>
+            <h3>Bernal Viñedos</h3>
+            <p>Ruta ideal para quienes buscan vino, paisaje, gastronomía y una experiencia de día bien coordinada.</p>
+            <a class="btn-outline" href="#reservar">Solicitar experiencia</a>
+          </article>
+
+          <article class="premium-card">
+            <small>Ruta especial</small>
+            <h3>Teotihuacán / Mariposas Monarca</h3>
+            <p>Opciones de mayor duración para viajeros que quieren combinar cultura, historia y naturaleza.</p>
+            <a class="btn-outline" href="#reservar">Solicitar experiencia</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="info-util">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Información útil antes de reservar</span>
+          <h2 class="title">Todo claro para planear tu <em>servicio privado</em></h2>
+          <p class="copy">
+            Aquí tienes un resumen natural y directo de lo que hace BESTUR y de cómo funciona el proceso antes de confirmar una reserva.
+          </p>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>¿Quién es BESTUR?</h3>
+            <p>BESTUR es una operadora turística en San Miguel de Allende que coordina traslados privados, airport transfers, tours culturales, viñedos, bodas, servicios para grupos y rutas especiales.</p>
+          </article>
+
+          <article class="info-card">
+            <h3>¿Dónde opera?</h3>
+            <p>La operación principal parte de San Miguel de Allende y conecta con Guanajuato, Querétaro, Ciudad de México, aeropuertos clave y distintos puntos del Bajío mexicano.</p>
+          </article>
+
+          <article class="info-card">
+            <h3>¿Qué servicios ofrece?</h3>
+            <p>Traslados privados, llegadas y salidas de aeropuerto, tours privados, viñedos, transporte para bodas, grupos, familias y servicios especiales según la necesidad del viaje.</p>
+          </article>
+
+          <article class="info-card">
+            <h3>¿Para quién es ideal?</h3>
+            <p>Para viajeros extranjeros, parejas, familias, grupos, invitados de boda, viajeros premium y clientes que buscan una experiencia clara, cómoda y confiable.</p>
+          </article>
+
+          <article class="info-card">
+            <h3>¿Cómo cotizar?</h3>
+            <p>La forma más rápida es llenar el formulario con fecha, servicio, pasajeros y datos específicos. Después se envía por WhatsApp para recibir respuesta directa.</p>
+          </article>
+
+          <article class="info-card">
+            <h3>¿Cómo se confirma la reserva?</h3>
+            <p>Una reserva se confirma cuando BESTUR valida disponibilidad, ruta, horario, vehículo recomendado y condiciones finales del servicio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">FAQ</span>
+          <h2 class="title">Preguntas <em>frecuentes</em></h2>
+          <p class="copy">
+            Respuestas rápidas antes de solicitar un traslado, tour privado o servicio especial.
+          </p>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>¿Cómo cotizo un servicio?</summary>
+            <p>Llena el formulario y envía la solicitud por WhatsApp o email con fecha, tipo de servicio, número de personas y los datos principales de tu ruta o experiencia.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Ofrecen traslados a aeropuertos?</summary>
+            <p>Sí. BESTUR coordina traslados privados hacia y desde Aeropuerto del Bajío BJX, Aeropuerto de Querétaro QRO y Ciudad de México / AICM.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Los tours son privados?</summary>
+            <p>Sí. Los tours se coordinan de manera privada para parejas, familias, grupos e invitados que buscan una experiencia más personalizada.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Atienden bodas y grupos?</summary>
+            <p>Sí. BESTUR coordina transporte para bodas, familias, invitados, grupos y servicios especiales con logística adaptada al evento.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Dónde está BESTUR?</summary>
+            <p>BESTUR está ubicada en Carlos del Castillo 6, Guadalupe, 37710 San Miguel de Allende, Guanajuato, México.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>¿Cómo se confirma la reserva?</summary>
+            <p>La reserva se confirma una vez que BESTUR valida disponibilidad, ruta, horario, vehículo recomendado y condiciones finales del servicio.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ubicacion">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Ubicación</span>
+          <h2 class="title">BESTUR en <em>San Miguel de Allende</em></h2>
+          <p class="copy">
+            Nuestra base operativa se encuentra en San Miguel de Allende, Guanajuato, México.
+          </p>
+        </div>
+
+        <div class="location-grid">
+          <aside class="glass location-card">
+            <h2>Operadora Turística BESTUR</h2>
+            <p>
+              Desde aquí coordinamos traslados privados, airport transfers, tours culturales, bodas, viñedos y servicios especiales en San Miguel de Allende y el Bajío mexicano.
+            </p>
+
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong>Dirección</strong>
+                <p>Carlos del Castillo 6, Guadalupe,<br>37710 San Miguel de Allende, Guanajuato, México.</p>
+              </div>
+
+              <div class="contact-item">
+                <strong>Teléfonos</strong>
+                <p>
+                  <a href="tel:+524151035353">+52 415 103 5353</a><br>
+                  <a href="tel:+524151212540">+52 415 121 2540</a>
+                </p>
+              </div>
+
+              <div class="contact-item">
+                <strong>Correos</strong>
+                <p>
+                  <a href="mailto:otbestur@gmail.com">otbestur@gmail.com</a><br>
+                  <a href="mailto:otbestur@yahoo.com">otbestur@yahoo.com</a><br>
+                  <a href="mailto:otbestur@hotmail.com">otbestur@hotmail.com</a>
+                </p>
+              </div>
+
+              <div class="contact-item">
+                <strong>Redes</strong>
+                <p>
+                  <a href="https://www.facebook.com/profile.php?id=100042187006901" target="_blank" rel="noopener">Facebook</a><br>
+                  <a href="https://www.instagram.com/operadoraturisticabestur/" target="_blank" rel="noopener">Instagram</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="location-actions">
+              <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+              <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=Operadora%20Tur%C3%ADstica%20Bestur%20Carlos%20del%20Castillo%206%20Guadalupe%2037710%20San%20Miguel%20de%20Allende%20Gto" target="_blank" rel="noopener">Abrir en Google Maps</a>
+            </div>
+          </aside>
+
+          <div class="map-card">
+            <iframe
+              title="Ubicación Operadora Turística BESTUR en San Miguel de Allende"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Operadora%20Tur%C3%ADstica%20Bestur%2C%20Carlos%20del%20Castillo%206%2C%20Guadalupe%2C%2037710%20San%20Miguel%20de%20Allende%2C%20Gto&output=embed">
+            </iframe>
+            <div class="map-overlay">
+              <strong>BESTUR · San Miguel de Allende</strong>
+              <span>Base operativa para traslados privados, tours, bodas, viñedos y servicios especiales.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>BESTUR</h4>
+          <p>
+            for the pleasure of good travel. Operadora turística premium en San Miguel de Allende para traslados privados, airport transfers, tours, bodas, viñedos y grupos.
+          </p>
+          <div class="footer-socials">
+            <a class="btn-soft" href="https://www.facebook.com/profile.php?id=100042187006901" target="_blank" rel="noopener">Facebook</a>
+            <a class="btn-soft" href="https://www.instagram.com/operadoraturisticabestur/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Servicios</h4>
+          <p>
+            <a href="#reservar">Reservar</a><br>
+            <a href="#servicios">Servicios principales</a><br>
+            <a href="#aeropuertos">Aeropuertos</a><br>
+            <a href="#tours">Tours</a>
+          </p>
+        </div>
+
+        <div>
+          <h4>Info útil</h4>
+          <p>
+            <a href="#flotilla">Flotilla</a><br>
+            <a href="#info-util">Información útil</a><br>
+            <a href="#faq">Preguntas frecuentes</a><br>
+            <a href="#ubicacion">Ubicación</a>
+          </p>
+        </div>
+
+        <div>
+          <h4>Contacto</h4>
+          <p>
+            <a href="tel:+524151035353">+52 415 103 5353</a><br>
+            <a href="tel:+524151212540">+52 415 121 2540</a><br>
+            <a href="mailto:otbestur@gmail.com">otbestur@gmail.com</a><br>
+            <a href="mailto:otbestur@yahoo.com">otbestur@yahoo.com</a><br>
+            <a href="mailto:otbestur@hotmail.com">otbestur@hotmail.com</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="currentYear"></span> Operadora Turística BESTUR. Todos los derechos reservados.</p>
+        <p>San Miguel de Allende · Guanajuato · México</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="float-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
 
   <script>
-    const mobilePanel = document.getElementById('mobilePanel');
-    const burgerBtn = document.getElementById('burgerBtn');
+    (function(){
+      const body = document.body;
+      const header = document.getElementById('siteHeader');
+      const mobilePanel = document.getElementById('mobilePanel');
+      const burgerBtn = document.getElementById('burgerBtn');
+      const currentYear = document.getElementById('currentYear');
 
-    if (burgerBtn) {
-      burgerBtn.addEventListener('click', function () {
-        mobilePanel.classList.toggle('open');
-        document.body.style.overflow = mobilePanel.classList.contains('open') ? 'hidden' : '';
+      if(currentYear){ currentYear.textContent = new Date().getFullYear(); }
+
+      function toggleMenu(forceState){
+        const shouldOpen = typeof forceState === 'boolean' ? forceState : !mobilePanel.classList.contains('open');
+        mobilePanel.classList.toggle('open', shouldOpen);
+        burgerBtn.setAttribute('aria-expanded', String(shouldOpen));
+        mobilePanel.setAttribute('aria-hidden', String(!shouldOpen));
+        body.style.overflow = shouldOpen ? 'hidden' : '';
+      }
+
+      if(burgerBtn){
+        burgerBtn.addEventListener('click', () => toggleMenu());
+      }
+
+      mobilePanel.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
       });
-    }
 
-    document.querySelectorAll('.mobile-nav a, .mobile-actions a').forEach(function(link){
-      link.addEventListener('click', function(){
-        mobilePanel.classList.remove('open');
-        document.body.style.overflow = '';
+      window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 12);
       });
-    });
 
-    function besturQuoteGet(id) {
-      const el = document.getElementById(id);
-      return el ? String(el.value || '').trim() : '';
-    }
-
-    function besturQuoteDate(dateValue) {
-      if (!dateValue) return '';
-      const parts = dateValue.split('-');
-      if (parts.length === 3) {
-        return parts[2] + '/' + parts[1] + '/' + parts[0];
-      }
-      return dateValue;
-    }
-
-    function besturQuoteTime(timeValue) {
-      if (!timeValue) return '';
-      const parts = timeValue.split(':');
-      let h = Number(parts[0]);
-      const m = parts[1] || '00';
-      if (Number.isNaN(h)) return timeValue;
-      const ampm = h >= 12 ? 'PM' : 'AM';
-      h = h % 12;
-      if (h === 0) h = 12;
-      return String(h).padStart(2, '0') + ':' + m + ' ' + ampm;
-    }
-
-    function besturSuggestedVehicle(passengers) {
-      const n = Number(passengers || 0);
-
-      if (!n || n <= 0) return 'Por definir';
-      if (n <= 3) return 'Kia / X-Trail';
-      if (n <= 7) return 'Suburban';
-      if (n <= 14) return 'Hiace / Transit';
-      if (n <= 20) return 'Crafter';
-      return 'Cotización especial para grupo';
-    }
-
-    function besturBasePrice(vehicle) {
-      if (vehicle.includes('Kia') || vehicle.includes('X-Trail')) return 1995;
-      if (vehicle.includes('Suburban')) return 2625;
-      if (vehicle.includes('Hiace') || vehicle.includes('Transit')) return 3150;
-      if (vehicle.includes('Crafter')) return 3675;
-      return 0;
-    }
-
-    function besturMoney(value) {
-      if (!value || value <= 0) return 'Por definir';
-      return '$' + Math.round(value).toLocaleString('es-MX') + ' MXN';
-    }
-
-    function besturQuoteMessage() {
-      const name = besturQuoteGet('qName');
-      const phone = besturQuoteGet('qPhone');
-      const email = besturQuoteGet('qEmail');
-      const date = besturQuoteGet('qDate');
-      const service = besturQuoteGet('qService');
-      const passengers = besturQuoteGet('qPassengers');
-      const origin = besturQuoteGet('qOrigin');
-      const destination = besturQuoteGet('qDestination');
-      const time = besturQuoteGet('qTime');
-      const flight = besturQuoteGet('qFlight');
-      const payment = besturQuoteGet('qPayment');
-      const language = besturQuoteGet('qLanguage');
-      const notes = besturQuoteGet('qNotes');
-
-      const vehicle = besturSuggestedVehicle(passengers);
-      const base = besturBasePrice(vehicle);
-      const cash = besturMoney(base);
-      const card = besturMoney(base * 1.16);
-
-      const lines = [
-        '🚘 BESTUR · Solicitud de servicio',
-        '',
-        '👤 Nombre: ' + (name || 'Por definir'),
-        '📱 Teléfono / WhatsApp: ' + (phone || 'Por definir'),
-        '📧 Email: ' + (email || 'No proporcionado'),
-        '📅 Fecha: ' + (besturQuoteDate(date) || 'Por definir'),
-        '🕒 Hora aproximada: ' + (besturQuoteTime(time) || 'Por definir'),
-        '',
-        '🧭 Servicio solicitado: ' + (service || 'Por definir'),
-        '👥 Personas: ' + (passengers || 'Por definir'),
-        '🚗 Vehículo sugerido: ' + vehicle,
-        '',
-        '💵 Tarifa efectivo / transferencia: ' + cash,
-        '💳 Tarifa tarjeta / factura: ' + card,
-        '',
-        '📍 Origen / recogida: ' + (origin || 'Por definir'),
-        '🏁 Destino / ruta: ' + (destination || 'Por definir'),
-        '✈️ Vuelo / referencia: ' + (flight || 'No aplica'),
-        '',
-        '🧾 Forma de pago estimada: ' + (payment || 'Por definir'),
-        '🌐 Idioma de atención: ' + (language || 'Español'),
-        '📝 Notas: ' + (notes || 'Sin notas adicionales'),
-        '',
-        'Quedo atento(a) a disponibilidad, vehículo recomendado y cotización final.'
+      const formIds = [
+        'qName','qPhone','qEmail','qDate','qService','qPassengers','qPayment','qLanguage','qNotes',
+        'qAirport','qFlightNumber','qFlightTime','qAirline','qPickupAddress','qDropoffAddress',
+        'qTourName','qTourTime','qTourOrigin','qTourLanguage',
+        'qEventType','qVenue','qEventOrigin','qEventDestination','qEventSchedule'
       ];
 
-      return lines.join('\n');
-    }
+      const airportFields = document.getElementById('airportFields');
+      const tourFields = document.getElementById('tourFields');
+      const eventFields = document.getElementById('eventFields');
+      const airportTip = document.getElementById('airportTip');
 
-    function besturQuoteUpdate() {
-      const passengers = besturQuoteGet('qPassengers');
-      const vehicle = besturSuggestedVehicle(passengers);
-      const base = besturBasePrice(vehicle);
+      const airportPrices = {
+        BJX: { cash: { suv:1995, suburban:2625, van:3150, crafter:3675 }, buffer: 210 },
+        QRO: { cash: { suv:1995, suburban:2835, van:3675, crafter:5250 }, buffer: 210 },
+        CDMX:{ cash: { suv:5250, suburban:7350, van:8400, crafter:9975 }, buffer: 420 }
+      };
 
-      const qVehicle = document.getElementById('qVehicle');
-      const qCash = document.getElementById('qCash');
-      const qCard = document.getElementById('qCard');
-      const preview = document.getElementById('qPreview');
-
-      if (qVehicle) qVehicle.textContent = vehicle;
-      if (qCash) qCash.textContent = besturMoney(base);
-      if (qCard) qCard.textContent = besturMoney(base * 1.16);
-      if (preview) preview.textContent = besturQuoteMessage();
-    }
-
-    function besturQuoteValidate() {
-      const required = [
-        ['qName', 'nombre completo'],
-        ['qPhone', 'teléfono / WhatsApp'],
-        ['qDate', 'fecha del servicio'],
-        ['qService', 'tipo de servicio'],
-        ['qPassengers', 'número de personas']
-      ];
-
-      for (let i = 0; i < required.length; i++) {
-        const id = required[i][0];
-        const label = required[i][1];
-
-        if (!besturQuoteGet(id)) {
-          alert('Falta completar: ' + label);
-          const field = document.getElementById(id);
-          if (field) field.focus();
-          return false;
-        }
-      }
-
-      return true;
-    }
-
-    function besturQuoteWhatsApp() {
-      besturQuoteUpdate();
-
-      if (!besturQuoteValidate()) {
-        return;
-      }
-
-      const message = besturQuoteMessage();
-      const url = 'https://wa.me/524151035353?text=' + encodeURIComponent(message);
-      window.open(url, '_blank');
-    }
-
-    function besturQuoteEmail() {
-      besturQuoteUpdate();
-
-      if (!besturQuoteValidate()) {
-        return;
-      }
-
-      const name = besturQuoteGet('qName') || 'Cliente';
-      const subject = 'Solicitud de servicio BESTUR - ' + name;
-      const body = besturQuoteMessage();
-
-      window.location.href =
-        'mailto:otbestur@gmail.com' +
-        '?cc=' + encodeURIComponent('otbestur@yahoo.com,otbestur@hotmail.com') +
-        '&subject=' + encodeURIComponent(subject) +
-        '&body=' + encodeURIComponent(body);
-    }
-
-    function besturQuoteCopy() {
-      besturQuoteUpdate();
-
-      const message = besturQuoteMessage();
-
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(message).then(function() {
-          alert('Solicitud copiada.');
-        }).catch(function() {
-          alert(message);
-        });
-      } else {
-        alert(message);
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const fields = [
-        'qName',
-        'qPhone',
-        'qEmail',
-        'qDate',
-        'qService',
-        'qPassengers',
-        'qOrigin',
-        'qDestination',
-        'qTime',
-        'qFlight',
-        'qPayment',
-        'qLanguage',
-        'qNotes'
-      ];
-
-      fields.forEach(function(id){
+      function getVal(id){
         const el = document.getElementById(id);
-        if (el) {
-          el.addEventListener('input', besturQuoteUpdate);
-          el.addEventListener('change', besturQuoteUpdate);
+        return el ? String(el.value || '').trim() : '';
+      }
+
+      function formatDate(value){
+        if(!value) return 'Por definir';
+        const parts = value.split('-');
+        return parts.length === 3 ? `${parts[2]}/${parts[1]}/${parts[0]}` : value;
+      }
+
+      function to12h(value){
+        if(!value) return 'Por definir';
+        const parts = value.split(':');
+        let h = Number(parts[0]);
+        const m = parts[1] || '00';
+        if(Number.isNaN(h)) return value;
+        const ap = h >= 12 ? 'PM' : 'AM';
+        h = h % 12;
+        if(h === 0) h = 12;
+        return `${String(h).padStart(2,'0')}:${m} ${ap}`;
+      }
+
+      function subtractMinutes(timeValue, minutes){
+        if(!timeValue) return '';
+        const [h,m] = timeValue.split(':').map(Number);
+        if(Number.isNaN(h) || Number.isNaN(m)) return '';
+        let total = h * 60 + m - minutes;
+        while(total < 0) total += 24 * 60;
+        const nh = Math.floor(total / 60) % 24;
+        const nm = total % 60;
+        return `${String(nh).padStart(2,'0')}:${String(nm).padStart(2,'0')}`;
+      }
+
+      function suggestedVehicle(passengers){
+        const n = Number(passengers || 0);
+        if(!n || n <= 0) return {label:'Por definir', key:''};
+        if(n <= 3) return {label:'Kia / X-Trail', key:'suv'};
+        if(n <= 7) return {label:'Suburban', key:'suburban'};
+        if(n <= 14) return {label:'Hiace / Transit', key:'van'};
+        if(n <= 20) return {label:'Crafter', key:'crafter'};
+        return {label:'Cotización especial para grupo', key:''};
+      }
+
+      function mxn(value){
+        return value && value > 0 ? `$${Math.round(value).toLocaleString('es-MX')} MXN` : 'Cotización directa';
+      }
+
+      function airportLabel(code){
+        return {
+          BJX:'Aeropuerto del Bajío BJX',
+          QRO:'Aeropuerto de Querétaro QRO',
+          CDMX:'Ciudad de México / AICM'
+        }[code] || 'Por definir';
+      }
+
+      function serviceCategory(service){
+        if(service === 'Traslado a aeropuerto' || service === 'Llegada desde aeropuerto') return 'airport';
+        if(service === 'Tour privado' || service === 'Tour a viñedos') return 'tour';
+        if(service === 'Transporte para boda' || service === 'Transporte para grupo' || service === 'Servicio especial') return 'event';
+        return '';
+      }
+
+      function airportPricing(service, airportCode, vehicleKey){
+        if(!airportCode || !vehicleKey || !airportPrices[airportCode] || !airportPrices[airportCode].cash[vehicleKey]){
+          return {cash:'Cotización directa', card:'Cotización directa', schedule:'Por definir', buffer:0};
+        }
+        const base = airportPrices[airportCode].cash[vehicleKey];
+        return {cash:mxn(base), card:mxn(base * 1.16), base, buffer:airportPrices[airportCode].buffer};
+      }
+
+      function updateDynamicSections(){
+        const service = getVal('qService');
+        const category = serviceCategory(service);
+        airportFields.classList.toggle('active', category === 'airport');
+        tourFields.classList.toggle('active', category === 'tour');
+        eventFields.classList.toggle('active', category === 'event');
+      }
+
+      function buildServiceDetail(service){
+        const category = serviceCategory(service);
+
+        if(category === 'airport'){
+          const airport = getVal('qAirport');
+          const flightNo = getVal('qFlightNumber') || 'Por definir';
+          const flightTime = getVal('qFlightTime');
+          const airline = getVal('qAirline') || 'Por definir';
+          const pickup = getVal('qPickupAddress') || 'Por definir';
+          const dropoff = getVal('qDropoffAddress') || 'Por definir';
+
+          return [
+            `Aeropuerto: ${airportLabel(airport)}`,
+            `Número de vuelo: ${flightNo}`,
+            `Hora de vuelo / llegada: ${to12h(flightTime)}`,
+            `Aerolínea: ${airline}`,
+            `Dirección de recogida: ${pickup}`,
+            `Dirección donde se deja: ${dropoff}`
+          ].join('\n');
+        }
+
+        if(category === 'tour'){
+          const tour = getVal('qTourName') || 'Por definir';
+          const time = getVal('qTourTime');
+          const origin = getVal('qTourOrigin') || 'Por definir';
+          const language = getVal('qTourLanguage') || getVal('qLanguage') || 'Por definir';
+
+          return [
+            `Tour solicitado: ${tour}`,
+            `Hora deseada: ${to12h(time)}`,
+            `Lugar de salida: ${origin}`,
+            `Idioma del tour / atención: ${language}`
+          ].join('\n');
+        }
+
+        if(category === 'event'){
+          const eventType = getVal('qEventType') || 'Por definir';
+          const venue = getVal('qVenue') || 'Por definir';
+          const origin = getVal('qEventOrigin') || 'Por definir';
+          const destination = getVal('qEventDestination') || 'Por definir';
+          const schedule = getVal('qEventSchedule') || 'Por definir';
+
+          return [
+            `Tipo de evento / servicio: ${eventType}`,
+            `Venue / lugar principal: ${venue}`,
+            `Origen / punto de salida: ${origin}`,
+            `Destino / ruta: ${destination}`,
+            `Horario general: ${schedule}`
+          ].join('\n');
+        }
+
+        return 'Completa los datos del servicio.';
+      }
+
+      function getScheduleSuggestion(service, airportCode){
+        const category = serviceCategory(service);
+        if(category !== 'airport') return 'Cotización directa';
+
+        const flightTime = getVal('qFlightTime');
+        if(!flightTime) return 'Por definir';
+
+        if(service === 'Traslado a aeropuerto'){
+          const buffer = airportPrices[airportCode]?.buffer || 0;
+          const suggested = subtractMinutes(flightTime, buffer);
+          if(!suggested) return 'Por definir';
+          return to12h(suggested);
+        }
+
+        if(service === 'Llegada desde aeropuerto'){
+          return to12h(flightTime);
+        }
+
+        return 'Por definir';
+      }
+
+      function updateAirportTip(service, airportCode){
+        const category = serviceCategory(service);
+        if(category !== 'airport'){
+          airportTip.textContent = 'Selecciona un servicio de aeropuerto para ver recomendaciones operativas.';
+          return;
+        }
+        const flightTime = getVal('qFlightTime');
+        if(!airportCode){
+          airportTip.textContent = 'Selecciona un aeropuerto para mostrar la referencia operativa y la tarifa estimada.';
+          return;
+        }
+
+        if(service === 'Traslado a aeropuerto'){
+          if(!flightTime){
+            airportTip.textContent = `${airportLabel(airportCode)}: al ingresar la hora del vuelo, mostraremos la hora sugerida de pick-up para esta ruta.`;
+            return;
+          }
+          const schedule = getScheduleSuggestion(service, airportCode);
+          const message = {
+            BJX:'Se recomienda salir 3 horas y 30 minutos antes del vuelo.',
+            QRO:'Se recomienda salir 3 horas y 30 minutos antes del vuelo.',
+            CDMX:'Se recomienda salir 7 horas antes del vuelo.'
+          }[airportCode] || 'Recomendación operativa disponible.';
+          airportTip.textContent = `${message} Pick-up sugerido: ${schedule}.`;
+          return;
+        }
+
+        if(service === 'Llegada desde aeropuerto'){
+          airportTip.textContent = 'Para llegadas, la referencia operativa se toma con base en la hora de aterrizaje proporcionada.';
+        }
+      }
+
+      function validateForm(){
+        const required = [
+          ['qName','nombre completo'],
+          ['qPhone','teléfono / WhatsApp'],
+          ['qDate','fecha del servicio'],
+          ['qService','tipo de servicio'],
+          ['qPassengers','número de personas']
+        ];
+
+        for(const [id,label] of required){
+          if(!getVal(id)){
+            alert(`Por favor completa: ${label}.`);
+            document.getElementById(id).focus();
+            return false;
+          }
+        }
+
+        const service = getVal('qService');
+        const category = serviceCategory(service);
+
+        if(category === 'airport'){
+          const airportRequired = [
+            ['qAirport','aeropuerto'],
+            ['qFlightNumber','número de vuelo'],
+            ['qFlightTime','hora de vuelo / llegada'],
+            ['qAirline','aerolínea'],
+            ['qPickupAddress','dirección de recogida'],
+            ['qDropoffAddress','dirección donde se deja']
+          ];
+          for(const [id,label] of airportRequired){
+            if(!getVal(id)){
+              alert(`Por favor completa: ${label}.`);
+              document.getElementById(id).focus();
+              return false;
+            }
+          }
+        }
+
+        if(category === 'tour'){
+          const tourRequired = [
+            ['qTourName','tour solicitado'],
+            ['qTourTime','hora deseada'],
+            ['qTourOrigin','lugar de salida'],
+            ['qTourLanguage','idioma del tour / atención']
+          ];
+          for(const [id,label] of tourRequired){
+            if(!getVal(id)){
+              alert(`Por favor completa: ${label}.`);
+              document.getElementById(id).focus();
+              return false;
+            }
+          }
+        }
+
+        if(category === 'event'){
+          const eventRequired = [
+            ['qEventType','tipo de evento / servicio'],
+            ['qVenue','venue / lugar principal'],
+            ['qEventOrigin','origen / punto de salida'],
+            ['qEventDestination','destino / ruta'],
+            ['qEventSchedule','horario general']
+          ];
+          for(const [id,label] of eventRequired){
+            if(!getVal(id)){
+              alert(`Por favor completa: ${label}.`);
+              document.getElementById(id).focus();
+              return false;
+            }
+          }
+        }
+
+        return true;
+      }
+
+      function buildRequest(){
+        const name = getVal('qName') || 'Por definir';
+        const phone = getVal('qPhone') || 'Por definir';
+        const email = getVal('qEmail') || 'No proporcionado';
+        const date = formatDate(getVal('qDate'));
+        const service = getVal('qService') || 'Por definir';
+        const passengers = getVal('qPassengers') || 'Por definir';
+        const payment = getVal('qPayment') || 'Por definir';
+        const language = getVal('qLanguage') || 'Español';
+        const notes = getVal('qNotes') || 'Sin notas';
+
+        const vehicle = suggestedVehicle(passengers);
+        const category = serviceCategory(service);
+        const airportCode = getVal('qAirport');
+        const pricing = category === 'airport' ? airportPricing(service, airportCode, vehicle.key) : { cash:'Cotización directa', card:'Cotización directa' };
+        const schedule = getScheduleSuggestion(service, airportCode);
+        const detail = buildServiceDetail(service);
+
+        document.getElementById('sumService').textContent = service;
+        document.getElementById('sumVehicle').textContent = vehicle.label;
+        document.getElementById('sumCash').textContent = pricing.cash;
+        document.getElementById('sumCard').textContent = pricing.card;
+        document.getElementById('sumSchedule').textContent = schedule;
+        updateAirportTip(service, airportCode);
+
+        const message = [
+          '🚘 BESTUR · Solicitud de servicio',
+          '',
+          `👤 Nombre: ${name}`,
+          `📱 Teléfono / WhatsApp: ${phone}`,
+          `📧 Email: ${email}`,
+          `📅 Fecha: ${date}`,
+          '',
+          `🧭 Servicio solicitado: ${service}`,
+          `📌 Detalle: ${category === 'airport' ? airportLabel(airportCode) : category === 'tour' ? (getVal('qTourName') || 'Por definir') : (getVal('qEventType') || 'Por definir')}`,
+          `👥 Personas: ${passengers}`,
+          `🚗 Vehículo sugerido: ${vehicle.label}`,
+          '',
+          `💵 Tarifa efectivo / transferencia: ${pricing.cash}`,
+          `💳 Tarifa tarjeta / factura: ${pricing.card}`,
+          `⏱️ Horario sugerido: ${schedule}`,
+          '',
+          '📋 Datos del servicio:',
+          detail,
+          '',
+          `🧾 Forma de pago estimada: ${payment}`,
+          `🌐 Idioma de atención: ${language}`,
+          `📝 Notas: ${notes}`,
+          '',
+          'Quedo atento(a) a disponibilidad, vehículo recomendado y confirmación final.'
+        ].join('\n');
+
+        document.getElementById('qPreview').textContent = message;
+        return message;
+      }
+
+      formIds.forEach(id => {
+        const el = document.getElementById(id);
+        if(el){
+          el.addEventListener('input', () => {
+            updateDynamicSections();
+            buildRequest();
+          });
+          el.addEventListener('change', () => {
+            updateDynamicSections();
+            buildRequest();
+          });
         }
       });
 
-      besturQuoteUpdate();
-    });
+      document.getElementById('sendWhatsappBtn').addEventListener('click', () => {
+        const message = buildRequest();
+        if(!validateForm()) return;
+        const url = 'https://wa.me/524151035353?text=' + encodeURIComponent(message);
+        window.open(url, '_blank');
+      });
+
+      document.getElementById('sendEmailBtn').addEventListener('click', () => {
+        const message = buildRequest();
+        if(!validateForm()) return;
+        const subject = encodeURIComponent('Solicitud de servicio BESTUR');
+        const body = encodeURIComponent(message);
+        window.location.href = 'mailto:otbestur@gmail.com?cc=otbestur@yahoo.com,otbestur@hotmail.com&subject=' + subject + '&body=' + body;
+      });
+
+      document.getElementById('copyRequestBtn').addEventListener('click', async () => {
+        const message = buildRequest();
+        if(!validateForm()) return;
+        try{
+          await navigator.clipboard.writeText(message);
+          alert('Solicitud copiada al portapapeles.');
+        }catch(err){
+          alert('No fue posible copiar automáticamente. Puedes copiarla desde la vista previa.');
+        }
+      });
+
+      const dateInput = document.getElementById('qDate');
+      if(dateInput){
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth()+1).padStart(2,'0');
+        const dd = String(today.getDate()).padStart(2,'0');
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
+      }
+
+      updateDynamicSections();
+      buildRequest();
+    })();
   </script>
 </body>
 </html>
