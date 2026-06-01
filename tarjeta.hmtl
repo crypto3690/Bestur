@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>BESTUR | Premium Travel & Private Tours</title>
+
+  <meta name="description" content="BESTUR — Airport transfers, private tours and premium cultural experiences in San Miguel de Allende, Guanajuato." />
+  <meta name="theme-color" content="#015397" />
+
+  <meta property="og:title" content="BESTUR | Premium Travel in San Miguel de Allende" />
+  <meta property="og:description" content="Airport transfers, private tours and premium cultural experiences in San Miguel de Allende." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root {
+      /* Paleta tomada del logo BESTUR */
+      --bestur-blue: #015397;
+      --bestur-blue-dark: #0f2e4b;
+      --bestur-blue-mid: #155087;
+      --bestur-blue-soft: #6788ad;
+      --bestur-white: #f2fafd;
+      --bestur-ice: #e8f5fb;
+
+      --text: #f2fafd;
+      --muted: rgba(242, 250, 253, 0.74);
+      --line: rgba(242, 250, 253, 0.18);
+      --glass: rgba(255, 255, 255, 0.07);
+      --shadow: 0 24px 90px rgba(0, 0, 0, 0.42);
+
+      --radius-xl: 30px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+
+      --font-main: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-serif: Georgia, "Times New Roman", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-main);
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 8%, rgba(1, 83, 151, 0.55), transparent 30%),
+        radial-gradient(circle at 90% 12%, rgba(103, 136, 173, 0.26), transparent 34%),
+        linear-gradient(145deg, #061525 0%, #0f2e4b 42%, #015397 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(242,250,253,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(242,250,253,.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+      opacity: .45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: min(100%, 540px);
+      margin: 0 auto;
+      padding: 22px 14px 34px;
+      position: relative;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.045));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 510px;
+      padding: 28px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      isolation: isolate;
+      background:
+        linear-gradient(180deg, rgba(6,21,37,.24), rgba(6,21,37,.92)),
+        linear-gradient(135deg, rgba(1,83,151,.62), transparent 50%),
+        url("https://www.mimexico360.com/wp-content/uploads/2019/11/parroquiasma10-2.jpg") center/cover;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(135deg, rgba(6,21,37,.94), rgba(1,83,151,.36) 48%, rgba(6,21,37,.96)),
+        radial-gradient(circle at 74% 16%, rgba(242,250,253,.16), transparent 35%);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 68px;
+      height: 68px;
+      border-radius: 20px;
+      border: 1px solid rgba(242,250,253,.26);
+      background: rgba(242,250,253,.96);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 14px 40px rgba(0,0,0,.22);
+      overflow: hidden;
+      padding: 7px;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 1.08rem;
+      letter-spacing: .16em;
+      line-height: 1;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .72rem;
+      letter-spacing: .06em;
+    }
+
+    .pill {
+      border: 1px solid rgba(242,250,253,.28);
+      background: rgba(1,83,151,.42);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: .72rem;
+      letter-spacing: .045em;
+      white-space: nowrap;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-copy {
+      padding-top: 74px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--bestur-ice);
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 30px;
+      height: 1px;
+      background: var(--bestur-ice);
+      opacity: .82;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 10ch;
+      font-family: var(--font-serif);
+      font-size: clamp(2.45rem, 9vw, 3.7rem);
+      line-height: .96;
+      font-weight: 500;
+      letter-spacing: -.045em;
+    }
+
+    .subtitle {
+      max-width: 35ch;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 13px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(242,250,253,.28);
+      font-size: .92rem;
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+
+    .btn:active {
+      transform: scale(.98);
+    }
+
+    .btn-primary {
+      background: var(--bestur-white);
+      color: var(--bestur-blue);
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: rgba(1,83,151,.36);
+      color: var(--text);
+    }
+
+    .section {
+      padding: 24px 20px;
+      border-top: 1px solid var(--line);
+      background: rgba(6,21,37,.48);
+    }
+
+    .section.alt {
+      background: rgba(1,83,151,.18);
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-family: var(--font-serif);
+      font-size: 1.55rem;
+      font-weight: 500;
+      letter-spacing: -.025em;
+    }
+
+    .section-title span {
+      color: var(--bestur-ice);
+      font-size: .72rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      white-space: nowrap;
+    }
+
+    .service-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .service {
+      padding: 15px;
+      border: 1px solid rgba(242,250,253,.16);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.06);
+    }
+
+    .service strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: .98rem;
+    }
+
+    .service p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.45;
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .quick-link {
+      min-height: 88px;
+      padding: 14px;
+      border: 1px solid rgba(242,250,253,.16);
+      border-radius: var(--radius-md);
+      background: rgba(255,255,255,.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .quick-link span {
+      color: var(--bestur-ice);
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .quick-link strong {
+      font-size: .92rem;
+      line-height: 1.2;
+    }
+
+    .trust-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .trust-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: .92rem;
+    }
+
+    .trust-list li::before {
+      content: "✓";
+      color: var(--bestur-white);
+      font-weight: 800;
+      margin-top: 1px;
+    }
+
+    .contact-panel {
+      display: grid;
+      gap: 10px;
+    }
+
+    .contact-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 13px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(242,250,253,.16);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .contact-row strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 2px;
+      font-size: .88rem;
+    }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 auto;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(242,250,253,.95);
+      color: var(--bestur-blue);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    .qr-wrap {
+      display: grid;
+      grid-template-columns: 112px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(242,250,253,.2);
+      background: linear-gradient(135deg, rgba(1,83,151,.34), rgba(255,255,255,.06));
+    }
+
+    .qr-box {
+      width: 112px;
+      height: 112px;
+      padding: 8px;
+      border-radius: 18px;
+      background: #ffffff;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .qr-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .qr-text strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .qr-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.45;
+    }
+
+    .footer {
+      padding: 20px 18px 22px;
+      background: rgba(6,21,37,.66);
+      text-align: center;
+      color: rgba(242,250,253,.64);
+      font-size: .78rem;
+      line-height: 1.5;
+    }
+
+    .sticky-cta {
+      position: sticky;
+      bottom: 12px;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr 52px;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .sticky-cta .btn {
+      box-shadow: 0 14px 34px rgba(0,0,0,.28);
+    }
+
+    .share-btn {
+      width: 52px;
+      min-height: 52px;
+      border-radius: 999px;
+      border: 1px solid rgba(242,250,253,.26);
+      background: rgba(6,21,37,.88);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      font-size: 1.1rem;
+    }
+
+    @media (min-width: 520px) {
+      .page {
+        padding-top: 34px;
+      }
+
+      .hero {
+        min-height: 540px;
+        padding: 34px 28px 28px;
+      }
+
+      .section {
+        padding: 28px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <article class="card">
+
+      <section class="hero">
+        <div class="topbar">
+          <div class="brand">
+            <div class="logo">
+              <img src="MARCA_DE_AGUA-removebg-preview.png" alt="BESTUR logo" />
+            </div>
+
+            <div class="brand-text">
+              <strong>BESTUR</strong>
+              <span>San Miguel de Allende</span>
+            </div>
+          </div>
+
+          <div class="pill">Premium Travel</div>
+        </div>
+
+        <div class="hero-copy">
+          <div class="eyebrow">Private travel experiences</div>
+
+          <h1>Premium tours & transfers.</h1>
+
+          <p class="subtitle">
+            Private transportation, airport transfers and cultural experiences from San Miguel de Allende to the Bajío region.
+          </p>
+
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/524151035353?text=Hello%20BESTUR%2C%20I%20would%20like%20information%20about%20private%20tours%20or%20transfers."
+              target="_blank"
+              rel="noopener"
+            >
+              WhatsApp
+            </a>
+
+            <a class="btn btn-secondary" href="tel:+524151035353">
+              Call now
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-title">
+          <h2>Services</h2>
+          <span>BESTUR</span>
+        </div>
+
+        <div class="service-grid">
+          <div class="service">
+            <strong>Airport transfers</strong>
+            <p>Private transfers to and from San Miguel de Allende, Querétaro, Bajío and Mexico City airports.</p>
+          </div>
+
+          <div class="service">
+            <strong>Private city transfers</strong>
+            <p>Comfortable transportation for families, couples, business travelers and small groups.</p>
+          </div>
+
+          <div class="service">
+            <strong>Private cultural tours</strong>
+            <p>Historical, architectural and regional experiences with a refined local perspective.</p>
+          </div>
+
+          <div class="service">
+            <strong>Bajío experiences</strong>
+            <p>Guanajuato, Dolores Hidalgo, wineries, heritage routes and personalized travel experiences.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>Quick access</h2>
+          <span>Links</span>
+        </div>
+
+        <div class="quick-links">
+          <a class="quick-link" href="https://bestur.mx/" target="_blank" rel="noopener">
+            <span>Website</span>
+            <strong>Visit bestur.mx</strong>
+          </a>
+
+          <a class="quick-link" href="https://www.instagram.com/operadoraturisticabestur/" target="_blank" rel="noopener">
+            <span>Instagram</span>
+            <strong>@operadoraturisticabestur</strong>
+          </a>
+
+          <a class="quick-link" href="https://www.facebook.com/profile.php?id=100042187006901" target="_blank" rel="noopener">
+            <span>Facebook</span>
+            <strong>BESTUR</strong>
+          </a>
+
+          <a class="quick-link" href="mailto:otbestur@yahoo.com?subject=BESTUR%20Travel%20Information">
+            <span>Email</span>
+            <strong>Contact by email</strong>
+          </a>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="section-title">
+          <h2>Why travelers choose us</h2>
+          <span>Trust</span>
+        </div>
+
+        <ul class="trust-list">
+          <li>Local operator based in San Miguel de Allende, Guanajuato.</li>
+          <li>Private service, personalized attention and reliable communication.</li>
+          <li>Ideal for international travelers, families and cultural visitors.</li>
+          <li>Transportation and experiences designed with comfort, safety and timing in mind.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <span>Direct</span>
+        </div>
+
+        <div class="contact-panel">
+          <a class="contact-row" href="https://wa.me/524151035353" target="_blank" rel="noopener">
+            <span class="contact-icon">WA</span>
+            <span>
+              <strong>WhatsApp</strong>
+              +52 415 103 5353
+            </span>
+          </a>
+
+          <a class="contact-row" href="tel:+524151212540">
+            <span class="contact-icon">TEL</span>
+            <span>
+              <strong>Alternative phone</strong>
+              +52 415 121 2540
+            </span>
+          </a>
+
+          <a class="contact-row" href="mailto:otbestur@yahoo.com">
+            <span class="contact-icon">MAIL</span>
+            <span>
+              <strong>Email</strong>
+              otbestur@yahoo.com
+            </span>
+          </a>
+
+          <div class="contact-row">
+            <span class="contact-icon">MX</span>
+            <span>
+              <strong>Location</strong>
+              San Miguel de Allende, Guanajuato, México
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="qr-wrap">
+          <div class="qr-box">
+            <img id="qrImage" alt="QR code for this digital card" />
+          </div>
+
+          <div class="qr-text">
+            <strong>Scan & save</strong>
+            <p>
+              Use this card at the office, in vehicles or with NFC. Clients can contact BESTUR without carrying a printed card.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        BESTUR · Premium transportation, private tours and cultural experiences.<br />
+        San Miguel de Allende · Guanajuato · México
+      </footer>
+    </article>
+
+    <div class="sticky-cta">
+      <a
+        class="btn btn-primary"
+        href="https://wa.me/524151035353?text=Hello%20BESTUR%2C%20I%20would%20like%20information%20about%20your%20services."
+        target="_blank"
+        rel="noopener"
+      >
+        Request information
+      </a>
+
+      <button class="share-btn" type="button" aria-label="Share card" onclick="shareCard()">
+        ↗
+      </button>
+    </div>
+  </main>
+
+  <script>
+    const cardUrl = window.location.href || "https://bestur.mx/";
+    const qrImage = document.getElementById("qrImage");
+
+    qrImage.src =
+      "https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=12&data=" +
+      encodeURIComponent(cardUrl);
+
+    function shareCard() {
+      const data = {
+        title: "BESTUR | Premium Travel",
+        text: "BESTUR — Private tours, airport transfers and premium travel experiences in San Miguel de Allende.",
+        url: cardUrl
+      };
+
+      if (navigator.share) {
+        navigator.share(data).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(cardUrl).then(() => {
+          alert("Link copied to clipboard");
+        });
+      }
+    }
+  </script>
+</body>
+</html>
