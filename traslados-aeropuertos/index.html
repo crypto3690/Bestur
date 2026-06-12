@@ -187,10 +187,14 @@
     .quote-field input:focus,.quote-field select:focus,.quote-field textarea:focus{border-color:rgba(215,246,255,.45);box-shadow:0 0 0 4px rgba(95,184,220,.12)}
     .quote-field select option{color:var(--navy);background:#fff}
     .tip{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:var(--text-soft);line-height:1.6;font-size:14px}
-    .summary-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
-    .summary-box{padding:18px;border-radius:22px;background:rgba(6,19,33,.74);border:1px solid var(--line)}
-    .summary-box small{display:block;margin-bottom:8px;color:var(--cyan-soft);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-    .summary-box strong{display:block;font-size:18px;line-height:1.35;word-break:break-word}
+    .summary-panel{padding:18px 20px;border-radius:24px;background:rgba(6,19,33,.74);border:1px solid var(--line);display:grid;gap:10px}
+    .summary-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .summary-panel-head strong{font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan-soft)}
+    .summary-panel-head span{font-size:13px;color:rgba(255,255,255,.56)}
+    .summary-row{display:grid;grid-template-columns:minmax(170px,220px) 1fr;gap:14px;align-items:start;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+    .summary-row:last-child{border-bottom:none;padding-bottom:0}
+    .summary-row small{display:block;color:var(--cyan-soft);font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .summary-row strong{display:block;font-size:18px;line-height:1.35;word-break:break-word}
     .quote-preview{white-space:pre-wrap;min-height:290px;padding:18px;border-radius:22px;background:rgba(6,19,33,.74);border:1px solid var(--line);color:rgba(255,255,255,.84);line-height:1.6;font-size:14px}
     .quote-actions{display:flex;gap:12px;flex-wrap:wrap}
     .quote-note{color:rgba(255,255,255,.58);line-height:1.65;font-size:13px}
@@ -256,6 +260,7 @@
       .nav-links a{padding:10px 10px;font-size:12px}
     }
     @media (max-width:1180px){
+      .summary-row{grid-template-columns:150px 1fr}
       :root{--header-h:88px}
       .header-inner{grid-template-columns:auto auto;justify-content:space-between}
       .nav{display:none}.lang,.header-actions .btn-wa{display:none}.burger{display:grid;place-items:center}
@@ -274,7 +279,8 @@
       .hero{min-height:auto;padding:calc(var(--header-h) + 44px) 0 68px}
       .hero h1{font-size:clamp(3rem,15vw,5rem)}
       .hero-card h2,.quote-intro h2,.quote-panel h3,.location-card h2,.fast-card h2{font-size:36px}
-      .grid-4,.grid-3,.quote-row,.fast-actions,.info-grid,.summary-grid,.steps-grid{grid-template-columns:1fr}
+      .grid-4,.grid-3,.quote-row,.fast-actions,.info-grid,.steps-grid{grid-template-columns:1fr}
+      .summary-row{grid-template-columns:1fr;gap:6px}
       .btn,.btn-outline,.btn-wa,.btn-soft{width:100%}
       .hero-actions,.quote-actions,.location-actions{flex-direction:column}
       .quote-intro,.quote-panel,.location-card,.hero-card{padding:24px}
@@ -507,13 +513,35 @@
               </div>
               <div class="quote-field"><label for="aNotes">Notas adicionales</label><textarea id="aNotes" rows="4" placeholder="Equipaje, terminal, silla infantil, necesidades especiales o cualquier detalle importante."></textarea></div>
               <div class="tip" id="airportTip">El servicio se confirma después de revisar disponibilidad. Para salidas hacia QRO y BJX se sugiere salir 3 horas y 30 minutos antes del vuelo. Para CDMX se sugieren 7 horas antes.</div>
-              <div class="summary-grid">
-                <div class="summary-box"><small>Servicio</small><strong id="sumService">Por definir</strong></div>
-                <div class="summary-box"><small>Aeropuerto</small><strong id="sumAirport">Por definir</strong></div>
-                <div class="summary-box"><small>Vehículo</small><strong id="sumVehicle">Por definir</strong></div>
-                <div class="summary-box"><small>Efectivo / transferencia</small><strong id="sumCash">Por definir</strong></div>
-                <div class="summary-box"><small>Tarjeta / factura</small><strong id="sumCard">Por definir</strong></div>
-                <div class="summary-box"><small>Pick-up sugerido</small><strong id="sumPickup">Por definir</strong></div>
+              <div class="summary-panel" aria-label="Resumen de la cotización">
+                <div class="summary-panel-head">
+                  <strong>Resumen rápido</strong>
+                  <span>Referencia visual más clara</span>
+                </div>
+                <div class="summary-row">
+                  <small>Servicio seleccionado</small>
+                  <strong id="sumService">Por definir</strong>
+                </div>
+                <div class="summary-row">
+                  <small>Aeropuerto</small>
+                  <strong id="sumAirport">Por definir</strong>
+                </div>
+                <div class="summary-row">
+                  <small>Vehículo sugerido</small>
+                  <strong id="sumVehicle">Por definir</strong>
+                </div>
+                <div class="summary-row">
+                  <small>Efectivo / transferencia</small>
+                  <strong id="sumCash">Por definir</strong>
+                </div>
+                <div class="summary-row">
+                  <small>Tarjeta / factura</small>
+                  <strong id="sumCard">Por definir</strong>
+                </div>
+                <div class="summary-row">
+                  <small>Pick-up sugerido</small>
+                  <strong id="sumPickup">Por definir</strong>
+                </div>
               </div>
               <div class="quote-field"><label for="aPreview">Vista previa</label><div class="quote-preview" id="aPreview">Completa el formulario para generar tu solicitud.</div></div>
               <div class="quote-actions">
