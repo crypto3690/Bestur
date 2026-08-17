@@ -491,6 +491,17 @@
     .info-card p{
       color:var(--text-soft);line-height:1.72;margin-bottom:18px;
     }
+    .card-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .card-actions .btn-outline,
+    .card-actions .btn-soft{
+      min-height:48px;
+      padding:12px 18px;
+    }
     .fleet-img{
       height:210px;overflow:hidden;margin:-28px -28px 24px;position:relative;
     }
@@ -659,7 +670,7 @@
       .fast-card h2{font-size:36px}
       .grid-4,.grid-3,.quote-row,.fast-actions,.info-grid,.summary-grid{grid-template-columns:1fr}
       .btn,.btn-outline,.btn-wa,.btn-soft{width:100%}
-      .hero-actions,.quote-actions,.location-actions{flex-direction:column}
+      .hero-actions,.quote-actions,.location-actions,.card-actions{flex-direction:column}
       .quote-intro,.quote-panel,.location-card,.hero-card{padding:24px}
       .service-card{min-height:360px}
       .map-card,.map-card iframe{min-height:440px}
@@ -676,7 +687,7 @@
         <a href="#servicios">Servicios</a>
         <a href="#flotilla">Flotilla</a>
         <a href="#aeropuertos">Aeropuertos</a>
-        <a href="#tours">Tours</a>
+        <a href="/tours/">Tours</a>
         <a href="#info-util">Info útil</a>
         <a href="#faq">FAQ</a>
         <a href="#ubicacion">Ubicación</a>
@@ -690,7 +701,7 @@
 
   <header class="header" id="siteHeader">
     <div class="container header-inner">
-      <a class="logo" href="#inicio" aria-label="Operadora Turística BESTUR">
+      <a class="logo" href="/" aria-label="Operadora Turística BESTUR">
         <img src="../Logo-Bestur.png" alt="Logo de Operadora Turística BESTUR" />
         <span class="logo-copy">
           <span class="logo-title">BESTUR</span>
@@ -705,7 +716,7 @@
           <a href="#servicios">Servicios</a>
           <a href="#flotilla">Flotilla</a>
           <a href="#aeropuertos">Aeropuertos</a>
-          <a href="#tours">Tours</a>
+          <a href="/tours/">Tours</a>
           <a href="#info-util">Info útil</a>
           <a href="#faq">FAQ</a>
           <a href="#ubicacion">Ubicación</a>
@@ -1064,7 +1075,7 @@
               <span class="service-tag">Tours privados</span>
               <h3>Tours privados</h3>
               <p>Rutas culturales, históricas y regionales para conocer San Miguel y el Bajío mexicano.</p>
-              <a class="card-link" href="#tours">Ver tours →</a>
+              <a class="card-link" href="/tours/">Ver todos los tours →</a>
             </div>
           </article>
 
@@ -1084,7 +1095,7 @@
               <span class="service-tag">Viñedos</span>
               <h3>Viñedos</h3>
               <p>Experiencias privadas y traslados a viñedos de Guanajuato y Querétaro.</p>
-              <a class="card-link" href="#tours">Ver opciones →</a>
+              <a class="card-link" href="/vinedos/">Ver traslados a viñedos →</a>
             </div>
           </article>
         </div>
@@ -1218,29 +1229,40 @@
           <article class="premium-card">
             <small>QRO</small>
             <h3>Aeropuerto de Querétaro</h3>
-            <p>Una de las rutas más cómodas para viajeros que conectan con San Miguel de Allende.</p>
-            <a class="btn-outline" href="#reservar">Cotizar QRO</a>
+            <p>Traslado privado entre el Aeropuerto Internacional de Querétaro y San Miguel de Allende, con información específica de la ruta y opción de cotización.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/traslado-qro-san-miguel-de-allende/">Ver traslado QRO</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
           </article>
 
           <article class="premium-card">
-            <small>BJX</small>
+            <small>BJX · León</small>
             <h3>Aeropuerto del Bajío</h3>
-            <p>Ruta frecuente para conectar con León, Silao, Guanajuato y la zona del Bajío.</p>
-            <a class="btn-outline" href="#reservar">Cotizar BJX</a>
+            <p>Traslado privado entre el Aeropuerto Internacional del Bajío —conocido también como aeropuerto de León— y San Miguel de Allende.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/traslado-bjx-san-miguel-de-allende/">Ver traslado BJX / León</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
           </article>
 
           <article class="premium-card">
-            <small>CDMX</small>
+            <small>AICM · CDMX</small>
             <h3>Ciudad de México / AICM</h3>
-            <p>Traslados largos para viajeros que requieren puntualidad, claridad y logística bien organizada.</p>
-            <a class="btn-outline" href="#reservar">Cotizar CDMX</a>
+            <p>Información específica para traslados privados entre Ciudad de México / AICM y San Miguel de Allende.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/transporte-cdmx-san-miguel-de-allende/">Ver traslado CDMX</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
           </article>
 
           <article class="premium-card">
             <small>AIFA</small>
             <h3>Aeropuerto Internacional Felipe Ángeles</h3>
-            <p>Ruta disponible bajo solicitud, con la misma referencia tarifaria y margen operativo utilizado para AICM.</p>
-            <a class="btn-outline" href="#reservar">Cotizar AIFA</a>
+            <p>Ruta disponible bajo solicitud. Utiliza la misma referencia tarifaria y el mismo margen operativo autorizado que AICM.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="#reservar">Cotizar AIFA</a>
+            </div>
           </article>
         </div>
       </div>
@@ -1250,54 +1272,123 @@
       <div class="container">
         <div class="section-head">
           <span class="kicker">Tours privados</span>
-          <h2 class="title">Experiencias culturales en <em>Guanajuato y el Bajío</em></h2>
+          <h2 class="title">Explora cada <em>tour de BESTUR</em></h2>
           <p class="copy">
-            Rutas ideales para viajeros que quieren conocer mejor la región con atención privada y organización clara.
+            Consulta la información de cada recorrido antes de solicitarlo. Si prefieres comparar todas las opciones en una sola página, visita nuestro catálogo de tours privados.
           </p>
+          <div class="card-actions" style="justify-content:center;">
+            <a class="btn" href="/tours/">Ver todos los tours</a>
+            <a class="btn-outline" href="#reservar">Solicitar un tour</a>
+          </div>
         </div>
 
         <div class="grid-3">
           <article class="premium-card">
-            <small>San Miguel</small>
+            <small>3 horas aprox.</small>
             <h3>San Miguel de Allende y alrededores</h3>
-            <p>Centro histórico, puntos icónicos y contexto cultural de San Miguel de Allende y sus alrededores.</p>
-            <a class="btn-outline" href="#reservar">Solicitar tour</a>
+            <p>Recorrido por puntos principales de San Miguel de Allende, miradores, arquitectura, calles históricas y alrededores culturales.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/tours/san-miguel-de-allende.html">Ver información</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
           </article>
 
           <article class="premium-card">
-            <small>Historia</small>
+            <small>2 horas aprox.</small>
+            <h3>Recorrido a pie por San Miguel</h3>
+            <p>Experiencia caminando por el centro histórico para conocer plazas, templos, arquitectura, historia local y vida cultural.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/tours/walking-tour-san-miguel.html">Ver información</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
+          </article>
+
+          <article class="premium-card">
+            <small>Ruta histórica</small>
             <h3>Dolores Hidalgo y Atotonilco</h3>
-            <p>Ruta cultural e histórica con identidad regional, arte sacro y paradas de alto valor para el visitante.</p>
-            <a class="btn-outline" href="#reservar">Solicitar tour</a>
+            <p>Recorrido cultural e histórico hacia Dolores Hidalgo y el Santuario de Atotonilco, dos puntos fundamentales de la región.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/tours/atotonilco-dolores-hidalgo.html">Ver información</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
           </article>
 
           <article class="premium-card">
-            <small>Ciudad</small>
+            <small>Día completo</small>
             <h3>Guanajuato</h3>
-            <p>Ciudad histórica, callejones, arquitectura y una experiencia privada muy atractiva para visitantes extranjeros.</p>
-            <a class="btn-outline" href="#reservar">Solicitar tour</a>
+            <p>Tour privado a Guanajuato capital para conocer sus callejones, túneles, arquitectura, miradores e historia.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/tours/guanajuato.html">Ver información</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
           </article>
 
           <article class="premium-card">
-            <small>Escapada</small>
+            <small>Ruta amplia</small>
+            <h3>Guanajuato + Dolores Hidalgo + Atotonilco</h3>
+            <p>Una ruta de día completo que combina tres destinos históricos importantes del estado de Guanajuato.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/tours/guanajuato-dolores-atotonilco.html">Ver información</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
+          </article>
+
+          <article class="premium-card">
+            <small>Pueblo Mágico</small>
             <h3>Mineral de Pozos</h3>
-            <p>Destino con personalidad propia, fotografía, historia y una atmósfera distinta dentro de la región.</p>
-            <a class="btn-outline" href="#reservar">Solicitar tour</a>
+            <p>Historia minera, arquitectura, paisaje semidesértico y una atmósfera distinta para una salida privada desde San Miguel.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/tours/mineral-de-pozos.html">Ver información</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
           </article>
 
           <article class="premium-card">
-            <small>Viñedos</small>
-            <h3>Bernal Viñedos</h3>
-            <p>Ruta ideal para quienes buscan vino, paisaje, gastronomía y una experiencia de día bien coordinada.</p>
-            <a class="btn-outline" href="#reservar">Solicitar experiencia</a>
+            <small>Ciudad histórica</small>
+            <h3>Querétaro</h3>
+            <p>Recorrido privado para conocer el centro histórico, plazas, arquitectura virreinal, acueducto y cultura de Querétaro.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/tours/queretaro.html">Ver información</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
+          </article>
+
+          <article class="premium-card">
+            <small>Vino y paisaje</small>
+            <h3>Bernal y viñedos</h3>
+            <p>Ruta privada hacia Peña de Bernal y la zona de viñedos para combinar paisaje, cultura regional y experiencias de vino.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/tours/bernal-vinedos.html">Ver información</a>
+              <a class="btn-soft" href="/vinedos/">Ver también viñedos</a>
+            </div>
           </article>
 
           <article class="premium-card">
             <small>Ruta especial</small>
-            <h3>Teotihuacán / Mariposas Monarca</h3>
-            <p>Opciones de mayor duración para viajeros que quieren combinar cultura, historia y naturaleza.</p>
-            <a class="btn-outline" href="#reservar">Solicitar experiencia</a>
+            <h3>Teotihuacán</h3>
+            <p>Salida privada de mayor duración hacia una de las zonas arqueológicas más importantes de México.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/tours/teotihuacan.html">Ver información</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
           </article>
+
+          <article class="premium-card">
+            <small>Temporada</small>
+            <h3>Santuario de la Mariposa Monarca</h3>
+            <p>Experiencia estacional hacia los santuarios de mariposa monarca, sujeta a temporada, condiciones y disponibilidad.</p>
+            <div class="card-actions">
+              <a class="btn-outline" href="/tours/mariposa-monarca.html">Ver información</a>
+              <a class="btn-soft" href="#reservar">Cotizar</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="glass" style="margin-top:22px;padding:24px;text-align:center;">
+          <p class="copy" style="margin-bottom:16px;">
+            ¿No sabes cuál recorrido elegir? En la página general de tours puedes comparar rutas y después solicitar una cotización.
+          </p>
+          <a class="btn" href="/tours/">Ir a la página de tours</a>
         </div>
       </div>
     </section>
@@ -1482,7 +1573,7 @@
             <a href="#reservar">Reservar</a><br>
             <a href="#servicios">Servicios principales</a><br>
             <a href="#aeropuertos">Aeropuertos</a><br>
-            <a href="#tours">Tours</a>
+            <a href="/tours/">Tours</a>
           </p>
         </div>
 
