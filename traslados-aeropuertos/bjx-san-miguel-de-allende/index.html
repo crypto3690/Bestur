@@ -93,7 +93,7 @@
       --navy:#061321;--navy2:#0B2238;--blue:#00599C;--cyan:#5FB8DC;--cyan2:#D7F6FF;
       --white:#fff;--soft:rgba(235,245,255,.80);--muted:rgba(235,245,255,.62);
       --line:rgba(95,184,220,.18);--line2:rgba(95,184,220,.32);--wa:#25D366;--wa2:#1DA851;
-      --max:1180px;--radius:28px;--shadow:0 26px 70px rgba(0,0,0,.30);--header:96px;
+      --max:1180px;--radius:28px;--shadow:0 26px 70px rgba(0,0,0,.30);--header:88px;
     }
     *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
     body{font-family:Inter,sans-serif;color:#fff;background:radial-gradient(circle at 12% 8%,rgba(0,89,156,.24),transparent 26%),radial-gradient(circle at 88% 14%,rgba(95,184,220,.12),transparent 22%),linear-gradient(180deg,var(--navy),var(--navy2) 48%,var(--navy));overflow-x:hidden}
@@ -104,201 +104,18 @@
     .title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.7rem,5vw,4.9rem);line-height:.95;letter-spacing:-.025em;margin-bottom:18px}.copy{color:var(--soft);font-size:17px;line-height:1.78}
     .btn,.btn-outline,.btn-wa{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:14px 22px;border-radius:999px;font-weight:900;cursor:pointer;border:0;transition:.2s}.btn:hover,.btn-outline:hover,.btn-wa:hover{transform:translateY(-2px)}
     .btn{background:linear-gradient(135deg,#fff,var(--cyan2));color:var(--navy)}.btn-outline{background:rgba(0,89,156,.14);border:1px solid var(--line2);color:#fff}.btn-wa{background:linear-gradient(135deg,var(--wa),var(--wa2));color:#fff}
-    /* Header — mismo sistema visual que la Home */
-    .header{
-      position:fixed;
-      inset:0 0 auto 0;
-      z-index:9999;
-      height:var(--header);
-      background:rgba(6,19,33,.84);
-      border-bottom:1px solid rgba(255,255,255,.08);
-      backdrop-filter:blur(22px) saturate(160%);
-      transition:background .25s ease,box-shadow .25s ease,height .25s ease;
-    }
-    .header.scrolled{
-      background:rgba(6,19,33,.95);
-      box-shadow:0 16px 40px rgba(0,0,0,.22);
-    }
-    .header-inner{
-      height:100%;
-      display:grid;
-      grid-template-columns:290px minmax(0,1fr) auto;
-      align-items:center;
-      gap:18px;
-    }
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width:0;
-    }
-    .logo img{
-      width:60px;
-      height:auto;
-      object-fit:contain;
-      flex-shrink:0;
-      filter:drop-shadow(0 12px 24px rgba(0,0,0,.35));
-    }
-    .logo-copy{
-      display:flex;
-      flex-direction:column;
-      line-height:1;
-      min-width:0;
-    }
-    .logo-title{
-      font-family:'Cormorant Garamond',serif;
-      font-size:26px;
-      font-weight:700;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:#fff;
-      white-space:nowrap;
-    }
-    .logo-sub{
-      margin-top:7px;
-      color:var(--cyan);
-      font-size:10px;
-      font-weight:900;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      white-space:nowrap;
-    }
-    .logo-slogan{
-      margin-top:8px;
-      color:rgba(255,255,255,.76);
-      font-size:12px;
-      font-style:italic;
-      line-height:1.15;
-      max-width:200px;
-    }
-    .nav{
-      display:flex;
-      justify-content:center;
-      min-width:0;
-    }
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:4px;
-      padding:8px;
-      border-radius:999px;
-      background:rgba(0,89,156,.13);
-      border:1px solid var(--line);
-      max-width:100%;
-      overflow:hidden;
-    }
-    .nav-links a{
-      padding:11px 12px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:900;
-      color:rgba(255,255,255,.86);
-      white-space:nowrap;
-    }
-    .nav-links a:hover{
-      background:rgba(0,89,156,.28);
-      color:#fff;
-    }
-    .header-actions{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      justify-content:flex-end;
-    }
-    .lang{
-      display:flex;
-      overflow:hidden;
-      border-radius:999px;
-      background:rgba(0,89,156,.13);
-      border:1px solid var(--line);
-    }
-    .lang a{
-      padding:11px 13px;
-      font-size:13px;
-      font-weight:900;
-    }
-    .lang a.active{
-      background:rgba(0,89,156,.36);
-      color:#fff;
-    }
-    .burger{
-      display:none;
-      width:50px;
-      height:50px;
-      border-radius:16px;
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      font-size:22px;
-      cursor:pointer;
-      border:0;
-    }
-
-    .mobile-panel{
-      position:fixed;
-      inset:0;
-      z-index:9998;
-      background:rgba(6,19,33,.98);
-      backdrop-filter:blur(14px);
-      opacity:0;
-      visibility:hidden;
-      pointer-events:none;
-      transition:.25s ease;
-      padding:calc(var(--header) + 24px) 24px 32px;
-    }
-    .mobile-panel.open{
-      opacity:1;
-      visibility:visible;
-      pointer-events:auto;
-    }
-    .mobile-nav{
-      display:grid;
-      gap:12px;
-    }
-    .mobile-nav a{
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:16px 18px;
-      font-size:19px;
-      font-weight:800;
-    }
-    .mobile-actions{
-      display:grid;
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .wa-icon{
-      width:20px;
-      height:20px;
-      display:block;
-      fill:currentColor;
-      flex:0 0 auto;
-    }
-
-    .social-links{
-      display:flex;
-      gap:9px;
-      align-items:center;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
-    .social-text-link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:999px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.09);
-      font-size:13px;
-      font-weight:800;
-    }
-    .social-text-link svg{
-      width:18px;
-      height:18px;
-      fill:currentColor;
-    }
+    .header{position:fixed;inset:0 0 auto;height:var(--header);z-index:1000;background:rgba(6,19,33,.92);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(18px)}
+    .header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:12px}.brand img{width:52px}.brand-copy{display:flex;flex-direction:column;line-height:1}.brand-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;letter-spacing:.1em}.brand-sub{margin-top:7px;color:var(--cyan);font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .nav{display:flex;gap:4px;align-items:center}.nav a{padding:10px 11px;border-radius:999px;color:rgba(255,255,255,.82);font-size:13px;font-weight:800}.nav a:hover{background:rgba(0,89,156,.20);color:#fff}.mobile-toggle{display:none;width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.08);color:#fff;border:0;font-size:22px}.mobile-menu{display:none;position:fixed;top:var(--header);left:0;right:0;padding:18px 16px 26px;background:rgba(6,19,33,.98);z-index:999}.mobile-menu.open{display:grid;gap:10px}.mobile-menu a{padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font-weight:800}
+    .header-actions{display:flex;align-items:center;gap:8px}
+    .lang-switch{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 13px;border-radius:999px;border:1px solid var(--line2);background:rgba(255,255,255,.05);color:#fff;font-size:12px;font-weight:900;letter-spacing:.08em}
+    .lang-switch:hover{background:rgba(0,89,156,.24)}
+    .icon-link{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);color:#fff;transition:.2s}
+    .icon-link:hover{transform:translateY(-2px);background:rgba(0,89,156,.22)}
+    .icon-link svg,.wa-icon{width:20px;height:20px;display:block;fill:currentColor;flex:0 0 auto}
+    .social-links{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:14px}
+    .social-text-link{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font-size:13px;font-weight:800}
+    .social-text-link svg{width:18px;height:18px;fill:currentColor}
 
     .hero{min-height:760px;padding:calc(var(--header) + 72px) 0 72px;display:flex;align-items:center;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;width:560px;height:560px;right:-160px;top:110px;border-radius:50%;background:radial-gradient(circle,rgba(95,184,220,.18),transparent 65%)}
     .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:32px;align-items:center;position:relative;z-index:2}.breadcrumbs{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px;margin-bottom:24px}.breadcrumbs a{color:var(--cyan2)}
@@ -324,108 +141,295 @@
     .preview{white-space:pre-wrap;padding:16px;border-radius:18px;min-height:230px;background:rgba(6,19,33,.72);border:1px solid var(--line);color:var(--soft);font-size:13px;line-height:1.55}.form-actions{display:flex;gap:10px;flex-wrap:wrap}.form-note{color:var(--muted);font-size:12px;line-height:1.6}
     .faq{display:grid;gap:12px;max-width:920px;margin:auto}.faq details{border-radius:20px;background:linear-gradient(180deg,rgba(0,89,156,.18),rgba(255,255,255,.04));border:1px solid var(--line);overflow:hidden}.faq summary{cursor:pointer;list-style:none;padding:20px 22px;font-weight:900}.faq summary::-webkit-details-marker{display:none}.faq p{padding:0 22px 20px;color:var(--soft);line-height:1.7}.cross-card p{margin-bottom:18px}
     .footer{padding:34px 0 40px;background:#06111f;border-top:1px solid rgba(255,255,255,.08)}.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:24px}.footer h3{font-family:'Cormorant Garamond',serif;font-size:28px;margin-bottom:10px}.footer p,.footer a{color:var(--muted);line-height:1.7}.footer-links{display:grid;gap:7px}
-    .float-wa{
-      position:fixed;
-      right:22px;
-      bottom:22px;
-      z-index:900;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      min-height:58px;
-      max-width:255px;
-      padding:8px 16px 8px 8px;
-      border-radius:999px;
-      background:linear-gradient(135deg,var(--wa),var(--wa2));
-      color:#fff;
-      font-weight:900;
-      box-shadow:0 18px 48px rgba(37,211,102,.28);
-      border:1px solid rgba(255,255,255,.16);
-      transition:transform .2s ease,box-shadow .2s ease;
+    .float-wa{position:fixed;right:18px;bottom:18px;z-index:900;min-height:58px;padding:15px 20px;border-radius:999px;background:linear-gradient(135deg,var(--wa),var(--wa2));color:#fff;font-weight:900;box-shadow:0 18px 50px rgba(37,211,102,.30)}
+    @media(max-width:1050px){.nav{display:none}.header-actions .icon-link{display:none}.mobile-toggle{display:block}.hero-grid,.quote-grid{grid-template-columns:1fr}.quote-info{position:relative;top:auto}.facts,.price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.process-grid,.cross-grid,.footer-grid{grid-template-columns:1fr}}
+    @media(max-width:700px){:root{--header:78px}.section{padding:70px 0}.brand-title{font-size:21px}.brand img{width:46px}.hero{min-height:auto;padding:calc(var(--header) + 42px) 0 58px}.hero h1{font-size:clamp(3rem,15vw,5rem)}.hero-actions,.form-actions{flex-direction:column}.btn,.btn-outline,.btn-wa{width:100%}.facts,.price-grid,.row,.summary{grid-template-columns:1fr}.summary-box{min-height:auto}.request-folio{flex-direction:column;gap:5px}.hero-card,.quote-panel,.quote-info{padding:23px}.float-wa{left:14px;right:14px;bottom:14px;text-align:center}}
+  </style>
+
+  <style id="bestur-bjx-visual-fix">
+    /* ---------- Ajuste visual general ---------- */
+    :root{--header:92px}
+    .container{width:min(calc(100% - 40px),1240px)}
+    .section{padding:84px 0}
+
+    /* ---------- Header consistente con Home ---------- */
+    .header{
+      height:var(--header);
+      background:rgba(6,19,33,.92);
+      backdrop-filter:blur(22px) saturate(160%);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      z-index:9999;
     }
-    .float-wa:hover{
-      transform:translateY(-3px);
-      box-shadow:0 22px 56px rgba(37,211,102,.36);
+    .header.scrolled{
+      background:rgba(6,19,33,.97);
+      box-shadow:0 14px 34px rgba(0,0,0,.24);
     }
-    .float-wa-badge{
-      width:42px;
-      height:42px;
-      flex:0 0 42px;
+    .header-container{
+      width:min(calc(100% - 40px),1480px);
+      margin-inline:auto;
+    }
+    .header-inner{
+      height:100%;
       display:grid;
-      place-items:center;
-      border-radius:50%;
-      background:rgba(255,255,255,.16);
-      box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);
+      grid-template-columns:280px minmax(0,1fr) auto;
+      align-items:center;
+      gap:18px;
     }
-    .float-wa-copy{
+    .logo{display:flex;align-items:center;gap:12px;min-width:0}
+    .logo img{width:54px;height:auto;flex:0 0 auto}
+    .logo-copy{display:flex;flex-direction:column;line-height:1;min-width:0}
+    .logo-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:25px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+      white-space:nowrap;
+    }
+    .logo-sub{
+      margin-top:6px;color:var(--cyan);font-size:9px;font-weight:900;
+      letter-spacing:.16em;text-transform:uppercase;white-space:nowrap;
+    }
+    .logo-slogan{
+      margin-top:7px;color:rgba(255,255,255,.68);font-size:11px;
+      font-style:italic;white-space:nowrap;
+    }
+
+    .nav{display:flex;justify-content:center;min-width:0}
+    .nav-links{
+      display:flex;align-items:center;gap:2px;
+      padding:7px;border-radius:999px;
+      background:rgba(0,89,156,.12);
+      border:1px solid var(--line);
+      max-width:100%;
+      overflow:hidden;
+    }
+    .nav-links a{
+      padding:10px 10px;border-radius:999px;
+      color:rgba(255,255,255,.86);font-size:12px;font-weight:900;
+      white-space:nowrap;
+    }
+    .nav-links a:hover{background:rgba(0,89,156,.28);color:#fff}
+
+    .header-actions{display:flex;align-items:center;gap:8px;justify-content:flex-end}
+    .lang{
+      display:flex;overflow:hidden;border-radius:999px;
+      background:rgba(0,89,156,.13);border:1px solid var(--line);
+    }
+    .lang a{padding:10px 12px;font-size:12px;font-weight:900}
+    .lang a.active{background:rgba(0,89,156,.36);color:#fff}
+    .header-wa{
+      min-height:46px;
+      padding:11px 17px;
+      font-size:13px;
+    }
+    .burger{
+      display:none;width:48px;height:48px;border-radius:15px;
+      background:rgba(255,255,255,.08);color:#fff;font-size:22px;border:0;
+    }
+
+    .mobile-panel{
+      position:fixed;inset:0;z-index:9998;
+      background:rgba(6,19,33,.985);
+      backdrop-filter:blur(14px);
+      opacity:0;visibility:hidden;pointer-events:none;
+      transition:.25s ease;
+      padding:calc(var(--header) + 24px) 24px 32px;
+    }
+    .mobile-panel.open{opacity:1;visibility:visible;pointer-events:auto}
+    .mobile-nav{display:grid;gap:10px}
+    .mobile-nav a{
+      padding:15px 17px;border-radius:17px;
+      background:rgba(255,255,255,.055);
+      border:1px solid rgba(255,255,255,.08);
+      font-size:18px;font-weight:800;
+    }
+    .mobile-actions{display:grid;gap:10px;margin-top:16px}
+
+    /* ---------- Hero más equilibrado ---------- */
+    .hero{
+      min-height:auto;
+      padding:calc(var(--header) + 58px) 0 72px;
+    }
+    .hero-grid{
+      grid-template-columns:minmax(0,1.04fr) minmax(390px,.96fr);
+      gap:34px;
+      align-items:center;
+    }
+    .breadcrumbs{margin-bottom:18px}
+    .hero h1{
+      font-size:clamp(3.5rem,5.4vw,5.9rem);
+      line-height:.91;
+      max-width:760px;
+      margin-bottom:20px;
+    }
+    .hero p{
+      max-width:720px;
+      font-size:17px;
+      line-height:1.72;
+    }
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top:24px;
+    }
+    .hero-actions .btn,
+    .hero-actions .btn-wa{
+      width:auto;
+      min-width:190px;
+      min-height:52px;
+      padding:13px 20px;
+    }
+    .hero-chips{margin-top:20px}
+    .hero-card{
+      padding:26px;
+      border-radius:26px;
+    }
+    .hero-card h2{
+      font-size:38px;
+      margin-bottom:16px;
+    }
+    .route-list{gap:10px}
+    .route-list li{
+      padding:13px 15px;
+      border-radius:17px;
+      line-height:1.48;
+      font-size:14px;
+    }
+
+    /* ---------- Sección tarifas ---------- */
+    .section-head{max-width:840px;margin-bottom:34px}
+    .section-head .title{
+      font-size:clamp(2.7rem,4.3vw,4.6rem);
+      line-height:.98;
+    }
+    .price-grid{
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+      align-items:stretch;
+    }
+    .price-card{
       display:flex;
       flex-direction:column;
       min-width:0;
-      line-height:1.1;
+      border-radius:24px;
+      overflow:hidden;
     }
-    .float-wa-copy small{
-      margin-bottom:4px;
-      color:rgba(255,255,255,.78);
-      font-size:9px;
-      font-weight:900;
-      letter-spacing:.10em;
-      text-transform:uppercase;
+    .vehicle-image{
+      height:170px;
+      flex:0 0 170px;
     }
-    .float-wa-copy strong{
+    .vehicle-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .price-content{
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+    .price-content h3{font-size:29px;margin-bottom:8px}
+    .price-content p{font-size:13px;line-height:1.5;min-height:58px}
+    .price-line{margin-top:11px;padding-top:11px}
+    .price-line strong{font-size:14px;white-space:nowrap}
+
+    /* ---------- WhatsApp flotante discreto ---------- */
+    .float-wa{
+      position:fixed;
+      right:20px;
+      left:auto;
+      bottom:20px;
+      z-index:980;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:auto;
+      max-width:230px;
+      min-height:58px;
+      padding:8px 15px 8px 8px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--wa),var(--wa2));
       color:#fff;
-      font-size:14px;
-      white-space:nowrap;
+      box-shadow:0 18px 46px rgba(37,211,102,.28);
+      border:1px solid rgba(255,255,255,.14);
+      transition:transform .2s ease,box-shadow .2s ease;
     }
-    @media(max-width:1180px){
-      :root{--header:88px}
-      .header-inner{
-        grid-template-columns:auto auto;
-        justify-content:space-between;
-      }
-      .nav{display:none}
-      .lang,.header-actions>.btn-wa{display:none}
-      .burger{display:grid;place-items:center}
-      .logo img{width:50px}
+    .float-wa:hover{
+      transform:translateY(-2px);
+      box-shadow:0 22px 54px rgba(37,211,102,.35);
+    }
+    .float-wa-icon{
+      width:42px;height:42px;flex:0 0 42px;
+      display:grid;place-items:center;border-radius:50%;
+      background:rgba(255,255,255,.16);
+    }
+    .float-wa-text{display:flex;flex-direction:column;line-height:1.08}
+    .float-wa-text small{
+      margin-bottom:4px;font-size:9px;font-weight:900;
+      letter-spacing:.10em;text-transform:uppercase;color:rgba(255,255,255,.78);
+    }
+    .float-wa-text strong{font-size:13px;white-space:nowrap}
+
+    /* ---------- Responsive ---------- */
+    @media(max-width:1320px){
+      .header-inner{grid-template-columns:240px minmax(0,1fr) auto}
+      .logo img{width:48px}
       .logo-title{font-size:22px}
-      .logo-sub{font-size:9px}
       .logo-slogan{display:none}
-      .hero-grid,.quote-grid{grid-template-columns:1fr}
-      .quote-info{position:relative;top:auto}
+      .nav-links a{padding:9px 8px;font-size:11px}
+      .header-wa{padding:10px 14px}
+    }
+
+    @media(max-width:1160px){
+      :root{--header:84px}
+      .header-inner{grid-template-columns:auto auto;justify-content:space-between}
+      .nav{display:none}
+      .lang,.header-wa{display:none}
+      .burger{display:grid;place-items:center}
+      .logo img{width:48px}
+      .logo-title{font-size:22px}
+      .logo-slogan{display:none}
+
+      .hero-grid{grid-template-columns:1fr}
+      .hero-card{max-width:none}
       .facts,.price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-      .process-grid,.cross-grid{grid-template-columns:1fr}
-      .footer-grid{grid-template-columns:1fr}
-    }.header-actions .icon-link{display:none}.mobile-toggle{display:block}.hero-grid,.quote-grid{grid-template-columns:1fr}.quote-info{position:relative;top:auto}.facts,.price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.process-grid,.cross-grid,.footer-grid{grid-template-columns:1fr}}
+      .quote-grid{grid-template-columns:1fr}
+      .quote-info{position:relative;top:auto}
+      .process-grid,.cross-grid,.footer-grid{grid-template-columns:1fr}
+    }
+
     @media(max-width:700px){
-      :root{--header:78px}
-      .section{padding:70px 0}
-      .logo-title{font-size:21px}
-      .logo img{width:46px}
-      .hero{min-height:auto;padding:calc(var(--header) + 42px) 0 58px}
-      .hero h1{font-size:clamp(3rem,15vw,5rem)}
-      .hero-actions,.form-actions{flex-direction:column}
-      .btn,.btn-outline,.btn-wa{width:100%}
+      :root{--header:76px}
+      .container{width:min(calc(100% - 28px),1240px)}
+      .header-container{width:calc(100% - 28px)}
+      .logo img{width:42px}
+      .logo-title{font-size:20px}
+      .logo-sub{font-size:8px}
+
+      .hero{padding:calc(var(--header) + 34px) 0 56px}
+      .hero h1{font-size:clamp(2.9rem,14vw,4.5rem)}
+      .hero p{font-size:16px}
+      .hero-actions{flex-direction:column;align-items:stretch}
+      .hero-actions .btn,.hero-actions .btn-wa{width:100%;min-width:0}
+      .hero-card{padding:21px}
+      .hero-card h2{font-size:34px}
+
       .facts,.price-grid,.row,.summary{grid-template-columns:1fr}
-      .summary-box{min-height:auto}
-      .request-folio{flex-direction:column;gap:5px}
-      .hero-card,.quote-panel,.quote-info{padding:23px}
+      .vehicle-image{height:210px;flex-basis:210px}
+      .price-content p{min-height:0}
 
       .float-wa{
-        right:14px;
-        bottom:14px;
-        max-width:calc(100% - 28px);
+        right:12px;
+        bottom:12px;
+        max-width:210px;
         min-height:54px;
-        padding:7px 14px 7px 7px;
       }
-      .float-wa-badge{
-        width:40px;
-        height:40px;
-        flex-basis:40px;
-      }
-      .float-wa-copy strong{
-        font-size:13px;
-      }
-    }.section{padding:70px 0}.brand-title{font-size:21px}.brand img{width:46px}.hero{min-height:auto;padding:calc(var(--header) + 42px) 0 58px}.hero h1{font-size:clamp(3rem,15vw,5rem)}.hero-actions,.form-actions{flex-direction:column}.btn,.btn-outline,.btn-wa{width:100%}.facts,.price-grid,.row,.summary{grid-template-columns:1fr}.summary-box{min-height:auto}.request-folio{flex-direction:column;gap:5px}.hero-card,.quote-panel,.quote-info{padding:23px}.float-wa{left:14px;right:14px;bottom:14px;text-align:center}}
+      .float-wa-icon{width:38px;height:38px;flex-basis:38px}
+      .float-wa-text strong{font-size:12px}
+    }
   </style>
+
 </head>
 <body>
   <div class="mobile-panel" id="mobilePanel" aria-hidden="true">
@@ -440,12 +444,8 @@
         <a href="#preguntas">FAQ</a>
         <a href="/#ubicacion">Ubicación</a>
       </nav>
-
       <div class="mobile-actions">
-        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20BJX%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener">
-          <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.7 6L0 24l6.4-1.9a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.2 21.6h-.1a9.7 9.7 0 0 1-5-1.4l-.4-.2-3.8 1.1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.5 4.6Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg>
-          WhatsApp
-        </a>
+        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20BJX%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener">WhatsApp</a>
         <a class="btn-outline" href="/en/bjx-to-san-miguel-de-allende/" lang="en" hreflang="en">English</a>
         <a class="btn-outline" href="https://www.instagram.com/operadoraturisticabestur/" target="_blank" rel="noopener">Instagram</a>
         <a class="btn-outline" href="https://www.facebook.com/profile.php?id=100042187006901" target="_blank" rel="noopener">Facebook</a>
@@ -454,7 +454,7 @@
   </div>
 
   <header class="header" id="siteHeader">
-    <div class="container header-inner">
+    <div class="header-container header-inner">
       <a class="logo" href="/" aria-label="Operadora Turística BESTUR">
         <img src="../../Logo-Bestur.png" alt="Logo de Operadora Turística BESTUR">
         <span class="logo-copy">
@@ -483,7 +483,7 @@
           <a href="/en/bjx-to-san-miguel-de-allende/" lang="en" hreflang="en">EN</a>
         </div>
 
-        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20BJX%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener">
+        <a class="btn-wa header-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20BJX%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener">
           <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.7 6L0 24l6.4-1.9a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.2 21.6h-.1a9.7 9.7 0 0 1-5-1.4l-.4-.2-3.8 1.1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.5 4.6Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg>
           WhatsApp
         </a>
@@ -501,7 +501,7 @@
           <span class="kicker">Aeropuerto Internacional del Bajío · BJX</span>
           <h1>Traslado privado <em>BJX ↔ San Miguel de Allende</em></h1>
           <p>Viaja entre el Aeropuerto Internacional del Bajío (BJX) y San Miguel de Allende con transporte privado de BESTUR. Para llegadas monitoreamos la hora oficial del vuelo y, para salidas, recomendamos programar la recogida con margen suficiente antes de tu vuelo.</p>
-          <div class="hero-actions"><a class="btn-wa" href="#cotizar">Solicitar cotización</a><a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20BJX%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener" aria-label="Cotizar traslado BJX por WhatsApp">
+          <div class="hero-actions"><a class="btn" href="#cotizar">Solicitar cotización</a><a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20BJX%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener" aria-label="Cotizar traslado BJX por WhatsApp">
             <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.7 6L0 24l6.4-1.9a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.2 21.6h-.1a9.7 9.7 0 0 1-5-1.4l-.4-.2-3.8 1.1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.5 4.6Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg>
             WhatsApp
           </a></div>
@@ -656,14 +656,14 @@
     </div>
   </footer>
   <a class="float-wa" id="floatWa" href="#cotizar" aria-label="Cotizar traslado BJX por WhatsApp">
-      <span class="float-wa-badge">
-        <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.7 6L0 24l6.4-1.9a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.2 21.6h-.1a9.7 9.7 0 0 1-5-1.4l-.4-.2-3.8 1.1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.5 4.6Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg>
-      </span>
-      <span class="float-wa-copy">
-        <small>Traslado BJX</small>
-        <strong>Cotizar por WhatsApp</strong>
-      </span>
-    </a>
+    <span class="float-wa-icon">
+      <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.7 6L0 24l6.4-1.9a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.2 21.6h-.1a9.7 9.7 0 0 1-5-1.4l-.4-.2-3.8 1.1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.5 4.6Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg>
+    </span>
+    <span class="float-wa-text">
+      <small>Traslado BJX</small>
+      <strong>Cotizar por WhatsApp</strong>
+    </span>
+  </a>
 
   <script>
     (function(){
@@ -673,24 +673,18 @@
       const burgerBtn=document.getElementById('burgerBtn');
 
       function toggleMenu(forceState){
-        const shouldOpen=typeof forceState==='boolean' ? forceState : !mobilePanel.classList.contains('open');
-        mobilePanel.classList.toggle('open',shouldOpen);
-        burgerBtn.setAttribute('aria-expanded',String(shouldOpen));
-        mobilePanel.setAttribute('aria-hidden',String(!shouldOpen));
-        body.style.overflow=shouldOpen?'hidden':'';
+        const open=typeof forceState==='boolean' ? forceState : !mobilePanel.classList.contains('open');
+        mobilePanel.classList.toggle('open',open);
+        burgerBtn.setAttribute('aria-expanded',String(open));
+        mobilePanel.setAttribute('aria-hidden',String(!open));
+        body.style.overflow=open?'hidden':'';
       }
 
       if(burgerBtn){
         burgerBtn.addEventListener('click',()=>toggleMenu());
       }
-
-      mobilePanel.querySelectorAll('a').forEach(a=>{
-        a.addEventListener('click',()=>toggleMenu(false));
-      });
-
-      window.addEventListener('scroll',()=>{
-        header.classList.toggle('scrolled',window.scrollY>12);
-      });
+      mobilePanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
+      window.addEventListener('scroll',()=>header.classList.toggle('scrolled',window.scrollY>12));
 
       const ids=['name','phone','email','date','direction','passengers','flight','airline','flightTime','address','notes'];
       const get=id=>{const el=document.getElementById(id);return el?String(el.value||'').trim():''};
