@@ -339,7 +339,7 @@
       font-size:42px;line-height:.96;margin-bottom:10px;
     }
     .fast-card p{color:var(--text-soft);line-height:1.72}
-    .fast-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .fast-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
     .fast-action{
       padding:18px;border-radius:22px;
       background:rgba(6,19,33,.64);
@@ -777,9 +777,9 @@
       <div class="container">
         <div class="glass fast-card">
           <div>
-            <h2>Reserva en 3 pasos</h2>
+            <h2>Solicita y confirma en 4 pasos</h2>
             <p>
-              Diseñamos esta página para que el proceso sea claro, rápido y útil antes de enviar tu mensaje.
+              La solicitud inicia el proceso. El servicio queda totalmente confirmado cuando BESTUR te envía la confirmación con folio y datos operativos.
             </p>
           </div>
           <div class="fast-actions">
@@ -792,8 +792,12 @@
               <span>Fecha, pasajeros, ruta o detalle del servicio.</span>
             </article>
             <article class="fast-action">
-              <strong>3. Envíalo por WhatsApp</strong>
-              <span>La solicitud se genera en formato claro y ordenado.</span>
+              <strong>3. Envía la solicitud</strong>
+              <span>Recibimos la información para revisar disponibilidad, tarifa y operación.</span>
+            </article>
+            <article class="fast-action">
+              <strong>4. Recibe la confirmación</strong>
+              <span>Tu servicio queda confirmado cuando BESTUR envía la confirmación con folio y datos definitivos.</span>
             </article>
           </div>
         </div>
@@ -820,7 +824,7 @@
               <li><strong>Traslados a aeropuerto</strong> Muestran precio de referencia y hora sugerida de recogida según la ruta.</li>
               <li><strong>Tours y viñedos</strong> Se manejan con cotización directa para revisar fecha, idioma, ruta y disponibilidad.</li>
               <li><strong>Bodas, grupos y servicios especiales</strong> Quedan como cotización directa para definir la logística correcta.</li>
-              <li><strong>Confirmación final</strong> BESTUR revisa disponibilidad, ruta, vehículo recomendado y condiciones del servicio antes de confirmar.</li>
+              <li><strong>Confirmación del servicio</strong> La solicitud o cotización todavía no confirma la reserva. El servicio queda totalmente confirmado cuando BESTUR envía la confirmación con folio y datos operativos definitivos.</li>
             </ul>
           </aside>
 
@@ -1028,6 +1032,11 @@
                 </div>
               </div>
 
+              <div class="tip">
+                <strong>Folio de solicitud:</strong> <span id="sumRequestId">Se generará automáticamente</span><br>
+                El folio identifica la página y el canal de origen sin agregar datos técnicos de campañas al mensaje de WhatsApp.
+              </div>
+
               <div class="quote-field">
                 <label for="qPreview">Vista previa</label>
                 <div class="quote-preview" id="qPreview">Completa el formulario para generar tu solicitud.</div>
@@ -1040,7 +1049,7 @@
               </div>
 
               <p class="quote-note">
-                La solicitud no confirma automáticamente una reserva. BESTUR revisará disponibilidad, vehículo recomendado, ruta, horario y condiciones finales antes de confirmar.
+                La solicitud o cotización no confirma automáticamente el servicio. Una vez revisados disponibilidad, tarifa y datos operativos, BESTUR enviará una confirmación con folio y datos definitivos. El servicio se considera totalmente confirmado únicamente cuando recibes esa confirmación de BESTUR.
               </p>
             </form>
           </div>
@@ -1431,7 +1440,7 @@
 
           <article class="info-card">
             <h3>¿Cómo se confirma la reserva?</h3>
-            <p>Una reserva se confirma cuando BESTUR valida disponibilidad, ruta, horario, vehículo recomendado y condiciones finales del servicio.</p>
+            <p>Después de revisar la solicitud, BESTUR envía una confirmación con folio y los datos operativos definitivos. El servicio queda totalmente confirmado cuando el cliente recibe esa confirmación.</p>
           </article>
         </div>
       </div>
@@ -1475,7 +1484,7 @@
 
           <details class="faq-item">
             <summary>¿Cómo se confirma la reserva?</summary>
-            <p>La reserva se confirma una vez que BESTUR valida disponibilidad, ruta, horario, vehículo recomendado y condiciones finales del servicio.</p>
+            <p>La solicitud o cotización todavía no confirma el servicio. BESTUR enviará una confirmación con folio y los datos definitivos; al recibirla, el servicio queda totalmente confirmado.</p>
           </details>
         </div>
       </div>
@@ -1661,6 +1670,78 @@
         const el = document.getElementById(id);
         return el ? String(el.value || '').trim() : '';
       }
+
+      function getSourceInfo(){
+        const params = new URLSearchParams(window.location.search);
+        const current = {
+          utm_source: params.get('utm_source') || '',
+          utm_medium: params.get('utm_medium') || '',
+          utm_campaign: params.get('utm_campaign') || '',
+          gclid: params.get('gclid') || '',
+          referrer: document.referrer || '',
+          landing_page: window.location.href
+        };
+
+        let saved = {};
+        try {
+          saved = JSON.parse(localStorage.getItem('bestur_attribution') || '{}');
+        } catch(e) {}
+
+        const hasTracking = current.utm_source || current.utm_medium || current.utm_campaign || current.gclid;
+
+        if(hasTracking || !saved.landing_page){
+          localStorage.setItem('bestur_attribution', JSON.stringify(current));
+          return current;
+        }
+        return saved;
+      }
+
+      function sourceCode(data){
+        const source = String(data.utm_source || '').toLowerCase();
+        const medium = String(data.utm_medium || '').toLowerCase();
+        const ref = String(data.referrer || '').toLowerCase();
+
+        if(data.gclid || (source.includes('google') && ['cpc','ppc','paid','paidsearch'].some(v => medium.includes(v)))) return 'GAD';
+        if(source.includes('google')) return 'GOR';
+        if(source.includes('instagram')) return 'IG';
+        if(source.includes('facebook') || source === 'fb') return 'FB';
+        if(source.includes('chatgpt') || source.includes('openai')) return 'AI';
+        if(source) return 'UTM';
+
+        if(ref.includes('google.')) return 'GOR';
+        if(ref.includes('instagram.')) return 'IG';
+        if(ref.includes('facebook.')) return 'FB';
+        if(ref.includes('chatgpt.') || ref.includes('openai.')) return 'AI';
+        if(!ref) return 'DIR';
+        return 'REF';
+      }
+
+      function campaignCode(data){
+        const value = String(data.utm_campaign || '')
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g,'')
+          .replace(/[^a-zA-Z0-9]/g,'')
+          .toUpperCase()
+          .slice(0,8);
+        return value;
+      }
+
+      function makeRequestId(){
+        const data = getSourceInfo();
+        const now = new Date();
+        const yy = String(now.getFullYear()).slice(-2);
+        const mm = String(now.getMonth()+1).padStart(2,'0');
+        const dd = String(now.getDate()).padStart(2,'0');
+        const hh = String(now.getHours()).padStart(2,'0');
+        const mi = String(now.getMinutes()).padStart(2,'0');
+        const random = Math.random().toString(36).slice(2,6).toUpperCase();
+        const campaign = campaignCode(data);
+        return ['HOM', sourceCode(data), ...(campaign ? [campaign] : []), yy+mm+dd, hh+mi, random].join('-');
+      }
+
+      const requestId = makeRequestId();
+      const requestIdEl = document.getElementById('sumRequestId');
+      if(requestIdEl) requestIdEl.textContent = requestId;
 
       function formatDate(value){
         if(!value) return 'Por definir';
@@ -1962,6 +2043,7 @@
         const message = [
           '🚘 BESTUR · Solicitud de servicio',
           '',
+          `🧾 Folio: ${requestId}`,
           `👤 Nombre: ${name}`,
           `📱 Teléfono / WhatsApp: ${phone}`,
           `📧 Email: ${email}`,
@@ -1983,7 +2065,7 @@
           `🌐 Idioma de atención: ${language}`,
           `📝 Notas: ${notes}`,
           '',
-          'Quedo atento(a) a disponibilidad, vehículo recomendado y confirmación final.'
+          'Esta solicitud aún no confirma el servicio. Quedo atento(a) a la confirmación de BESTUR.'
         ].join('\n');
 
         document.getElementById('qPreview').textContent = message;
