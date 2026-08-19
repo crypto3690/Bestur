@@ -645,7 +645,7 @@
             <div class="quick-bjx-result">
               <small id="quickResultLabel">Horario</small>
               <strong id="quickResult">Completa el tipo de traslado y la hora del vuelo</strong>
-              <span id="quickResultNote">Para salidas usamos 3 h 30 min como base y ajustamos el horario al bloque anterior de 5 minutos.</span>
+              <span id="quickResultNote">Para salidas usamos 3 h 30 min como base.</span>
             </div>
 
             <button class="btn-wa quick-bjx-submit" id="quickBjxSubmit" type="button">
@@ -664,8 +664,8 @@
         <div class="facts">
           <article class="fact"><small>Ruta</small><strong>BJX ↔ SMA</strong><p>Traslado privado entre el aeropuerto y San Miguel de Allende.</p></article>
           <article class="fact"><small>Duración</small><strong>1 h 30 min</strong><p>Tiempo aproximado; puede variar según tránsito y condiciones de la ruta.</p></article>
-          <article class="fact"><small>Salida al aeropuerto</small><strong>3 h 30 min + margen</strong><p>Usamos 3 h 30 min como base y redondeamos hacia abajo al bloque anterior de 5 minutos para conservar margen operativo adicional.</p></article>
-          <article class="fact"><small>Llegadas</small><strong>Vuelo monitoreado</strong><p>La hora oficial de la aerolínea es la referencia de operación.</p></article>
+          <article class="fact"><small>Salida al aeropuerto</small><strong>3 h 30 min</strong><p>Recomendamos programar la salida de San Miguel de Allende 3 horas y 30 minutos antes de la hora del vuelo..</p></article>
+          <article class="fact"><small>Llegadas</small><strong>Vuelo monitoreado</strong><p>Tomamos como referencia la hora oficial publicada por la aerolínea y ajustamos la recepción si el vuelo cambia.</p></article>
         </div>
       </div>
     </section>
@@ -995,7 +995,7 @@
         if(d.startsWith('Llegada'))return'Hora oficial: '+to12(t);
         return'Por definir';
       }
-      function build(){const v=vehicle(get('passengers')),tariff=v.cash?money(v.cash):'Cotización especial',vat=v.cash?money(v.cash*1.16):'Cotización especial';document.getElementById('vehicleSummary').textContent=v.label;document.getElementById('cashSummary').textContent=tariff;document.getElementById('scheduleSummary').textContent=schedule();const d=get('direction')||'Por definir';const tip=document.getElementById('flightTip');if(d.startsWith('Salida')&&get('flightTime'))tip.textContent='Para este vuelo, la recogida sugerida es a las '+schedule()+'. Tomamos 3 h 30 min como base y redondeamos hacia abajo al bloque anterior de 5 minutos, dejando hasta 4 minutos adicionales de margen.';else if(d.startsWith('Llegada'))tip.textContent='BESTUR tomará como referencia la hora oficial de aterrizaje publicada por la aerolínea y monitoreará el vuelo para ajustar la recepción si se adelanta o se retrasa.';else tip.textContent='Para salidas hacia BJX usamos 3 h 30 min como base y ajustamos el horario hacia abajo al bloque anterior de 5 minutos. Para llegadas, BESTUR monitorea la hora oficial publicada por la aerolínea.';
+      function build(){const v=vehicle(get('passengers')),tariff=v.cash?money(v.cash):'Cotización especial',vat=v.cash?money(v.cash*1.16):'Cotización especial';document.getElementById('vehicleSummary').textContent=v.label;document.getElementById('cashSummary').textContent=tariff;document.getElementById('scheduleSummary').textContent=schedule();const d=get('direction')||'Por definir';const tip=document.getElementById('flightTip');if(d.startsWith('Salida')&&get('flightTime'))tip.textContent='Para este vuelo, la recogida sugerida es a las '+schedule()+'. Recomendamos programar la salida de San Miguel de Allende 3 horas y 30 minutos antes de la hora del vuelo.';else if(d.startsWith('Llegada'))tip.textContent='BESTUR tomará como referencia la hora oficial de aterrizaje publicada por la aerolínea y monitoreará el vuelo para ajustar la recepción si se adelanta o se retrasa.';else tip.textContent='Para salidas hacia BJX usamos 3 h 30 min como base y ajustamos el horario hacia abajo al bloque anterior de 5 minutos. Para llegadas, BESTUR monitorea la hora oficial publicada por la aerolínea.';
         const msg=['BESTUR · Solicitud de traslado BJX','',`Folio: ${requestId}`,`Nombre: ${get('name')||'Por definir'}`,`Teléfono / WhatsApp: ${get('phone')||'Por definir'}`,`Email: ${get('email')||'No proporcionado'}`,`Fecha: ${dateFmt(get('date'))}`,'','Ruta: BJX ↔ San Miguel de Allende',`Tipo de traslado: ${d}`,`Pasajeros: ${get('passengers')||'Por definir'}`,`Vehículo sugerido: ${v.label}`,'',`Vuelo: ${get('flight')||'Por definir'}`,`Aerolínea: ${get('airline')||'Por definir'}`,`Hora oficial del vuelo / llegada: ${to12(get('flightTime'))}`,`Horario sugerido / referencia: ${schedule()}`,`Hotel, Airbnb o domicilio: ${get('address')||'Por definir'}`,'',`Tarifa web de referencia: ${tariff}`,`Tarifa con IVA 16%: ${vat}`,'',`Notas: ${get('notes')||'Sin notas'}`,'','Esta solicitud aún no confirma el servicio. Quedo atento(a) a la confirmación de BESTUR.'].join('\n');
         document.getElementById('preview').textContent=msg;return msg}
       function validate(){const req=[['name','nombre completo'],['phone','teléfono / WhatsApp'],['date','fecha del servicio'],['direction','tipo de traslado'],['passengers','número de pasajeros'],['flight','número de vuelo'],['airline','aerolínea'],['flightTime','hora oficial del vuelo / llegada'],['address','hotel, Airbnb o domicilio']];for(const [id,label] of req){if(!get(id)){alert('Por favor completa: '+label+'.');document.getElementById(id).focus();return false}}return true}
