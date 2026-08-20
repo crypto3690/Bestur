@@ -21,7 +21,7 @@
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Traslado AICM / CDMX a San Miguel de Allende | BESTUR">
-  <meta name="twitter:description" content="Traslado privado entre AICM y San Miguel de Allende con monitoreo de vuelo y cotización directa.">
+  <meta name="twitter:description" content="Traslado privado entre AICM / Ciudad de México y San Miguel de Allende con monitoreo de vuelo y cotización directa.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +42,7 @@
       {
         "@type":"Service",
         "@id":"https://bestur.mx/traslados-aeropuertos/cdmx-san-miguel-de-allende/#service",
-        "name":"Traslado privado AICM a San Miguel de Allende",
+        "name":"Traslado privado AICM / CDMX a San Miguel de Allende",
         "serviceType":"Transporte privado y traslado aeroportuario",
         "provider":{"@id":"https://bestur.mx/#organization"},
         "areaServed":[
@@ -56,7 +56,7 @@
         "itemListElement":[
           {"@type":"ListItem","position":1,"name":"Inicio","item":"https://bestur.mx/"},
           {"@type":"ListItem","position":2,"name":"Traslados a aeropuertos","item":"https://bestur.mx/traslados-aeropuertos/"},
-          {"@type":"ListItem","position":3,"name":"AICM a San Miguel de Allende","item":"https://bestur.mx/traslados-aeropuertos/cdmx-san-miguel-de-allende/"}
+          {"@type":"ListItem","position":3,"name":"AICM / CDMX a San Miguel de Allende","item":"https://bestur.mx/traslados-aeropuertos/cdmx-san-miguel-de-allende/"}
         ]
       },
       {
@@ -64,8 +64,8 @@
         "mainEntity":[
           {
             "@type":"Question",
-            "name":"¿Cuánto tiempo dura el traslado entre AICM y San Miguel de Allende?",
-            "acceptedAnswer":{"@type":"Answer","text":"El tiempo aproximado de traslado es de 3 horas y 30 minutos. El tiempo real puede variar de forma importante según el tránsito en Ciudad de México y las condiciones de la ruta."}
+            "name":"¿Cuánto tiempo dura el traslado entre AICM / CDMX y San Miguel de Allende?",
+            "acceptedAnswer":{"@type":"Answer","text":"El tiempo aproximado de traslado es de 3 horas y 30 minutos. El tiempo real puede variar según tránsito y condiciones de la ruta."}
           },
           {
             "@type":"Question",
@@ -430,6 +430,105 @@
     }
   </style>
 
+
+  <style id="cdmx-quick-quote-v2">
+    .quick-cdmx-card{
+      padding:27px;
+    }
+    .quick-cdmx-card > .kicker{
+      margin-bottom:11px;
+    }
+    .quick-cdmx-card h2{
+      font-size:38px;
+      margin-bottom:9px;
+    }
+    .quick-cdmx-intro{
+      color:var(--soft);
+      font-size:13px;
+      line-height:1.6;
+      margin-bottom:17px;
+    }
+    .quick-cdmx-form{
+      display:grid;
+      gap:11px;
+    }
+    .quick-cdmx-row{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:10px;
+    }
+    .quick-cdmx-card .field{
+      gap:5px;
+    }
+    .quick-cdmx-card .field label{
+      font-size:11px;
+    }
+    .quick-cdmx-card .field input,
+    .quick-cdmx-card .field select{
+      min-height:45px;
+      padding:10px 12px;
+      border-radius:13px;
+      font-size:12px;
+    }
+    .quick-cdmx-result{
+      padding:13px 14px;
+      border-radius:16px;
+      background:rgba(95,184,220,.08);
+      border:1px solid var(--line);
+    }
+    .quick-cdmx-result small{
+      display:block;
+      margin-bottom:5px;
+      color:var(--cyan2);
+      font-size:9px;
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    .quick-cdmx-result strong{
+      display:block;
+      color:#fff;
+      font-size:16px;
+      line-height:1.35;
+      margin-bottom:4px;
+    }
+    .quick-cdmx-result span{
+      display:block;
+      color:var(--muted);
+      font-size:10px;
+      line-height:1.45;
+    }
+    .quick-cdmx-submit{
+      width:100%;
+      min-height:50px;
+      margin-top:1px;
+      font-size:13px;
+    }
+    .quick-cdmx-secondary{
+      display:block;
+      text-align:center;
+      padding:5px 0 0;
+      color:var(--cyan2);
+      font-size:11px;
+      font-weight:800;
+    }
+    .quick-cdmx-secondary:hover{
+      text-decoration:underline;
+    }
+
+    @media(max-width:700px){
+      .quick-cdmx-row{
+        grid-template-columns:1fr;
+      }
+      .quick-cdmx-card{
+        padding:21px;
+      }
+      .quick-cdmx-card h2{
+        font-size:32px;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <div class="mobile-panel" id="mobilePanel" aria-hidden="true">
@@ -445,7 +544,7 @@
         <a href="/#ubicacion">Ubicación</a>
       </nav>
       <div class="mobile-actions">
-        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20AICM%20%2F%20Ciudad%20de%20M%C3%A9xico%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20AICM%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener">WhatsApp</a>
         <a class="btn-outline" href="/en/mexico-city-to-san-miguel-de-allende/" lang="en" hreflang="en">English</a>
         <a class="btn-outline" href="https://www.instagram.com/operadoraturisticabestur/" target="_blank" rel="noopener">Instagram</a>
         <a class="btn-outline" href="https://www.facebook.com/profile.php?id=100042187006901" target="_blank" rel="noopener">Facebook</a>
@@ -483,7 +582,7 @@
           <a href="/en/mexico-city-to-san-miguel-de-allende/" lang="en" hreflang="en">EN</a>
         </div>
 
-        <a class="btn-wa header-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20AICM%20%2F%20Ciudad%20de%20M%C3%A9xico%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener">
+        <a class="btn-wa header-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20AICM%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener">
           <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.7 6L0 24l6.4-1.9a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.2 21.6h-.1a9.7 9.7 0 0 1-5-1.4l-.4-.2-3.8 1.1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.5 4.6Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg>
           WhatsApp
         </a>
@@ -498,23 +597,63 @@
       <div class="container hero-grid">
         <div>
           <nav class="breadcrumbs" aria-label="Migas de pan"><a href="/">Inicio</a><span>›</span><a href="/traslados-aeropuertos/">Traslados a aeropuertos</a><span>›</span><span>AICM</span></nav>
-          <span class="kicker">Ciudad de México / AICM</span>
+          <span class="kicker">Ciudad de México · AICM</span>
           <h1>Traslado privado <em>AICM / CDMX ↔ San Miguel de Allende</em></h1>
-          <p>Viaja entre el Aeropuerto Internacional de la Ciudad de México (AICM) y San Miguel de Allende con transporte privado de BESTUR. Para llegadas monitoreamos la hora oficial del vuelo y, para salidas, recomendamos programar la recogida con margen suficiente antes de tu vuelo.</p>
-          <div class="hero-actions"><a class="btn" href="#cotizar">Solicitar cotización</a><a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%20entre%20AICM%20%2F%20Ciudad%20de%20M%C3%A9xico%20y%20San%20Miguel%20de%20Allende" target="_blank" rel="noopener" aria-label="Cotizar traslado AICM por WhatsApp">
-            <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.7 6L0 24l6.4-1.9a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.2 21.6h-.1a9.7 9.7 0 0 1-5-1.4l-.4-.2-3.8 1.1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.5 4.6Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg>
-            WhatsApp
-          </a></div>
+          <p>Viaja entre el Aeropuerto Internacional de la Ciudad de México (AICM) y San Miguel de Allende con transporte privado de BESTUR. Para llegadas monitoreamos la hora oficial del vuelo y, para salidas, recomendamos programar la recogida con la anticipación indicada para esta ruta.</p>
+          <div class="hero-actions">
+            <a class="btn-wa" href="#quick-cdmx-quote">Cotizar mi traslado</a>
+            <a class="btn-outline" href="#tarifas">Ver tarifas y vehículos</a>
+          </div>
           <div class="hero-chips"><span class="chip">Servicio privado</span><span class="chip">Monitoreo de vuelo</span><span class="chip">3 h 30 min aprox.</span><span class="chip">Vehículo según pasajeros</span></div>
         </div>
-        <aside class="glass hero-card">
-          <h2>Información rápida de la ruta</h2>
-          <ul class="route-list">
-            <li><strong>Tiempo aproximado</strong>3 horas y 30 minutos entre AICM y San Miguel de Allende.</li>
-            <li><strong>Salida hacia AICM / CDMX</strong>Recomendamos salir de San Miguel de Allende 7 horas antes de la hora del vuelo.</li>
-            <li><strong>Llegadas a AICM / CDMX</strong>Tomamos como referencia la hora oficial publicada por la aerolínea.</li>
-            <li><strong>Vuelo adelantado o retrasado</strong>BESTUR monitorea el vuelo y ajusta la recepción según la actualización de la aerolínea.</li>
-          </ul>
+        <aside class="glass hero-card quick-cdmx-card" id="quick-cdmx-quote">
+          <span class="kicker">Cotización rápida AICM</span>
+          <h2>Empieza tu traslado ahora</h2>
+          <p class="quick-cdmx-intro">
+            Completa los datos principales. Se conservarán automáticamente cuando continúes al formulario completo.
+          </p>
+
+          <form class="quick-cdmx-form" id="quickCdmxForm" onsubmit="return false;">
+            <div class="quick-cdmx-row">
+              <div class="field">
+                <label for="quickDirection">Tipo de traslado</label>
+                <select id="quickDirection">
+                  <option value="">Selecciona</option>
+                  <option value="Llegada AICM → San Miguel de Allende">Llegada AICM → San Miguel</option>
+                  <option value="Salida San Miguel de Allende → AICM">San Miguel → AICM</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="quickDate">Fecha</label>
+                <input id="quickDate" type="date">
+              </div>
+            </div>
+
+            <div class="quick-cdmx-row">
+              <div class="field">
+                <label for="quickPassengers">Pasajeros</label>
+                <input id="quickPassengers" type="number" min="1" placeholder="Ej. 4">
+              </div>
+
+              <div class="field">
+                <label for="quickFlightTime">Hora oficial del vuelo</label>
+                <input id="quickFlightTime" type="time">
+              </div>
+            </div>
+
+            <div class="quick-cdmx-result">
+              <small id="quickResultLabel">Horario</small>
+              <strong id="quickResult">Completa el tipo de traslado y la hora del vuelo</strong>
+              <span id="quickResultNote">Para salidas recomendamos programar la salida 7 horas antes de la hora del vuelo.</span>
+            </div>
+
+            <button class="btn-wa quick-cdmx-submit" id="quickCdmxSubmit" type="button">
+              Continuar cotización →
+            </button>
+
+            <a class="quick-cdmx-secondary" href="#tarifas">Prefiero ver tarifas primero</a>
+          </form>
         </aside>
       </div>
     </section>
@@ -523,9 +662,9 @@
       <div class="container">
         <div class="section-head"><span class="kicker">Lo esencial</span><h2 class="title">Cómo funciona el traslado AICM</h2><p class="copy">Información concreta para planear la llegada o salida antes de solicitar tu servicio.</p></div>
         <div class="facts">
-          <article class="fact"><small>Ruta</small><strong>AICM ↔ SMA</strong><p>Traslado privado entre el aeropuerto y San Miguel de Allende.</p></article>
+          <article class="fact"><small>Ruta</small><strong>AICM / CDMX ↔ SMA</strong><p>Traslado privado entre el aeropuerto y San Miguel de Allende.</p></article>
           <article class="fact"><small>Duración</small><strong>3 h 30 min</strong><p>Tiempo aproximado; puede variar según tránsito y condiciones de la ruta.</p></article>
-          <article class="fact"><small>Salida al aeropuerto</small><strong>3 h 30 min</strong><p>Margen recomendado antes de la hora programada del vuelo.</p></article>
+          <article class="fact"><small>Salida al aeropuerto</small><strong>7 h antes</strong><p>Recomendamos programar la salida de San Miguel de Allende 7 horas antes de la hora del vuelo.</p></article>
           <article class="fact"><small>Llegadas</small><strong>Vuelo monitoreado</strong><p>La hora oficial de la aerolínea es la referencia de operación.</p></article>
         </div>
       </div>
@@ -561,19 +700,19 @@
           <aside class="glass quote-info">
             <span class="kicker">Cotización AICM</span><h2>Solicita tu traslado</h2>
             <p>Completa los datos del traslado para generar una solicitud clara. Cada solicitud recibe un folio para facilitar el seguimiento con BESTUR.</p>
-            <ul class="quote-list"><li><strong>Llegada:</strong> usamos la hora oficial de aterrizaje y monitoreamos el vuelo.</li><li><strong>Salida:</strong> el sistema calcula una recogida sugerida 7 h antes del vuelo.</li><li><strong>Vehículo:</strong> se sugiere automáticamente según pasajeros.</li><li><strong>Seguimiento:</strong> cada solicitud genera un folio.</li></ul>
+            <ul class="quote-list"><li><strong>Llegada:</strong> usamos la hora oficial de aterrizaje y monitoreamos el vuelo.</li><li><strong>Salida:</strong> recomendamos programar la salida 7 horas antes de la hora del vuelo.</li><li><strong>Vehículo:</strong> se sugiere automáticamente según pasajeros.</li><li><strong>Seguimiento:</strong> cada solicitud genera un folio.</li></ul>
           </aside>
           <div class="glass quote-panel">
             <h2>Formulario de traslado AICM</h2><p>Completa los datos disponibles. La información se prepara automáticamente antes de abrir WhatsApp.</p>
-            <form class="form-grid" id="aicmForm" onsubmit="return false;">
+            <form class="form-grid" id="cdmxForm" onsubmit="return false;">
               <div class="row"><div class="field"><label for="name">Nombre completo *</label><input id="name" type="text" autocomplete="name" placeholder="Ej. María López"></div><div class="field"><label for="phone">Teléfono / WhatsApp *</label><input id="phone" type="tel" autocomplete="tel" placeholder="+52 415 000 0000"></div></div>
               <div class="row"><div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" placeholder="cliente@email.com"></div><div class="field"><label for="date">Fecha del servicio *</label><input id="date" type="date"></div></div>
-              <div class="row"><div class="field"><label for="direction">Tipo de traslado *</label><select id="direction"><option value="">Selecciona una opción</option><option value="Llegada AICM / CDMX → San Miguel de Allende">Llegada AICM / CDMX → San Miguel de Allende</option><option value="Salida San Miguel de Allende → AICM / CDMX">Salida San Miguel de Allende → AICM / CDMX</option></select></div><div class="field"><label for="passengers">Número de pasajeros *</label><input id="passengers" type="number" min="1" placeholder="Ej. 4"></div></div>
+              <div class="row"><div class="field"><label for="direction">Tipo de traslado *</label><select id="direction"><option value="">Selecciona una opción</option><option value="Llegada AICM → San Miguel de Allende">Llegada AICM → San Miguel de Allende</option><option value="Salida San Miguel de Allende → AICM">Salida San Miguel de Allende → AICM</option></select></div><div class="field"><label for="passengers">Número de pasajeros *</label><input id="passengers" type="number" min="1" placeholder="Ej. 4"></div></div>
               <div class="row"><div class="field"><label for="flight">Número de vuelo *</label><input id="flight" type="text" placeholder="Ej. AM 456"></div><div class="field"><label for="airline">Aerolínea *</label><input id="airline" type="text" placeholder="Ej. Aeroméxico, United, Volaris"></div></div>
               <div class="row"><div class="field"><label for="flightTime">Hora oficial del vuelo / llegada *</label><input id="flightTime" type="time"></div><div class="field"><label for="address">Hotel, Airbnb o domicilio en San Miguel *</label><input id="address" type="text" placeholder="Dirección o nombre del hospedaje"></div></div>
               <div class="field"><label for="notes">Notas adicionales</label><textarea id="notes" rows="4" placeholder="Información adicional, necesidades especiales o equipaje fuera de lo habitual."></textarea></div>
               <div class="summary"><div class="summary-box"><small>Vehículo sugerido</small><strong id="vehicleSummary">Por definir</strong></div><div class="summary-box"><small>Tarifa web</small><strong id="cashSummary">Por definir</strong></div><div class="summary-box"><small>Horario sugerido</small><strong id="scheduleSummary">Por definir</strong></div></div>
-              <div class="tip" id="flightTip">Para salidas hacia AICM recomendamos programar la recogida 7 horas antes del vuelo. Para llegadas, BESTUR monitorea la hora oficial publicada por la aerolínea.</div>
+              <div class="tip" id="flightTip">Para salidas hacia AICM recomendamos programar la salida de San Miguel de Allende 7 horas antes de la hora del vuelo. Para llegadas, BESTUR monitorea la hora oficial publicada por la aerolínea.</div>
               <div class="request-folio">
                 <div class="request-folio-label">Folio</div>
                 <div class="request-folio-content">
@@ -595,9 +734,9 @@
 
     <section class="section alt" id="preguntas">
       <div class="container">
-        <div class="section-head"><span class="kicker">Preguntas frecuentes</span><h2 class="title">Antes de viajar entre <em>AICM y San Miguel</em></h2></div>
+        <div class="section-head"><span class="kicker">Preguntas frecuentes</span><h2 class="title">Antes de viajar entre <em>AICM / CDMX y San Miguel</em></h2></div>
         <div class="faq">
-          <details><summary>¿Cuánto tiempo dura el traslado entre AICM y San Miguel de Allende?</summary><p>El tiempo aproximado es de 3 horas y 30 minutos. El tiempo real puede variar por tránsito y condiciones de la ruta.</p></details>
+          <details><summary>¿Cuánto tiempo dura el traslado entre AICM / CDMX y San Miguel de Allende?</summary><p>El tiempo aproximado es de 3 horas y 30 minutos. El tiempo real puede variar por tránsito y condiciones de la ruta.</p></details>
           <details><summary>¿BESTUR monitorea mi vuelo si se retrasa o se adelanta?</summary><p>Sí. Para llegadas tomamos como referencia la hora oficial publicada por la aerolínea y monitoreamos el vuelo para ajustar la recepción.</p></details>
           <details><summary>¿Con cuánto tiempo debo salir de San Miguel hacia AICM?</summary><p>BESTUR recomienda programar la salida aproximadamente 7 horas antes de la hora del vuelo.</p></details>
           <details><summary>¿El traslado es privado?</summary><p>Sí. La solicitud corresponde a transporte privado de BESTUR para tu servicio.</p></details>
@@ -660,7 +799,7 @@
       <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.2 1.7 6L0 24l6.4-1.9a11.8 11.8 0 0 0 5.7 1.5h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.2 21.6h-.1a9.7 9.7 0 0 1-5-1.4l-.4-.2-3.8 1.1 1-3.7-.2-.4a9.8 9.8 0 1 1 8.5 4.6Zm5.4-7.3c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.5-1.9-1.7-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2.1-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.3 1.4 3.6c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.4Z"/></svg>
     </span>
     <span class="float-wa-text">
-      <small>Traslado AICM / CDMX</small>
+      <small>Traslado AICM</small>
       <strong>Cotizar por WhatsApp</strong>
     </span>
   </a>
@@ -690,7 +829,20 @@
       const get=id=>{const el=document.getElementById(id);return el?String(el.value||'').trim():''};
       const dateFmt=v=>{if(!v)return'Por definir';const p=v.split('-');return p.length===3?`${p[2]}/${p[1]}/${p[0]}`:v};
       const to12=v=>{if(!v)return'Por definir';let [h,m]=v.split(':');h=Number(h);const ap=h>=12?'PM':'AM';h=h%12||12;return `${String(h).padStart(2,'0')}:${m||'00'} ${ap}`};
-      const subMinutes=(v,mins)=>{if(!v)return'';let [h,m]=v.split(':').map(Number),t=h*60+m-mins;while(t<0)t+=1440;return `${String(Math.floor(t/60)%24).padStart(2,'0')}:${String(t%60).padStart(2,'0')}`};
+
+      // Resta el margen base y SIEMPRE redondea hacia abajo al bloque
+      // anterior de 5 minutos. Ejemplo: 14:36 -> 14:35.
+      // Esto agrega entre 0 y 4 minutos adicionales de margen operativo.
+      const subMinutesFloor5=(v,mins)=>{
+        if(!v)return'';
+        let [h,m]=v.split(':').map(Number);
+        let total=h*60+m-mins;
+        while(total<0)total+=1440;
+        total=Math.floor(total/5)*5;
+        const hh=Math.floor(total/60)%24;
+        const mm=total%60;
+        return `${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}`;
+      };
       const money=n=>'$'+Math.round(n).toLocaleString('es-MX')+' MXN';
       function vehicle(n){n=Number(n||0);if(!n)return{label:'Por definir',cash:0};if(n<=2)return{label:'Sedán',cash:5250};if(n<=6)return{label:'Suburban',cash:7350};if(n<=10)return{label:'Hiace / Transit',cash:8400};if(n<=16)return{label:'Crafter',cash:9975};return{label:'Cotización especial para grupo',cash:0}}
 
@@ -739,24 +891,122 @@
       const floatWa=document.getElementById('floatWa');
       if(floatWa){
         const quickMessage=[
-          'Hola BESTUR, quiero cotizar un traslado entre AICM / Ciudad de México y San Miguel de Allende.',
+          'Hola BESTUR, quiero cotizar un traslado entre AICM / CDMX y San Miguel de Allende.',
           'Folio: '+requestId
         ].join('\n');
         floatWa.href='https://wa.me/524151035353?text='+encodeURIComponent(quickMessage);
         floatWa.target='_blank';
         floatWa.rel='noopener';
       }
-      window.dataLayer=window.dataLayer||[];let started=false;
+      // Cotizador rápido del hero
+      const quickDirection=document.getElementById('quickDirection');
+      const quickDate=document.getElementById('quickDate');
+      const quickPassengers=document.getElementById('quickPassengers');
+      const quickFlightTime=document.getElementById('quickFlightTime');
+      const quickResult=document.getElementById('quickResult');
+      const quickResultLabel=document.getElementById('quickResultLabel');
+      const quickResultNote=document.getElementById('quickResultNote');
+      const quickCdmxSubmit=document.getElementById('quickCdmxSubmit');
+
+      function updateQuickResult(){
+        const d=quickDirection ? quickDirection.value : '';
+        const t=quickFlightTime ? quickFlightTime.value : '';
+
+        if(!d){
+          quickResultLabel.textContent='Horario';
+          quickResult.textContent='Selecciona el tipo de traslado';
+          quickResultNote.textContent='Para salidas recomendamos programar la salida 7 horas antes del vuelo.';
+          return;
+        }
+
+        if(d.startsWith('Llegada')){
+          quickResultLabel.textContent='Llegada AICM';
+          quickResult.textContent=t ? 'Hora oficial: '+to12(t) : 'Monitoreamos tu vuelo';
+          quickResultNote.textContent='BESTUR ajusta la recepción cuando la aerolínea actualiza la hora del vuelo.';
+          return;
+        }
+
+        quickResultLabel.textContent='Recogida sugerida';
+        if(!t){
+          quickResult.textContent='Ingresa la hora oficial del vuelo';
+          quickResultNote.textContent='Calcularemos la hora sugerida de salida según la hora oficial de tu vuelo.';
+          return;
+        }
+
+        const suggested=subMinutesFloor5(t,420);
+        quickResult.textContent=to12(suggested);
+        quickResultNote.textContent='Horario sugerido según la hora oficial de tu vuelo.';
+      }
+
+      function syncQuickToFull(){
+        if(quickDirection && quickDirection.value)document.getElementById('direction').value=quickDirection.value;
+        if(quickDate && quickDate.value)document.getElementById('date').value=quickDate.value;
+        if(quickPassengers && quickPassengers.value)document.getElementById('passengers').value=quickPassengers.value;
+        if(quickFlightTime && quickFlightTime.value)document.getElementById('flightTime').value=quickFlightTime.value;
+        build();
+      }
+
+      [quickDirection,quickDate,quickPassengers,quickFlightTime].forEach(el=>{
+        if(!el)return;
+        el.addEventListener('input',()=>{
+          updateQuickResult();
+          syncQuickToFull();
+        });
+        el.addEventListener('change',()=>{
+          updateQuickResult();
+          syncQuickToFull();
+        });
+      });
+
+      if(quickCdmxSubmit){
+        quickCdmxSubmit.addEventListener('click',()=>{
+          const quickRequired=[
+            [quickDirection,'tipo de traslado'],
+            [quickDate,'fecha'],
+            [quickPassengers,'número de pasajeros'],
+            [quickFlightTime,'hora oficial del vuelo']
+          ];
+
+          for(const [el,label] of quickRequired){
+            if(!String(el.value||'').trim()){
+              alert('Por favor completa: '+label+'.');
+              el.focus();
+              return;
+            }
+          }
+
+          syncQuickToFull();
+          document.getElementById('cotizar').scrollIntoView({behavior:'smooth',block:'start'});
+          setTimeout(()=>{
+            const name=document.getElementById('name');
+            if(name)name.focus({preventScroll:true});
+          },650);
+        });
+      }
+
+      updateQuickResult();
+
+            window.dataLayer=window.dataLayer||[];let started=false;
       const push=(event,extra={})=>window.dataLayer.push(Object.assign({event,service:'Traslado AICM',request_id:requestId,source:attr.source_label||'Por definir'},extra));
-      function schedule(){const d=get('direction'),t=get('flightTime');if(!t)return'Por definir';if(d.startsWith('Salida'))return to12(subMinutes(t,420));if(d.startsWith('Llegada'))return'Hora oficial: '+to12(t);return'Por definir'}
-      function build(){const v=vehicle(get('passengers')),tariff=v.cash?money(v.cash):'Cotización especial',vat=v.cash?money(v.cash*1.16):'Cotización especial';document.getElementById('vehicleSummary').textContent=v.label;document.getElementById('cashSummary').textContent=tariff;document.getElementById('scheduleSummary').textContent=schedule();const d=get('direction')||'Por definir';const tip=document.getElementById('flightTip');if(d.startsWith('Salida')&&get('flightTime'))tip.textContent='Para este vuelo, la recogida sugerida es aproximadamente a las '+schedule()+', equivalente a 7 horas antes del vuelo.';else if(d.startsWith('Llegada'))tip.textContent='BESTUR tomará como referencia la hora oficial de aterrizaje publicada por la aerolínea y monitoreará el vuelo para ajustar la recepción si se adelanta o se retrasa.';else tip.textContent='Para salidas hacia AICM recomendamos programar la recogida 7 horas antes del vuelo. Para llegadas, BESTUR monitorea la hora oficial publicada por la aerolínea.';
+      function schedule(){
+        const d=get('direction'),t=get('flightTime');
+        if(!t)return'Por definir';
+        if(d.startsWith('Salida'))return to12(subMinutesFloor5(t,420));
+        if(d.startsWith('Llegada'))return'Hora oficial: '+to12(t);
+        return'Por definir';
+      }
+      function build(){const v=vehicle(get('passengers')),tariff=v.cash?money(v.cash):'Cotización especial',vat=v.cash?money(v.cash*1.16):'Cotización especial';document.getElementById('vehicleSummary').textContent=v.label;document.getElementById('cashSummary').textContent=tariff;document.getElementById('scheduleSummary').textContent=schedule();const d=get('direction')||'Por definir';const tip=document.getElementById('flightTip');if(d.startsWith('Salida')&&get('flightTime'))tip.textContent='Para este vuelo, la recogida sugerida es a las '+schedule()+'.';else if(d.startsWith('Llegada'))tip.textContent='BESTUR tomará como referencia la hora oficial de aterrizaje publicada por la aerolínea y monitoreará el vuelo para ajustar la recepción si se adelanta o se retrasa.';else tip.textContent='Para salidas hacia AICM recomendamos programar la salida 7 horas antes del vuelo. Para llegadas, BESTUR monitorea la hora oficial publicada por la aerolínea.';
         const msg=['BESTUR · Solicitud de traslado AICM','',`Folio: ${requestId}`,`Nombre: ${get('name')||'Por definir'}`,`Teléfono / WhatsApp: ${get('phone')||'Por definir'}`,`Email: ${get('email')||'No proporcionado'}`,`Fecha: ${dateFmt(get('date'))}`,'','Ruta: AICM / CDMX ↔ San Miguel de Allende',`Tipo de traslado: ${d}`,`Pasajeros: ${get('passengers')||'Por definir'}`,`Vehículo sugerido: ${v.label}`,'',`Vuelo: ${get('flight')||'Por definir'}`,`Aerolínea: ${get('airline')||'Por definir'}`,`Hora oficial del vuelo / llegada: ${to12(get('flightTime'))}`,`Horario sugerido / referencia: ${schedule()}`,`Hotel, Airbnb o domicilio: ${get('address')||'Por definir'}`,'',`Tarifa web de referencia: ${tariff}`,`Tarifa con IVA 16%: ${vat}`,'',`Notas: ${get('notes')||'Sin notas'}`,'','Esta solicitud aún no confirma el servicio. Quedo atento(a) a la confirmación de BESTUR.'].join('\n');
         document.getElementById('preview').textContent=msg;return msg}
       function validate(){const req=[['name','nombre completo'],['phone','teléfono / WhatsApp'],['date','fecha del servicio'],['direction','tipo de traslado'],['passengers','número de pasajeros'],['flight','número de vuelo'],['airline','aerolínea'],['flightTime','hora oficial del vuelo / llegada'],['address','hotel, Airbnb o domicilio']];for(const [id,label] of req){if(!get(id)){alert('Por favor completa: '+label+'.');document.getElementById(id).focus();return false}}return true}
       ids.forEach(id=>{const el=document.getElementById(id);if(!el)return;const h=()=>{if(!started){started=true;push('quote_form_start')}build()};el.addEventListener('input',h);el.addEventListener('change',h)});
       document.getElementById('whatsappBtn').addEventListener('click',()=>{const msg=build();if(!validate())return;push('quote_form_submit',{direction:get('direction'),passengers:get('passengers')});push('whatsapp_click');window.open('https://wa.me/524151035353?text='+encodeURIComponent(msg),'_blank','noopener')});
       document.getElementById('copyBtn').addEventListener('click',async()=>{const msg=build();if(!validate())return;try{await navigator.clipboard.writeText(msg);alert('Solicitud copiada al portapapeles.')}catch(e){alert('No fue posible copiar automáticamente. Puedes copiar el texto desde la vista previa.')}});
-      const di=document.getElementById('date');di.min=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');build();
+      const di=document.getElementById('date');
+      const minDate=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
+      di.min=minDate;
+      if(quickDate)quickDate.min=minDate;
+      build();
     })();
   </script>
 </body>
