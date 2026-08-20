@@ -1166,6 +1166,156 @@
     }
   </style>
 
+  <!--
+    ===============================================================
+    NUEVO · PRUEBA DE TRAYECTORIA BESTUR
+    ÚNICA ADICIÓN A LA HOME EXISTENTE.
+    No sustituye ni modifica ninguna sección ya presente.
+    ===============================================================
+  -->
+  <style id="bestur-trayectoria-v1">
+    .bestur-proof{
+      padding:18px 0 26px;
+      position:relative;
+      z-index:4;
+    }
+    .bestur-proof-card{
+      overflow:hidden;
+      padding:0;
+    }
+    .bestur-proof-top{
+      display:grid;
+      grid-template-columns:.92fr 1.08fr;
+      align-items:stretch;
+    }
+    .bestur-proof-copy{
+      padding:34px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .bestur-proof-copy .kicker{
+      align-self:flex-start;
+    }
+    .bestur-proof-copy h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.7rem,4.6vw,4.8rem);
+      line-height:.92;
+      margin-bottom:14px;
+      letter-spacing:-.02em;
+    }
+    .bestur-proof-copy p{
+      color:var(--text-soft);
+      font-size:15px;
+      line-height:1.75;
+    }
+    .bestur-proof-stats{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      border-left:1px solid var(--line);
+    }
+    .bestur-stat{
+      min-height:260px;
+      padding:34px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:
+        radial-gradient(circle at 82% 18%,rgba(95,184,220,.12),transparent 35%),
+        rgba(6,19,33,.46);
+    }
+    .bestur-stat + .bestur-stat{
+      border-left:1px solid var(--line);
+    }
+    .bestur-stat strong{
+      display:block;
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(4rem,6vw,6.3rem);
+      line-height:.82;
+      color:#fff;
+      letter-spacing:-.035em;
+      margin-bottom:14px;
+    }
+    .bestur-stat span{
+      display:block;
+      color:var(--cyan-soft);
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:7px;
+    }
+    .bestur-stat small{
+      display:block;
+      color:var(--text-muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .bestur-proof-bottom{
+      padding:22px 34px 28px;
+      border-top:1px solid var(--line);
+      background:rgba(0,89,156,.08);
+    }
+    .bestur-proof-bottom p{
+      max-width:1040px;
+      margin:0 auto 16px;
+      color:var(--text-soft);
+      font-size:14px;
+      line-height:1.72;
+      text-align:center;
+    }
+    .bestur-proof-types{
+      display:flex;
+      justify-content:center;
+      gap:9px;
+      flex-wrap:wrap;
+    }
+    .bestur-proof-types span{
+      display:inline-flex;
+      align-items:center;
+      min-height:36px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(6,19,33,.62);
+      border:1px solid var(--line);
+      color:rgba(255,255,255,.82);
+      font-size:11px;
+      font-weight:800;
+    }
+
+    @media(max-width:980px){
+      .bestur-proof-top{
+        grid-template-columns:1fr;
+      }
+      .bestur-proof-stats{
+        border-left:0;
+        border-top:1px solid var(--line);
+      }
+    }
+    @media(max-width:620px){
+      .bestur-proof{
+        padding:14px 0 22px;
+      }
+      .bestur-proof-copy{
+        padding:24px;
+      }
+      .bestur-proof-stats{
+        grid-template-columns:1fr;
+      }
+      .bestur-stat{
+        min-height:auto;
+        padding:27px 24px;
+      }
+      .bestur-stat + .bestur-stat{
+        border-left:0;
+        border-top:1px solid var(--line);
+      }
+      .bestur-proof-bottom{
+        padding:20px 22px 24px;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <div class="mobile-panel" id="mobilePanel" aria-hidden="true">
@@ -1341,6 +1491,64 @@
               loading="lazy"
               decoding="async"
             />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--
+      ===============================================================
+      NUEVO · TRAYECTORIA Y PRUEBA OPERATIVA
+      Se agrega sin alterar ninguna sección existente.
+      ===============================================================
+    -->
+    <section class="bestur-proof" aria-labelledby="bestur-proof-title">
+      <div class="container">
+        <div class="glass bestur-proof-card">
+          <div class="bestur-proof-top">
+            <div class="bestur-proof-copy">
+              <span class="kicker">Trayectoria BESTUR</span>
+              <h2 id="bestur-proof-title">Experiencia que se demuestra en la operación</h2>
+              <p>
+                Desde 2005, BESTUR ha coordinado transporte privado para viajeros, familias,
+                hoteles, empresas, bodas y clientes recurrentes en San Miguel de Allende,
+                Guanajuato, Querétaro, Ciudad de México y distintas rutas de México.
+              </p>
+            </div>
+
+            <div class="bestur-proof-stats" aria-label="Cifras de experiencia BESTUR">
+              <article class="bestur-stat">
+                <strong>15,000+</strong>
+                <span>Servicios realizados</span>
+                <small>Traslados, tours, eventos, grupos y servicios especiales.</small>
+              </article>
+
+              <article class="bestur-stat">
+                <strong>20+ años</strong>
+                <span>De experiencia</span>
+                <small>Operando desde 2005.</small>
+              </article>
+            </div>
+          </div>
+
+          <div class="bestur-proof-bottom">
+            <p>
+              Nuestra experiencia no se limita a aeropuertos y tours. A lo largo de los años
+              hemos realizado transporte para bodas, conciertos y eventos; traslados de clientes
+              a otras ciudades para trámites y citas; movimientos de músicos, artistas, staff y personal de producción;
+              además de rutas privadas y servicios especiales coordinados según cada necesidad.
+            </p>
+
+            <div class="bestur-proof-types" aria-label="Tipos de servicios realizados por BESTUR">
+              <span>Aeropuertos</span>
+              <span>Tours privados</span>
+              <span>Bodas</span>
+              <span>Conciertos y eventos</span>
+              <span>Hoteles y clientes recurrentes</span>
+              <span>Traslados para trámites y citas</span>
+              <span> artistas y staff</span>
+              <span>Rutas especiales</span>
+            </div>
           </div>
         </div>
       </div>
