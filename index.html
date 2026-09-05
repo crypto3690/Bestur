@@ -2969,7 +2969,14 @@
         route:'',
         serviceDate:'',
         passengers:'',
-        name:''
+        name:'',
+        weddingScope:'',
+        airportMovement:'',
+        airport:'',
+        flightPattern:'',
+        localMovements:'',
+        weddingLocations:'',
+        schedulePattern:''
       };
 
       function scrollChat(){
@@ -3157,9 +3164,129 @@
         ]));
       }
 
+      function updateWeddingRoute(){
+        const parts = [
+          chatState.weddingScope ? `Logística: ${chatState.weddingScope}` : '',
+          chatState.airportMovement ? `Aeropuerto: ${chatState.airportMovement}` : '',
+          chatState.airport ? `Aeropuerto(s): ${chatState.airport}` : '',
+          chatState.flightPattern ? `Vuelos: ${chatState.flightPattern}` : '',
+          chatState.localMovements ? `Movimientos locales: ${chatState.localMovements}` : '',
+          chatState.weddingLocations ? `Lugares: ${chatState.weddingLocations}` : '',
+          chatState.schedulePattern ? `Horarios: ${chatState.schedulePattern}` : ''
+        ].filter(Boolean);
+        chatState.route = parts.length ? parts.join(' · ') : 'Logística de boda por definir';
+      }
+
+      function askWeddingGuestCount(){
+        askChatInput('¿Aproximadamente cuántas personas necesitarán transporte?', {
+          type:'number',
+          placeholder:'Número aproximado',
+          min:'1',
+          allowSkip:true,
+          validate:value => Number.isInteger(Number(value)) && Number(value) >= 1,
+          display:value => `Aproximadamente ${value} persona${Number(value) === 1 ? '' : 's'}`
+        }, value => {
+          chatState.passengers = value;
+          botSays('Podemos coordinar varias unidades y horarios según el tamaño del grupo. La distribución se definirá después de revisar tu logística y disponibilidad.', askCustomerName);
+        });
+      }
+
+      function askWeddingDate(){
+        const today = new Date();
+        const minDate = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+        askChatInput('¿Cuál es la fecha principal de la boda o evento?', {
+          type:'date',
+          min:minDate,
+          allowSkip:true,
+          display:formatDate
+        }, value => {
+          chatState.serviceDate = value;
+          askWeddingGuestCount();
+        });
+      }
+
+      function askWeddingLocations(question, next){
+        askChatInput(question, {
+          type:'text',
+          placeholder:'Puedes escribir los lugares que ya conozcas',
+          maxLength:300,
+          allowSkip:true
+        }, value => {
+          chatState.weddingLocations = value || 'Por definir';
+          updateWeddingRoute();
+          next();
+        });
+      }
+
+      function askWeddingSchedule(){
+        botSays('¿Cómo serán los horarios de los traslados locales?', () => showChatOptions([
+          {label:'Un solo horario', value:'ONE-SCHEDULE', next:() => {chatState.schedulePattern='Un solo horario';updateWeddingRoute();askWeddingDate();}},
+          {label:'Varios grupos u horarios', value:'MULTIPLE-SCHEDULES', next:() => {chatState.schedulePattern='Varios grupos u horarios';updateWeddingRoute();askWeddingDate();}},
+          {label:'Regresos escalonados', value:'STAGGERED-RETURNS', next:() => {chatState.schedulePattern='Regresos escalonados';updateWeddingRoute();askWeddingDate();}},
+          {label:'Aún no está definido', value:'UNKNOWN-SCHEDULE', next:() => {chatState.schedulePattern='Por definir';updateWeddingRoute();askWeddingDate();}}
+        ]));
+      }
+
+      function askWeddingLocalMovements(){
+        botSays('¿Qué movimientos locales necesitas principalmente?', () => showChatOptions([
+          {label:'Hoteles → iglesia → evento → regreso', value:'FULL-CIRCUIT', next:() => {chatState.localMovements='Hoteles → iglesia → evento → regreso a hoteles';askWeddingLocations('¿Qué hoteles, iglesia y lugar del evento ya conoces?', askWeddingSchedule);}},
+          {label:'Hoteles → iglesia o ceremonia', value:'HOTEL-CEREMONY', next:() => {chatState.localMovements='Hoteles → iglesia o ceremonia';askWeddingLocations('¿Qué hoteles e iglesia o ceremonia ya conoces?', askWeddingSchedule);}},
+          {label:'Hoteles → lugar del evento', value:'HOTEL-VENUE', next:() => {chatState.localMovements='Hoteles → lugar del evento';askWeddingLocations('¿Qué hoteles y lugar del evento ya conoces?', askWeddingSchedule);}},
+          {label:'Iglesia → lugar del evento', value:'CEREMONY-VENUE', next:() => {chatState.localMovements='Iglesia → lugar del evento';askWeddingLocations('¿Qué iglesia y lugar del evento ya conoces?', askWeddingSchedule);}},
+          {label:'Evento → hoteles / regreso', value:'RETURN-HOTELS', next:() => {chatState.localMovements='Evento → hoteles / regreso';askWeddingLocations('¿Qué lugar del evento y hoteles ya conoces?', askWeddingSchedule);}},
+          {label:'Varios recorridos o aún por definir', value:'MULTIPLE-LOCAL', next:() => {chatState.localMovements='Varios recorridos / por definir';askWeddingLocations('¿Qué hoteles, iglesia o venue ya conoces?', askWeddingSchedule);}}
+        ]));
+      }
+
+      function continueWeddingAfterFlights(){
+        updateWeddingRoute();
+        if(chatState.weddingScope === 'Aeropuertos y traslados locales'){
+          askWeddingLocalMovements();
+          return;
+        }
+        askWeddingLocations('¿A qué hotel, hoteles o zona de San Miguel debemos trasladar a los invitados?', askWeddingDate);
+      }
+
+      function askWeddingFlightPattern(){
+        botSays('¿Los invitados viajarán juntos o en distintos vuelos y horarios?', () => showChatOptions([
+          {label:'Un mismo vuelo u horario', value:'ONE-FLIGHT', next:() => {chatState.flightPattern='Un mismo vuelo u horario';continueWeddingAfterFlights();}},
+          {label:'Varios vuelos u horarios', value:'MULTIPLE-FLIGHTS', next:() => {chatState.flightPattern='Varios vuelos u horarios';continueWeddingAfterFlights();}},
+          {label:'Aún no está definido', value:'UNKNOWN-FLIGHTS', next:() => {chatState.flightPattern='Por definir';continueWeddingAfterFlights();}}
+        ]));
+      }
+
+      function askWeddingAirport(){
+        botSays('¿Qué aeropuerto o aeropuertos utilizarán principalmente?', () => showChatOptions([
+          {label:'BJX / Aeropuerto del Bajío', value:'WED-BJX', next:() => {chatState.airport='Aeropuerto del Bajío BJX';askWeddingFlightPattern();}},
+          {label:'QRO / Aeropuerto de Querétaro', value:'WED-QRO', next:() => {chatState.airport='Aeropuerto de Querétaro QRO';askWeddingFlightPattern();}},
+          {label:'Ciudad de México / AICM', value:'WED-CDMX', next:() => {chatState.airport='Ciudad de México / AICM';askWeddingFlightPattern();}},
+          {label:'AIFA', value:'WED-AIFA', next:() => {chatState.airport='AIFA';askWeddingFlightPattern();}},
+          {label:'Varios o aún no lo sé', value:'WED-MULTIPLE-AIRPORTS', next:() => {chatState.airport='Varios / por definir';askWeddingFlightPattern();}}
+        ]));
+      }
+
+      function askWeddingAirportMovement(){
+        botSays('Para los invitados, ¿necesitas llegadas, salidas o ambas?', () => showChatOptions([
+          {label:'Llegadas a San Miguel de Allende', value:'WED-ARRIVALS', next:() => {chatState.airportMovement='Llegadas a San Miguel de Allende';askWeddingAirport();}},
+          {label:'Salidas hacia los aeropuertos', value:'WED-DEPARTURES', next:() => {chatState.airportMovement='Salidas hacia los aeropuertos';askWeddingAirport();}},
+          {label:'Llegadas y salidas', value:'WED-BOTH-DIRECTIONS', next:() => {chatState.airportMovement='Llegadas y salidas';askWeddingAirport();}},
+          {label:'Aún no está definido', value:'WED-UNKNOWN-DIRECTION', next:() => {chatState.airportMovement='Por definir';askWeddingAirport();}}
+        ]));
+      }
+
+      function askWeddingScope(){
+        chatState.service = 'Transporte para boda';
+        botSays('¿Qué parte del transporte de la boda necesitas organizar?', () => showChatOptions([
+          {label:'Traslados desde o hacia aeropuertos', value:'WED-AIRPORT', next:() => {chatState.weddingScope='Traslados de aeropuerto';askWeddingAirportMovement();}},
+          {label:'Traslados locales de la boda', value:'WED-LOCAL', next:() => {chatState.weddingScope='Traslados locales';askWeddingLocalMovements();}},
+          {label:'Aeropuertos y traslados locales', value:'WED-ALL', next:() => {chatState.weddingScope='Aeropuertos y traslados locales';askWeddingAirportMovement();}},
+          {label:'Aún no estoy seguro', value:'WED-UNKNOWN', next:() => {chatState.weddingScope='Por definir';updateWeddingRoute();askWeddingDate();}}
+        ]));
+      }
+
       function askEventType(){
         botSays('¿Qué tipo de servicio necesitas?', () => showChatOptions([
-          {label:'Transporte para boda', value:'WEDDING', next:() => {chatState.service='Transporte para boda';chatState.route='Boda / ruta por definir';askServiceDate();}},
+          {label:'Transporte para boda', value:'WEDDING', next:askWeddingScope},
           {label:'Transporte para grupo', value:'GROUP', next:() => {chatState.service='Transporte para grupo';chatState.route='Grupo / ruta por definir';askServiceDate();}},
           {label:'Servicio especial', value:'SPECIAL', next:() => {chatState.service='Servicio especial';chatState.route='Ruta por definir';askServiceDate();}}
         ]));
@@ -3239,6 +3366,7 @@
       function finishGuidedChat(){
         chatState.completed = true;
         const date = chatState.serviceDate ? formatDate(chatState.serviceDate) : 'Por definir';
+        const passengers = chatState.passengers || 'Por definir';
         const message = [
           '🚘 BESTUR · Solicitud desde asistente',
           `Origen: bestur.mx * ${PAGE_CODE}`,
@@ -3248,13 +3376,13 @@
           `Servicio: ${chatState.service}`,
           `Ruta / detalle: ${chatState.route}`,
           `Fecha: ${date}`,
-          `Personas: ${chatState.passengers}`,
+          `Personas aproximadas: ${passengers}`,
           '',
           'Esta solicitud aún no confirma el servicio. Quedo atento(a) a la confirmación de BESTUR.'
         ].join('\n');
 
         botSays(`Gracias, ${chatState.name}. Ya preparé tu solicitud. Revísala y envíala por WhatsApp para que BESTUR confirme disponibilidad y tarifa.`, () => {
-          appendChatMessage(`Servicio: ${chatState.service}\nRuta o detalle: ${chatState.route}\nFecha: ${date}\nPersonas: ${chatState.passengers}`, 'bot');
+          appendChatMessage(`Servicio: ${chatState.service}\nRuta o detalle: ${chatState.route}\nFecha: ${date}\nPersonas aproximadas: ${passengers}`, 'bot');
           chatWhatsapp.href = 'https://wa.me/524151035353?text=' + encodeURIComponent(message);
           chatWhatsapp.dataset.requestId = chatState.requestId;
           chatWhatsapp.hidden = false;
@@ -3272,6 +3400,13 @@
         chatState.serviceDate = '';
         chatState.passengers = '';
         chatState.name = '';
+        chatState.weddingScope = '';
+        chatState.airportMovement = '';
+        chatState.airport = '';
+        chatState.flightPattern = '';
+        chatState.localMovements = '';
+        chatState.weddingLocations = '';
+        chatState.schedulePattern = '';
         if(chatThread) chatThread.replaceChildren();
         clearChatControls();
         if(chatWhatsapp) chatWhatsapp.hidden = true;
