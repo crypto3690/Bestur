@@ -801,14 +801,20 @@
       width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);
       color:#fff;font-size:22px;cursor:pointer;flex:0 0 auto;
     }
-    .bestur-chat-body{padding:18px;overflow-y:auto}
-    .bestur-chat-bubble{
-      padding:14px 15px;border-radius:18px 18px 18px 5px;
+    .bestur-chat-body{padding:18px;overflow-y:auto;scroll-behavior:smooth}
+    .bestur-chat-thread{display:grid;gap:10px}
+    .bestur-chat-message{
+      width:fit-content;max-width:88%;padding:12px 14px;
+      border-radius:18px 18px 18px 5px;
       background:rgba(0,89,156,.22);border:1px solid var(--line);
-      color:var(--text-soft);font-size:14px;line-height:1.6;
+      color:var(--text-soft);font-size:14px;line-height:1.55;
+      animation:bestur-chat-in .24s ease both;
     }
-    .bestur-chat-answer{margin-top:12px;color:#fff}
-    .bestur-chat-options{display:grid;gap:8px;margin-top:14px}
+    .bestur-chat-message.user{
+      justify-self:end;border-radius:18px 18px 5px 18px;
+      background:rgba(95,184,220,.22);color:#fff;
+    }
+    .bestur-chat-controls{display:grid;gap:8px;margin-top:14px}
     .bestur-chat-option{
       width:100%;padding:11px 13px;border-radius:14px;text-align:left;
       background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);
@@ -817,8 +823,26 @@
     .bestur-chat-option:hover,.bestur-chat-option:focus{
       background:rgba(0,89,156,.28);border-color:var(--line-strong);outline:none;
     }
-    .bestur-chat-actions{padding:0 18px 18px}
+    .bestur-chat-input-row{display:grid;grid-template-columns:1fr auto;gap:8px}
+    .bestur-chat-input{
+      min-width:0;padding:11px 12px;border-radius:14px;
+      border:1px solid var(--line);background:rgba(255,255,255,.07);color:#fff;
+    }
+    .bestur-chat-input:focus{outline:none;border-color:rgba(215,246,255,.48)}
+    .bestur-chat-send{
+      min-width:74px;padding:10px 13px;border-radius:14px;
+      background:var(--cyan-soft);color:var(--navy);font-weight:900;cursor:pointer;
+    }
+    .bestur-chat-actions{display:grid;gap:8px;padding:0 18px 18px}
     .bestur-chat-actions .btn-wa{width:100%;min-height:48px;padding:12px 16px}
+    .bestur-chat-restart{
+      background:transparent;color:var(--cyan-soft);font-weight:800;cursor:pointer;
+      padding:8px;border-radius:12px;
+    }
+    @keyframes bestur-chat-in{
+      from{opacity:0;transform:translateY(7px)}
+      to{opacity:1;transform:translateY(0)}
+    }
 
     @media (max-width:1320px){
       .header-inner{grid-template-columns:260px minmax(0,1fr) auto}
@@ -2482,24 +2506,13 @@
     </div>
 
     <div class="bestur-chat-body">
-      <div class="bestur-chat-bubble">
-        Hola. Selecciona una pregunta y te mostraré la información disponible.
-        <div class="bestur-chat-answer" id="besturChatAnswer" aria-live="polite"></div>
-      </div>
-
-      <div class="bestur-chat-options" id="besturChatOptions">
-        <button class="bestur-chat-option" type="button" data-chat-question="quote">¿Cómo cotizo un servicio?</button>
-        <button class="bestur-chat-option" type="button" data-chat-question="airports">¿Qué aeropuertos atienden?</button>
-        <button class="bestur-chat-option" type="button" data-chat-question="tours">¿Los tours son privados?</button>
-        <button class="bestur-chat-option" type="button" data-chat-question="events">¿Atienden bodas y grupos?</button>
-        <button class="bestur-chat-option" type="button" data-chat-question="vehicle">¿Qué vehículo necesito?</button>
-        <button class="bestur-chat-option" type="button" data-chat-question="confirmation">¿Cómo se confirma la reserva?</button>
-        <button class="bestur-chat-option" type="button" data-chat-question="location">¿Dónde está BESTUR?</button>
-      </div>
+      <div class="bestur-chat-thread" id="besturChatThread" aria-live="polite"></div>
+      <div class="bestur-chat-controls" id="besturChatControls"></div>
     </div>
 
     <div class="bestur-chat-actions">
-      <a class="btn-wa" id="besturChatWhatsapp" href="https://wa.me/524151035353?text=Quiero%20recibir%20atenci%C3%B3n%20personalizada%0A%0AOrigen%3A%20bestur.mx%20%2A%20HOME-ES" target="_blank" rel="noopener">Hablar con una persona</a>
+      <a class="btn-wa" id="besturChatWhatsapp" href="https://wa.me/524151035353?text=Quiero%20recibir%20atenci%C3%B3n%20personalizada%0A%0AOrigen%3A%20bestur.mx%20%2A%20HOME-ES" target="_blank" rel="noopener" hidden>Enviar por WhatsApp</a>
+      <button class="bestur-chat-restart" id="besturChatRestart" type="button" hidden>Comenzar de nuevo</button>
     </div>
   </aside>
 
@@ -2932,26 +2945,349 @@
       }
 
       const CHAT_FAQS = Object.freeze({
-        quote: 'Llena el formulario con fecha, servicio, pasajeros y los datos principales. Después puedes enviar la solicitud por WhatsApp o email para que BESTUR revise disponibilidad y tarifa.',
-        airports: 'BESTUR coordina traslados privados hacia y desde el Aeropuerto del Bajío BJX, el Aeropuerto de Querétaro QRO y Ciudad de México / AICM.',
-        tours: 'Sí. Los tours se coordinan de manera privada para parejas, familias y grupos que buscan una experiencia más personalizada.',
-        events: 'Sí. BESTUR coordina llegadas, salidas y movimientos locales para bodas y grupos entre aeropuertos, hoteles o Airbnbs, iglesias, venues y otros puntos del evento.',
-        vehicle: 'El formulario sugiere una unidad según el servicio y número de pasajeros. BESTUR revisará también el equipaje, la configuración requerida y la disponibilidad antes de confirmar.',
-        confirmation: 'La solicitud o cotización todavía no confirma el servicio. La reserva queda confirmada cuando BESTUR envía la confirmación formal con folio y datos operativos definitivos.',
-        location: 'BESTUR está en Carlos del Castillo 6, Guadalupe, 37710 San Miguel de Allende, Guanajuato, México.'
+        quote: {question:'¿Cómo cotizo un servicio?', answer:'Llena el formulario con fecha, servicio, pasajeros y los datos principales. Después puedes enviar la solicitud por WhatsApp o email para que BESTUR revise disponibilidad y tarifa.'},
+        airports: {question:'¿Qué aeropuertos atienden?', answer:'BESTUR coordina traslados privados hacia y desde el Aeropuerto del Bajío BJX, el Aeropuerto de Querétaro QRO y Ciudad de México / AICM.'},
+        tours: {question:'¿Los tours son privados?', answer:'Sí. Los tours se coordinan de manera privada para parejas, familias y grupos que buscan una experiencia más personalizada.'},
+        events: {question:'¿Atienden bodas y grupos?', answer:'Sí. BESTUR coordina llegadas, salidas y movimientos locales para bodas y grupos entre aeropuertos, hoteles o Airbnbs, iglesias, venues y otros puntos del evento.'},
+        vehicle: {question:'¿Qué vehículo necesito?', answer:'La unidad se sugiere según el servicio y número de pasajeros. BESTUR revisará también el equipaje, la configuración requerida y la disponibilidad antes de confirmar.'},
+        confirmation: {question:'¿Cómo se confirma la reserva?', answer:'La solicitud o cotización todavía no confirma el servicio. La reserva queda confirmada cuando BESTUR envía la confirmación formal con folio y datos operativos definitivos.'},
+        location: {question:'¿Dónde está BESTUR?', answer:'BESTUR está en Carlos del Castillo 6, Guadalupe, 37710 San Miguel de Allende, Guanajuato, México.'}
       });
 
       const chatLauncher = document.getElementById('besturChatLauncher');
       const chatPanel = document.getElementById('besturChatPanel');
       const chatClose = document.getElementById('besturChatClose');
-      const chatAnswer = document.getElementById('besturChatAnswer');
+      const chatThread = document.getElementById('besturChatThread');
+      const chatControls = document.getElementById('besturChatControls');
       const chatWhatsapp = document.getElementById('besturChatWhatsapp');
+      const chatRestart = document.getElementById('besturChatRestart');
+      const chatState = {
+        started:false,
+        completed:false,
+        requestId:'',
+        service:'',
+        route:'',
+        serviceDate:'',
+        passengers:'',
+        name:''
+      };
+
+      function scrollChat(){
+        if(chatThread && chatThread.parentElement){
+          chatThread.parentElement.scrollTop = chatThread.parentElement.scrollHeight;
+        }
+      }
+
+      function appendChatMessage(text, role){
+        if(!chatThread) return null;
+        const message = document.createElement('div');
+        message.className = `bestur-chat-message${role === 'user' ? ' user' : ''}`;
+        message.textContent = text;
+        chatThread.appendChild(message);
+        scrollChat();
+        return message;
+      }
+
+      function clearChatControls(){
+        if(chatControls) chatControls.replaceChildren();
+      }
+
+      function botSays(text, next){
+        const typing = appendChatMessage('Escribiendo…', 'bot');
+        window.setTimeout(() => {
+          if(typing) typing.textContent = text;
+          scrollChat();
+          if(next) next();
+        }, 320);
+      }
+
+      function showChatOptions(options){
+        clearChatControls();
+        if(!chatControls) return;
+        options.forEach(option => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'bestur-chat-option';
+          button.textContent = option.label;
+          button.addEventListener('click', () => {
+            appendChatMessage(option.label, 'user');
+            clearChatControls();
+            recordEvent('chat_question', option.event || option.value || option.label, chatState.requestId);
+            option.next();
+          });
+          chatControls.appendChild(button);
+        });
+        scrollChat();
+      }
+
+      function askChatInput(question, settings, onSubmit){
+        botSays(question, () => {
+          clearChatControls();
+          if(!chatControls) return;
+
+          const row = document.createElement('div');
+          row.className = 'bestur-chat-input-row';
+          const input = document.createElement('input');
+          input.className = 'bestur-chat-input';
+          input.type = settings.type || 'text';
+          input.placeholder = settings.placeholder || '';
+          if(settings.min) input.min = settings.min;
+          if(settings.max) input.max = settings.max;
+          if(settings.maxLength) input.maxLength = settings.maxLength;
+          input.setAttribute('aria-label', question);
+
+          const send = document.createElement('button');
+          send.type = 'button';
+          send.className = 'bestur-chat-send';
+          send.textContent = 'Enviar';
+
+          const submit = () => {
+            const value = String(input.value || '').trim();
+            if(!value || (settings.validate && !settings.validate(value))){
+              input.focus();
+              return;
+            }
+            appendChatMessage(settings.display ? settings.display(value) : value, 'user');
+            clearChatControls();
+            onSubmit(value);
+          };
+
+          send.addEventListener('click', submit);
+          input.addEventListener('keydown', event => {
+            if(event.key === 'Enter') submit();
+          });
+          row.append(input, send);
+          chatControls.appendChild(row);
+
+          if(settings.allowSkip){
+            const skip = document.createElement('button');
+            skip.type = 'button';
+            skip.className = 'bestur-chat-option';
+            skip.textContent = 'Aún no lo sé';
+            skip.addEventListener('click', () => {
+              appendChatMessage('Aún no lo sé', 'user');
+              clearChatControls();
+              onSubmit('');
+            });
+            chatControls.appendChild(skip);
+          }
+          input.focus();
+          scrollChat();
+        });
+      }
+
+      function askPassengerCount(){
+        askChatInput('¿Para cuántas personas necesitas el servicio?', {
+          type:'number',
+          placeholder:'Número de pasajeros',
+          min:'1',
+          max:'100',
+          validate:value => Number.isInteger(Number(value)) && Number(value) >= 1 && Number(value) <= 100,
+          display:value => `${value} persona${Number(value) === 1 ? '' : 's'}`
+        }, value => {
+          chatState.passengers = value;
+          askCustomerName();
+        });
+      }
+
+      function askCustomerName(){
+        askChatInput('Por último, ¿a nombre de quién preparamos la solicitud?', {
+          type:'text',
+          placeholder:'Tu nombre',
+          maxLength:100
+        }, value => {
+          chatState.name = value;
+          finishGuidedChat();
+        });
+      }
+
+      function askServiceDate(){
+        const today = new Date();
+        const minDate = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+        askChatInput('¿Qué fecha necesitas el servicio?', {
+          type:'date',
+          min:minDate,
+          allowSkip:true,
+          display:formatDate
+        }, value => {
+          chatState.serviceDate = value;
+          askPassengerCount();
+        });
+      }
+
+      function askAirportDirection(airport){
+        botSays('¿En qué dirección necesitas el traslado?', () => showChatOptions([
+          {
+            label:'Aeropuerto → San Miguel de Allende',
+            event:'airport_to_sma',
+            next:() => {
+              chatState.service = 'Llegada desde aeropuerto';
+              chatState.route = `${airport} → San Miguel de Allende`;
+              askServiceDate();
+            }
+          },
+          {
+            label:'San Miguel de Allende → Aeropuerto',
+            event:'sma_to_airport',
+            next:() => {
+              chatState.service = 'Traslado a aeropuerto';
+              chatState.route = `San Miguel de Allende → ${airport}`;
+              askServiceDate();
+            }
+          }
+        ]));
+      }
+
+      function askAirport(){
+        botSays('¿Qué aeropuerto necesitas?', () => showChatOptions([
+          {label:'BJX / Aeropuerto del Bajío', value:'BJX', next:() => askAirportDirection('Aeropuerto del Bajío BJX')},
+          {label:'QRO / Aeropuerto de Querétaro', value:'QRO', next:() => askAirportDirection('Aeropuerto de Querétaro QRO')},
+          {label:'Ciudad de México / AICM', value:'CDMX', next:() => askAirportDirection('Ciudad de México / AICM')},
+          {label:'AIFA', value:'AIFA', next:() => askAirportDirection('AIFA')}
+        ]));
+      }
+
+      function askTour(){
+        botSays('¿Qué recorrido te interesa?', () => showChatOptions([
+          {label:'San Miguel de Allende', value:'SMA', next:() => {chatState.route='San Miguel de Allende y alrededores';askServiceDate();}},
+          {label:'Guanajuato', value:'GTO', next:() => {chatState.route='Guanajuato';askServiceDate();}},
+          {label:'Dolores Hidalgo y Atotonilco', value:'DOLORES-ATOTO', next:() => {chatState.route='Dolores Hidalgo y Atotonilco';askServiceDate();}},
+          {label:'Querétaro', value:'QRO-TOUR', next:() => {chatState.route='Querétaro';askServiceDate();}},
+          {label:'Otro recorrido', value:'OTHER-TOUR', next:() => {chatState.route='Tour por definir';askServiceDate();}}
+        ]));
+      }
+
+      function askEventType(){
+        botSays('¿Qué tipo de servicio necesitas?', () => showChatOptions([
+          {label:'Transporte para boda', value:'WEDDING', next:() => {chatState.service='Transporte para boda';chatState.route='Boda / ruta por definir';askServiceDate();}},
+          {label:'Transporte para grupo', value:'GROUP', next:() => {chatState.service='Transporte para grupo';chatState.route='Grupo / ruta por definir';askServiceDate();}},
+          {label:'Servicio especial', value:'SPECIAL', next:() => {chatState.service='Servicio especial';chatState.route='Ruta por definir';askServiceDate();}}
+        ]));
+      }
+
+      function prepareFaqWhatsapp(){
+        if(!chatState.requestId) chatState.requestId = makeRequestId();
+        const message = [
+          '🚘 BESTUR · Consulta desde asistente',
+          `Origen: bestur.mx * ${PAGE_CODE}`,
+          `Folio: ${chatState.requestId}`,
+          '',
+          'Quiero recibir atención personalizada.'
+        ].join('\n');
+        chatWhatsapp.href = 'https://wa.me/524151035353?text=' + encodeURIComponent(message);
+        chatWhatsapp.dataset.requestId = chatState.requestId;
+        chatWhatsapp.hidden = false;
+        chatRestart.hidden = false;
+      }
+
+      function showFaqMenu(){
+        botSays('Claro. ¿Sobre qué tema tienes dudas?', () => {
+          const options = Object.keys(CHAT_FAQS).map(key => ({
+            label:CHAT_FAQS[key].question,
+            value:key,
+            next:() => {
+              botSays(CHAT_FAQS[key].answer, () => {
+                prepareFaqWhatsapp();
+                showChatOptions([
+                  {label:'Hacer otra pregunta', value:'another_faq', next:showFaqMenu},
+                  {label:'Quiero solicitar un servicio', value:'start_quote', next:askServiceType}
+                ]);
+              });
+            }
+          }));
+          showChatOptions(options);
+        });
+      }
+
+      function askServiceType(){
+        botSays('¿Qué tipo de servicio necesitas?', () => showChatOptions([
+          {label:'Traslado de aeropuerto', value:'AIRPORT', next:askAirport},
+          {label:'Tour privado', value:'TOUR', next:() => {chatState.service='Tour privado';askTour();}},
+          {label:'Boda, grupo o servicio especial', value:'EVENT', next:askEventType},
+          {label:'Solo tengo una pregunta', value:'FAQ', next:showFaqMenu}
+        ]));
+      }
+
+      function buildChatLeadPayload(){
+        const attribution = getSourceInfo();
+        const vehicle = suggestedVehicle(chatState.passengers, chatState.service);
+        return {
+          timestamp:new Date().toISOString(),
+          request_id:chatState.requestId,
+          page_code:PAGE_CODE,
+          language:PAGE_LANGUAGE,
+          service:chatState.service,
+          route:chatState.route,
+          name:chatState.name,
+          phone:'',
+          email:'',
+          service_date:chatState.serviceDate,
+          passengers:chatState.passengers ? Number(chatState.passengers) : '',
+          suggested_vehicle:vehicle.label,
+          displayed_rate:'Cotización directa',
+          utm_source:attribution.utm_source,
+          utm_medium:attribution.utm_medium,
+          utm_campaign:attribution.utm_campaign,
+          utm_content:attribution.utm_content,
+          utm_term:attribution.utm_term,
+          gclid:attribution.gclid,
+          landing_page:attribution.landing_page,
+          referrer:attribution.referrer
+        };
+      }
+
+      function finishGuidedChat(){
+        chatState.completed = true;
+        const date = chatState.serviceDate ? formatDate(chatState.serviceDate) : 'Por definir';
+        const message = [
+          '🚘 BESTUR · Solicitud desde asistente',
+          `Origen: bestur.mx * ${PAGE_CODE}`,
+          `Folio: ${chatState.requestId}`,
+          '',
+          `Nombre: ${chatState.name}`,
+          `Servicio: ${chatState.service}`,
+          `Ruta / detalle: ${chatState.route}`,
+          `Fecha: ${date}`,
+          `Personas: ${chatState.passengers}`,
+          '',
+          'Esta solicitud aún no confirma el servicio. Quedo atento(a) a la confirmación de BESTUR.'
+        ].join('\n');
+
+        botSays(`Gracias, ${chatState.name}. Ya preparé tu solicitud. Revísala y envíala por WhatsApp para que BESTUR confirme disponibilidad y tarifa.`, () => {
+          appendChatMessage(`Servicio: ${chatState.service}\nRuta o detalle: ${chatState.route}\nFecha: ${date}\nPersonas: ${chatState.passengers}`, 'bot');
+          chatWhatsapp.href = 'https://wa.me/524151035353?text=' + encodeURIComponent(message);
+          chatWhatsapp.dataset.requestId = chatState.requestId;
+          chatWhatsapp.hidden = false;
+          chatRestart.hidden = false;
+          scrollChat();
+        });
+      }
+
+      function startChat(){
+        chatState.started = true;
+        chatState.completed = false;
+        chatState.requestId = makeRequestId();
+        chatState.service = '';
+        chatState.route = '';
+        chatState.serviceDate = '';
+        chatState.passengers = '';
+        chatState.name = '';
+        if(chatThread) chatThread.replaceChildren();
+        clearChatControls();
+        if(chatWhatsapp) chatWhatsapp.hidden = true;
+        if(chatRestart) chatRestart.hidden = true;
+        appendChatMessage('Hola, soy el asistente de BESTUR. Te ayudaré paso a paso.', 'bot');
+        window.setTimeout(askServiceType, 360);
+      }
 
       function toggleChat(open){
         if(!chatLauncher || !chatPanel) return;
         chatPanel.hidden = !open;
         chatLauncher.setAttribute('aria-expanded', String(open));
-        if(open) recordEvent('chat_open', 'mini_faq');
+        if(open){
+          recordEvent('chat_open', 'guided_chat', chatState.requestId || requestId);
+          if(!chatState.started) startChat();
+        }
       }
 
       if(chatLauncher){
@@ -2963,16 +3299,16 @@
           chatLauncher.focus();
         });
       }
-      document.querySelectorAll('[data-chat-question]').forEach(button => {
-        button.addEventListener('click', () => {
-          const key = button.dataset.chatQuestion;
-          if(!CHAT_FAQS[key] || !chatAnswer) return;
-          chatAnswer.textContent = CHAT_FAQS[key];
-          recordEvent('chat_question', key);
-        });
-      });
+      if(chatRestart){
+        chatRestart.addEventListener('click', startChat);
+      }
       if(chatWhatsapp){
-        chatWhatsapp.addEventListener('click', () => recordEvent('chat_to_whatsapp', 'mini_faq'));
+        chatWhatsapp.addEventListener('click', () => {
+          if(chatState.completed){
+            window.dispatchEvent(new CustomEvent('bestur:lead', {detail:buildChatLeadPayload()}));
+          }
+          recordEvent('chat_to_whatsapp', chatState.service || 'faq', chatState.requestId || requestId);
+        });
       }
       window.addEventListener('keydown', event => {
         if(event.key === 'Escape' && chatPanel && !chatPanel.hidden){
@@ -3175,7 +3511,7 @@
       document.querySelectorAll('a[href*="wa.me/"]').forEach(link => {
         link.addEventListener('click', event => {
           event.preventDefault();
-          const clickRequestId = makeRequestId();
+          const clickRequestId = link.dataset.requestId || makeRequestId();
           const whatsappUrl = new URL(link.href);
           let message = whatsappUrl.searchParams.get('text') || 'Quiero solicitar información';
 
@@ -3198,6 +3534,7 @@
         requestId: requestId,
         getAttribution: getSourceInfo,
         buildLeadPayload: buildLeadPayload,
+        buildChatLeadPayload: buildChatLeadPayload,
         buildEventPayload: buildEventPayload
       });
 
