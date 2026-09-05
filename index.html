@@ -773,6 +773,53 @@
       box-shadow:0 22px 60px rgba(37,211,102,.38);
     }
 
+    /* Mini chat FAQ · aislado del diseño general */
+    .bestur-chat-launcher{
+      position:fixed;right:20px;bottom:92px;z-index:9998;
+      min-height:50px;padding:13px 18px;border-radius:999px;
+      background:linear-gradient(135deg,#FFFFFF 0%,#D7F6FF 100%);
+      color:var(--navy);font-weight:900;cursor:pointer;
+      box-shadow:0 18px 46px rgba(0,0,0,.30);
+    }
+    .bestur-chat-panel{
+      position:fixed;right:20px;bottom:154px;z-index:9997;
+      width:min(380px,calc(100vw - 32px));max-height:min(620px,calc(100vh - 190px));
+      display:flex;flex-direction:column;overflow:hidden;
+      border:1px solid var(--line-strong);border-radius:26px;
+      background:rgba(6,19,33,.98);box-shadow:0 30px 90px rgba(0,0,0,.48);
+      backdrop-filter:blur(22px) saturate(150%);
+    }
+    .bestur-chat-panel[hidden]{display:none}
+    .bestur-chat-head{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding:18px 20px;border-bottom:1px solid var(--line);
+      background:rgba(0,89,156,.20);
+    }
+    .bestur-chat-head strong{display:block;font-size:16px}
+    .bestur-chat-head span{display:block;margin-top:3px;color:var(--text-soft);font-size:12px}
+    .bestur-chat-close{
+      width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);
+      color:#fff;font-size:22px;cursor:pointer;flex:0 0 auto;
+    }
+    .bestur-chat-body{padding:18px;overflow-y:auto}
+    .bestur-chat-bubble{
+      padding:14px 15px;border-radius:18px 18px 18px 5px;
+      background:rgba(0,89,156,.22);border:1px solid var(--line);
+      color:var(--text-soft);font-size:14px;line-height:1.6;
+    }
+    .bestur-chat-answer{margin-top:12px;color:#fff}
+    .bestur-chat-options{display:grid;gap:8px;margin-top:14px}
+    .bestur-chat-option{
+      width:100%;padding:11px 13px;border-radius:14px;text-align:left;
+      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);
+      color:#fff;font-size:13px;font-weight:800;cursor:pointer;
+    }
+    .bestur-chat-option:hover,.bestur-chat-option:focus{
+      background:rgba(0,89,156,.28);border-color:var(--line-strong);outline:none;
+    }
+    .bestur-chat-actions{padding:0 18px 18px}
+    .bestur-chat-actions .btn-wa{width:100%;min-height:48px;padding:12px 16px}
+
     @media (max-width:1320px){
       .header-inner{grid-template-columns:260px minmax(0,1fr) auto}
       .logo img{width:54px}
@@ -836,6 +883,8 @@
       .map-card,.map-card iframe{min-height:440px}
       .map-overlay{position:relative;left:auto;right:auto;bottom:auto;margin:14px}
       .float-wa{left:16px;right:16px;bottom:16px}
+      .bestur-chat-launcher{right:16px;bottom:88px}
+      .bestur-chat-panel{right:16px;bottom:150px;max-height:calc(100vh - 170px)}
     }
   </style>
 
@@ -2419,6 +2468,41 @@
     </div>
   </footer>
 
+  <button class="bestur-chat-launcher" id="besturChatLauncher" type="button" aria-expanded="false" aria-controls="besturChatPanel">
+    ¿Tienes dudas?
+  </button>
+
+  <aside class="bestur-chat-panel" id="besturChatPanel" aria-label="Asistente de preguntas frecuentes BESTUR" hidden>
+    <div class="bestur-chat-head">
+      <div>
+        <strong>Asistente BESTUR</strong>
+        <span>Respuestas rápidas</span>
+      </div>
+      <button class="bestur-chat-close" id="besturChatClose" type="button" aria-label="Cerrar asistente">×</button>
+    </div>
+
+    <div class="bestur-chat-body">
+      <div class="bestur-chat-bubble">
+        Hola. Selecciona una pregunta y te mostraré la información disponible.
+        <div class="bestur-chat-answer" id="besturChatAnswer" aria-live="polite"></div>
+      </div>
+
+      <div class="bestur-chat-options" id="besturChatOptions">
+        <button class="bestur-chat-option" type="button" data-chat-question="quote">¿Cómo cotizo un servicio?</button>
+        <button class="bestur-chat-option" type="button" data-chat-question="airports">¿Qué aeropuertos atienden?</button>
+        <button class="bestur-chat-option" type="button" data-chat-question="tours">¿Los tours son privados?</button>
+        <button class="bestur-chat-option" type="button" data-chat-question="events">¿Atienden bodas y grupos?</button>
+        <button class="bestur-chat-option" type="button" data-chat-question="vehicle">¿Qué vehículo necesito?</button>
+        <button class="bestur-chat-option" type="button" data-chat-question="confirmation">¿Cómo se confirma la reserva?</button>
+        <button class="bestur-chat-option" type="button" data-chat-question="location">¿Dónde está BESTUR?</button>
+      </div>
+    </div>
+
+    <div class="bestur-chat-actions">
+      <a class="btn-wa" id="besturChatWhatsapp" href="https://wa.me/524151035353?text=Quiero%20recibir%20atenci%C3%B3n%20personalizada%0A%0AOrigen%3A%20bestur.mx%20%2A%20HOME-ES" target="_blank" rel="noopener">Hablar con una persona</a>
+    </div>
+  </aside>
+
   <a class="float-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx%20%2A%20HOME-ES" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
 
   <script>
@@ -2846,6 +2930,56 @@
         window.dispatchEvent(new CustomEvent('bestur:event', {detail: payload}));
         return payload;
       }
+
+      const CHAT_FAQS = Object.freeze({
+        quote: 'Llena el formulario con fecha, servicio, pasajeros y los datos principales. Después puedes enviar la solicitud por WhatsApp o email para que BESTUR revise disponibilidad y tarifa.',
+        airports: 'BESTUR coordina traslados privados hacia y desde el Aeropuerto del Bajío BJX, el Aeropuerto de Querétaro QRO y Ciudad de México / AICM.',
+        tours: 'Sí. Los tours se coordinan de manera privada para parejas, familias y grupos que buscan una experiencia más personalizada.',
+        events: 'Sí. BESTUR coordina llegadas, salidas y movimientos locales para bodas y grupos entre aeropuertos, hoteles o Airbnbs, iglesias, venues y otros puntos del evento.',
+        vehicle: 'El formulario sugiere una unidad según el servicio y número de pasajeros. BESTUR revisará también el equipaje, la configuración requerida y la disponibilidad antes de confirmar.',
+        confirmation: 'La solicitud o cotización todavía no confirma el servicio. La reserva queda confirmada cuando BESTUR envía la confirmación formal con folio y datos operativos definitivos.',
+        location: 'BESTUR está en Carlos del Castillo 6, Guadalupe, 37710 San Miguel de Allende, Guanajuato, México.'
+      });
+
+      const chatLauncher = document.getElementById('besturChatLauncher');
+      const chatPanel = document.getElementById('besturChatPanel');
+      const chatClose = document.getElementById('besturChatClose');
+      const chatAnswer = document.getElementById('besturChatAnswer');
+      const chatWhatsapp = document.getElementById('besturChatWhatsapp');
+
+      function toggleChat(open){
+        if(!chatLauncher || !chatPanel) return;
+        chatPanel.hidden = !open;
+        chatLauncher.setAttribute('aria-expanded', String(open));
+        if(open) recordEvent('chat_open', 'mini_faq');
+      }
+
+      if(chatLauncher){
+        chatLauncher.addEventListener('click', () => toggleChat(chatPanel.hidden));
+      }
+      if(chatClose){
+        chatClose.addEventListener('click', () => {
+          toggleChat(false);
+          chatLauncher.focus();
+        });
+      }
+      document.querySelectorAll('[data-chat-question]').forEach(button => {
+        button.addEventListener('click', () => {
+          const key = button.dataset.chatQuestion;
+          if(!CHAT_FAQS[key] || !chatAnswer) return;
+          chatAnswer.textContent = CHAT_FAQS[key];
+          recordEvent('chat_question', key);
+        });
+      });
+      if(chatWhatsapp){
+        chatWhatsapp.addEventListener('click', () => recordEvent('chat_to_whatsapp', 'mini_faq'));
+      }
+      window.addEventListener('keydown', event => {
+        if(event.key === 'Escape' && chatPanel && !chatPanel.hidden){
+          toggleChat(false);
+          chatLauncher.focus();
+        }
+      });
 
       function validateForm(){
         const required = [
