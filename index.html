@@ -1331,7 +1331,7 @@
         <a href="https://maps.app.goo.gl/JwskQ3UjB2xaseCF9">Ubicación</a>
       </nav>
       <div class="mobile-actions">
-        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx" target="_blank" rel="noopener">Quiero cotizar un traslado</a>
+        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx%20%2A%20HOME-ES" target="_blank" rel="noopener">Quiero cotizar un traslado</a>
         <a class="btn-outline" href="#reservar">Llenar formulario</a>
       </div>
     </div>
@@ -1366,7 +1366,7 @@
           <a class="active" href="https://bestur.mx">ES</a>
           <a href="en/">EN</a>
         </div>
-        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx%20%2A%20HOME-ES" target="_blank" rel="noopener">WhatsApp</a>
         <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobilePanel">☰</button>
       </div>
     </div>
@@ -1389,7 +1389,7 @@
 
           <div class="hero-actions">
             <a class="btn" href="#reservar">Solicitar cotización</a>
-            <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx" target="_blank" rel="noopener">
+            <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx%20%2A%20HOME-ES" target="_blank" rel="noopener">
               WhatsApp
             </a>
           </div>
@@ -2344,7 +2344,7 @@
             </div>
 
             <div class="location-actions">
-              <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+              <a class="btn-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx%20%2A%20HOME-ES" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
               <a class="btn-outline" href="https://www.google.com/maps/search/?api=1&query=Operadora%20Tur%C3%ADstica%20Bestur%20Carlos%20del%20Castillo%206%20Guadalupe%2037710%20San%20Miguel%20de%20Allende%20Gto" target="_blank" rel="noopener">Abrir en Google Maps</a>
             </div>
           </aside>
@@ -2419,10 +2419,13 @@
     </div>
   </footer>
 
-  <a class="float-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+  <a class="float-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx%20%2A%20HOME-ES" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
 
   <script>
     (function(){
+      const PAGE_CODE = 'HOME-ES';
+      const PAGE_LANGUAGE = 'es';
+      const ATTRIBUTION_STORAGE_KEY = 'bestur_attribution';
       const body = document.body;
       const header = document.getElementById('siteHeader');
       const mobilePanel = document.getElementById('mobilePanel');
@@ -2481,6 +2484,8 @@
           utm_source: params.get('utm_source') || '',
           utm_medium: params.get('utm_medium') || '',
           utm_campaign: params.get('utm_campaign') || '',
+          utm_content: params.get('utm_content') || '',
+          utm_term: params.get('utm_term') || '',
           gclid: params.get('gclid') || '',
           referrer: document.referrer || '',
           landing_page: window.location.href
@@ -2488,16 +2493,26 @@
 
         let saved = {};
         try {
-          saved = JSON.parse(localStorage.getItem('bestur_attribution') || '{}');
+          saved = JSON.parse(localStorage.getItem(ATTRIBUTION_STORAGE_KEY) || '{}');
         } catch(e) {}
 
-        const hasTracking = current.utm_source || current.utm_medium || current.utm_campaign || current.gclid;
-
-        if(hasTracking || !saved.landing_page){
-          localStorage.setItem('bestur_attribution', JSON.stringify(current));
-          return current;
+        if(saved && saved.landing_page){
+          return {
+            utm_source: saved.utm_source || '',
+            utm_medium: saved.utm_medium || '',
+            utm_campaign: saved.utm_campaign || '',
+            utm_content: saved.utm_content || '',
+            utm_term: saved.utm_term || '',
+            gclid: saved.gclid || '',
+            referrer: saved.referrer || '',
+            landing_page: saved.landing_page
+          };
         }
-        return saved;
+
+        try {
+          localStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(current));
+        } catch(e) {}
+        return current;
       }
 
       function sourceCode(data){
@@ -2531,7 +2546,6 @@
       }
 
       function makeRequestId(){
-        const data = getSourceInfo();
         const now = new Date();
         const yy = String(now.getFullYear()).slice(-2);
         const mm = String(now.getMonth()+1).padStart(2,'0');
@@ -2539,8 +2553,7 @@
         const hh = String(now.getHours()).padStart(2,'0');
         const mi = String(now.getMinutes()).padStart(2,'0');
         const random = Math.random().toString(36).slice(2,6).toUpperCase();
-        const campaign = campaignCode(data);
-        return ['HOM', sourceCode(data), ...(campaign ? [campaign] : []), yy+mm+dd, hh+mi, random].join('-');
+        return [PAGE_CODE, yy+mm+dd, hh+mi, random].join('-');
       }
 
       const requestId = makeRequestId();
@@ -2745,6 +2758,95 @@
         }
       }
 
+      function buildRoute(service){
+        const category = serviceCategory(service);
+
+        if(category === 'airport'){
+          const pickup = getVal('qPickupAddress');
+          const dropoff = getVal('qDropoffAddress');
+          const airport = airportLabel(getVal('qAirport'));
+          return [pickup, dropoff].filter(Boolean).join(' → ') + (airport !== 'Por definir' ? ` · ${airport}` : '');
+        }
+
+        if(category === 'tour'){
+          return [getVal('qTourOrigin'), getVal('qTourName')].filter(Boolean).join(' → ');
+        }
+
+        if(category === 'event'){
+          return [getVal('qEventOrigin'), getVal('qEventDestination')].filter(Boolean).join(' → ');
+        }
+
+        return '';
+      }
+
+      function buildLeadPayload(){
+        const attribution = getSourceInfo();
+        const service = getVal('qService');
+        const passengers = getVal('qPassengers');
+        const airportCode = getVal('qAirport');
+        const vehicle = suggestedVehicle(passengers, service);
+        const pricing = serviceCategory(service) === 'airport'
+          ? airportPricing(service, airportCode, vehicle.key)
+          : {cash:'Cotización directa', card:'Cotización directa'};
+
+        return {
+          timestamp: new Date().toISOString(),
+          request_id: requestId,
+          page_code: PAGE_CODE,
+          language: PAGE_LANGUAGE,
+          service: service,
+          route: buildRoute(service),
+          name: getVal('qName'),
+          phone: getVal('qPhone'),
+          email: getVal('qEmail'),
+          service_date: getVal('qDate'),
+          passengers: passengers ? Number(passengers) : '',
+          suggested_vehicle: vehicle.label,
+          displayed_rate: `${pricing.cash} | ${pricing.card}`,
+          utm_source: attribution.utm_source,
+          utm_medium: attribution.utm_medium,
+          utm_campaign: attribution.utm_campaign,
+          utm_content: attribution.utm_content,
+          utm_term: attribution.utm_term,
+          gclid: attribution.gclid,
+          landing_page: attribution.landing_page,
+          referrer: attribution.referrer
+        };
+      }
+
+      function makeEventId(){
+        if(window.crypto && typeof window.crypto.randomUUID === 'function'){
+          return window.crypto.randomUUID();
+        }
+        return `${requestId}-${Date.now().toString(36)}-${Math.random().toString(36).slice(2,8)}`;
+      }
+
+      function buildEventPayload(eventName, eventDetail, eventRequestId){
+        const attribution = getSourceInfo();
+        return {
+          timestamp: new Date().toISOString(),
+          request_id: eventRequestId || requestId,
+          page_code: PAGE_CODE,
+          language: PAGE_LANGUAGE,
+          event_name: eventName,
+          event_detail: String(eventDetail || '').slice(0,500),
+          landing_page: attribution.landing_page,
+          event_id: makeEventId()
+        };
+      }
+
+      function recordLead(){
+        const payload = buildLeadPayload();
+        window.dispatchEvent(new CustomEvent('bestur:lead', {detail: payload}));
+        return payload;
+      }
+
+      function recordEvent(eventName, eventDetail, eventRequestId){
+        const payload = buildEventPayload(eventName, eventDetail, eventRequestId);
+        window.dispatchEvent(new CustomEvent('bestur:event', {detail: payload}));
+        return payload;
+      }
+
       function validateForm(){
         const required = [
           ['qName','nombre completo'],
@@ -2846,6 +2948,7 @@
 
         const message = [
           '🚘 BESTUR · Solicitud de servicio',
+          `Origen: bestur.mx * ${PAGE_CODE}`,
           '',
           `🧾 Folio: ${requestId}`,
           `👤 Nombre: ${name}`,
@@ -2876,10 +2979,16 @@
         return message;
       }
 
+      let formStarted = false;
+
       formIds.forEach(id => {
         const el = document.getElementById(id);
         if(el){
           el.addEventListener('input', () => {
+            if(!formStarted){
+              formStarted = true;
+              recordEvent('form_start', id);
+            }
             updateDynamicSections();
             buildRequest();
           });
@@ -2893,6 +3002,8 @@
       document.getElementById('sendWhatsappBtn').addEventListener('click', () => {
         const message = buildRequest();
         if(!validateForm()) return;
+        recordLead();
+        recordEvent('form_submit', 'channel=whatsapp');
         const url = 'https://wa.me/524151035353?text=' + encodeURIComponent(message);
         window.open(url, '_blank');
       });
@@ -2900,6 +3011,8 @@
       document.getElementById('sendEmailBtn').addEventListener('click', () => {
         const message = buildRequest();
         if(!validateForm()) return;
+        recordLead();
+        recordEvent('form_submit', 'channel=email');
         const subject = encodeURIComponent('Solicitud de servicio BESTUR');
         const body = encodeURIComponent(message);
         window.location.href = 'mailto:otbestur@gmail.com?cc=otbestur@yahoo.com,otbestur@hotmail.com&subject=' + subject + '&body=' + body;
@@ -2925,8 +3038,38 @@
         dateInput.min = `${yyyy}-${mm}-${dd}`;
       }
 
+      document.querySelectorAll('a[href*="wa.me/"]').forEach(link => {
+        link.addEventListener('click', event => {
+          event.preventDefault();
+          const clickRequestId = makeRequestId();
+          const whatsappUrl = new URL(link.href);
+          let message = whatsappUrl.searchParams.get('text') || 'Quiero solicitar información';
+
+          if(!message.includes(`Origen: bestur.mx * ${PAGE_CODE}`)){
+            message += `\n\nOrigen: bestur.mx * ${PAGE_CODE}`;
+          }
+          if(!/(^|\n)Folio:\s/i.test(message)){
+            message += `\nFolio: ${clickRequestId}`;
+          }
+
+          whatsappUrl.searchParams.set('text', message);
+          recordEvent('whatsapp_click', link.textContent.trim(), clickRequestId);
+          window.open(whatsappUrl.toString(), '_blank', 'noopener,noreferrer');
+        });
+      });
+
+      window.BESTUR_CAPTURE = Object.freeze({
+        pageCode: PAGE_CODE,
+        language: PAGE_LANGUAGE,
+        requestId: requestId,
+        getAttribution: getSourceInfo,
+        buildLeadPayload: buildLeadPayload,
+        buildEventPayload: buildEventPayload
+      });
+
       updateDynamicSections();
       buildRequest();
+      recordEvent('page_view', document.title);
     })();
   </script>
 </body>
