@@ -3292,21 +3292,6 @@
         ]));
       }
 
-      function prepareFaqWhatsapp(){
-        if(!chatState.requestId) chatState.requestId = makeRequestId();
-        const message = [
-          '🚘 BESTUR · Consulta desde asistente',
-          `Origen: bestur.mx * ${PAGE_CODE}`,
-          `Folio: ${chatState.requestId}`,
-          '',
-          'Quiero recibir atención personalizada.'
-        ].join('\n');
-        chatWhatsapp.href = 'https://wa.me/524151035353?text=' + encodeURIComponent(message);
-        chatWhatsapp.dataset.requestId = chatState.requestId;
-        chatWhatsapp.hidden = false;
-        chatRestart.hidden = false;
-      }
-
       function showFaqMenu(){
         botSays('Claro. ¿Sobre qué tema tienes dudas?', () => {
           const options = Object.keys(CHAT_FAQS).map(key => ({
@@ -3314,7 +3299,6 @@
             value:key,
             next:() => {
               botSays(CHAT_FAQS[key].answer, () => {
-                prepareFaqWhatsapp();
                 showChatOptions([
                   {label:'Hacer otra pregunta', value:'another_faq', next:showFaqMenu},
                   {label:'Quiero solicitar un servicio', value:'start_quote', next:askServiceType}
@@ -3327,6 +3311,8 @@
       }
 
       function askServiceType(){
+        if(chatWhatsapp) chatWhatsapp.hidden = true;
+        if(chatRestart) chatRestart.hidden = true;
         botSays('¿Qué tipo de servicio necesitas?', () => showChatOptions([
           {label:'Traslado de aeropuerto', value:'AIRPORT', next:askAirport},
           {label:'Tour privado', value:'TOUR', next:() => {chatState.service='Tour privado';askTour();}},
