@@ -835,6 +835,7 @@
     }
     .bestur-chat-actions{display:grid;gap:8px;padding:0 18px 18px}
     .bestur-chat-actions .btn-wa{width:100%;min-height:48px;padding:12px 16px}
+    .bestur-chat-actions [hidden]{display:none!important}
     .bestur-chat-restart{
       background:transparent;color:var(--cyan-soft);font-weight:800;cursor:pointer;
       padding:8px;border-radius:12px;
@@ -3424,7 +3425,12 @@
         chatRestart.addEventListener('click', startChat);
       }
       if(chatWhatsapp){
-        chatWhatsapp.addEventListener('click', () => {
+        chatWhatsapp.addEventListener('click', event => {
+          if(!chatState.completed || chatWhatsapp.hidden){
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return;
+          }
           if(chatState.completed){
             window.dispatchEvent(new CustomEvent('bestur:lead', {detail:buildChatLeadPayload()}));
           }
