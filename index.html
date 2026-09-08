@@ -2523,6 +2523,7 @@
     (function(){
       const PAGE_CODE = 'HOME-ES';
       const PAGE_LANGUAGE = 'es';
+      const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz8boFW8l_nk8BTPUHD9KDOK0FIoTQ99hAgZE5YW5PKoBO8P2OGqs-MGnwrl88NNE7N/exec';
       const ATTRIBUTION_STORAGE_KEY = 'bestur_attribution';
       const body = document.body;
       const header = document.getElementById('siteHeader');
@@ -2936,13 +2937,24 @@
       function recordLead(){
         const payload = buildLeadPayload();
         window.dispatchEvent(new CustomEvent('bestur:lead', {detail: payload}));
+        sendToSheet('lead', payload);
         return payload;
       }
 
       function recordEvent(eventName, eventDetail, eventRequestId){
         const payload = buildEventPayload(eventName, eventDetail, eventRequestId);
         window.dispatchEvent(new CustomEvent('bestur:event', {detail: payload}));
+        sendToSheet('event', payload);
         return payload;
+      }
+
+      function sendToSheet(recordType, payload){
+        fetch(SHEETS_ENDPOINT, {
+          method:'POST',
+          mode:'no-cors',
+          headers:{'Content-Type':'text/plain;charset=utf-8'},
+          body:JSON.stringify({record_type:recordType, payload:payload})
+        }).catch(() => {});
       }
 
       const CHAT_FAQS = Object.freeze({
@@ -3432,7 +3444,9 @@
             return;
           }
           if(chatState.completed){
-            window.dispatchEvent(new CustomEvent('bestur:lead', {detail:buildChatLeadPayload()}));
+            const chatLead = buildChatLeadPayload();
+            window.dispatchEvent(new CustomEvent('bestur:lead', {detail:chatLead}));
+            sendToSheet('lead', chatLead);
           }
           recordEvent('chat_to_whatsapp', chatState.service || 'faq', chatState.requestId || requestId);
         });
