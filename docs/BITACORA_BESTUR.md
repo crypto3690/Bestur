@@ -10,6 +10,8 @@ Esta bitácora concentra los cambios digitales y los resultados comerciales de b
 
 | 2026-09-08 | /prueba/ — HOME-ES | Conectar eventos existentes del formulario y minibot con receptor Sheets; medir enlaces de correo | Corregir ausencia de transporte en la copia publicada | Publicado en prueba; integración pendiente | Commit 3d35402d023166531e13753fc86800c9f9e3851d; sintaxis JS validada y marcador comprobado en URL pública. POST técnico devolvió página de error de Google Drive, no confirmación JSON. No se acredita registro en Sheets. Home principal sin cambios. |
 
+| 2026-09-08 | /prueba/ — HOME-ES | Identificar botones de WhatsApp por ubicación y envíos del formulario por canal; añadir whatsapp_click al formulario | Separar clics de solicitudes completas | Código actualizado; despliegue pendiente de comprobar | Commit 13ff4386946c46dbef3ac627fe8b7b2f73cb228a; sintaxis JS válida. Conexión del minibot verificada mediante lectura de LEADS y EVENTS; pendiente prueba de cada botón y fecha del minibot. Sin cambios visuales. |
+
 ## 2. Redes sociales
 
 | Fecha | Canal | Publicación / campaña | Objetivo | Inversión | Resultado | Próximo paso |
