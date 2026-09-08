@@ -3600,7 +3600,8 @@
         const message = buildRequest();
         if(!validateForm()) return;
         recordLead();
-        recordEvent('form_submit', 'channel=whatsapp');
+        recordEvent('form_submit', 'channel=whatsapp; button=sendWhatsappBtn');
+        recordEvent('whatsapp_click', 'button=sendWhatsappBtn; channel=whatsapp');
         const url = 'https://wa.me/524151035353?text=' + encodeURIComponent(message);
         window.open(url, '_blank');
       });
@@ -3609,7 +3610,7 @@
         const message = buildRequest();
         if(!validateForm()) return;
         recordLead();
-        recordEvent('form_submit', 'channel=email');
+        recordEvent('form_submit', 'channel=email; button=sendEmailBtn');
         const subject = encodeURIComponent('Solicitud de servicio BESTUR');
         const body = encodeURIComponent(message);
         window.location.href = 'mailto:otbestur@gmail.com?cc=otbestur@yahoo.com,otbestur@hotmail.com&subject=' + subject + '&body=' + body;
@@ -3635,7 +3636,7 @@
         dateInput.min = `${yyyy}-${mm}-${dd}`;
       }
 
-      document.querySelectorAll('a[href*="wa.me/"]').forEach(link => {
+      document.querySelectorAll('a[href*="wa.me/"]').forEach((link, index) => {
         link.addEventListener('click', event => {
           event.preventDefault();
           const clickRequestId = link.dataset.requestId || makeRequestId();
@@ -3650,7 +3651,12 @@
           }
 
           whatsappUrl.searchParams.set('text', message);
-          recordEvent('whatsapp_click', link.textContent.trim(), clickRequestId);
+          const buttonLocation = link.id || (link.classList.contains('float-wa')
+            ? 'whatsapp_flotante'
+            : link.closest('header') ? 'whatsapp_encabezado_' + index
+            : link.closest('nav') ? 'whatsapp_menu_' + index
+            : 'whatsapp_pagina_' + index);
+          recordEvent('whatsapp_click', 'button=' + buttonLocation + '; text=' + link.textContent.trim(), clickRequestId);
           window.open(whatsappUrl.toString(), '_blank', 'noopener,noreferrer');
         });
       });
