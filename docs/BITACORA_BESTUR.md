@@ -8,6 +8,8 @@ Esta bitácora concentra los cambios digitales y los resultados comerciales de b
 |---|---|---|---|---|---|
 | 2026-09-08 | HOME-ES | Integración de chatbot y atribución | Reunir solicitudes completas y medir origen | En prueba | Pendiente validar publicación |
 
+| 2026-09-08 | /prueba/ — HOME-ES | Conectar eventos existentes del formulario y minibot con receptor Sheets; medir enlaces de correo | Corregir ausencia de transporte en la copia publicada | Publicado en prueba; integración pendiente | Commit 3d35402d023166531e13753fc86800c9f9e3851d; sintaxis JS validada y marcador comprobado en URL pública. POST técnico devolvió página de error de Google Drive, no confirmación JSON. No se acredita registro en Sheets. Home principal sin cambios. |
+
 ## 2. Redes sociales
 
 | Fecha | Canal | Publicación / campaña | Objetivo | Inversión | Resultado | Próximo paso |
