@@ -3665,6 +3665,31 @@
         buildEventPayload: buildEventPayload
       });
 
+
+      // BESTUR direct capture v2: never interpret an opaque response as saved.
+      const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz8boFW8l_nk8BTPUHD9KDOK0FIoTQ99hAgZE5YW5PKoBO8P2OGqs-MGnwrl88NNE7N/exec';
+      function sendToSheet(recordType, payload){
+        const body = JSON.stringify({record_type:recordType, payload:payload});
+        fetch(SHEETS_ENDPOINT, {
+          method:'POST', mode:'no-cors', keepalive:true,
+          headers:{'Content-Type':'text/plain;charset=utf-8'}, body
+        }).catch(() => {
+          console.warn('BESTUR: no se pudo transmitir el registro', payload.request_id);
+        });
+      }
+      window.addEventListener('bestur:lead', event => sendToSheet('lead', event.detail));
+      window.addEventListener('bestur:event', event => sendToSheet('event', event.detail));
+
+      // Mail links retain their normal destination and use the existing event schema.
+      document.addEventListener('click', event => {
+        const link = event.target.closest && event.target.closest('a[href]');
+        if(!link) return;
+        const href = link.getAttribute('href') || '';
+        if(/^mailto:/i.test(href) || /^https:\/\/(mail\.google\.com|outlook\.live\.com|outlook\.office\.com)\//i.test(href)){
+          recordEvent('form_submit', 'contact_click:email:' + (link.id || link.textContent.trim()), makeRequestId());
+        }
+      });
+
       updateDynamicSections();
       buildRequest();
       recordEvent('page_view', document.title);
