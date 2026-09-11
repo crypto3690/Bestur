@@ -12,6 +12,8 @@ Esta bitácora concentra los cambios digitales y los resultados comerciales de b
 
 | 2026-09-08 | /prueba/ — HOME-ES | Identificar botones de WhatsApp por ubicación y envíos del formulario por canal; añadir whatsapp_click al formulario | Separar clics de solicitudes completas | Código actualizado; despliegue pendiente de comprobar | Commit 13ff4386946c46dbef3ac627fe8b7b2f73cb228a; sintaxis JS válida. Conexión del minibot verificada mediante lectura de LEADS y EVENTS; pendiente prueba de cada botón y fecha del minibot. Sin cambios visuales. |
 
+| 2026-09-10 | / — HOME-ES | Publicar en la home la versión de /prueba/ con asistente guiado, folios y envío directo a Sheets de solicitudes y clics WhatsApp/correo | Habilitar captación desde la principal por instrucción del responsable | Código publicado; comprobación de despliegue en curso | Commit 074d5e2dea974def51337e0765fa7dd115a6aed0. Copia exacta de /prueba/index.html (blob b3ad1607635f2d5dfa5d2fd2514b0752b3287a43), sintaxis JavaScript validada. Se conserva diseño y tarifas. La respuesta opaca del navegador no acredita guardado; no se generaron leads de prueba reales. |
+
 ## 2. Redes sociales
 
 | Fecha | Canal | Publicación / campaña | Objetivo | Inversión | Resultado | Próximo paso |
