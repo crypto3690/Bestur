@@ -1690,6 +1690,7 @@
             </p>
 
             <form class="quote-form" id="besturQuoteForm" onsubmit="return false;">
+<p class="seasonal-note" style="grid-column:1/-1">Tarifas de temporada alta: 30 de octubre–2 de noviembre de 2026 y 20 de diciembre de 2026–6 de enero de 2027 (inclusive). Suburban, Hiace / Transit y Crafter: +$500 MXN por servicio y unidad. Sedán sin cambio. Selecciona la fecha del servicio para ver el total ajustado. Se conserva el tratamiento de IVA de tarjeta/factura.</p>
               <div class="quote-row">
                 <div class="quote-field">
                   <label for="qName">Nombre completo *</label>
@@ -2520,6 +2521,18 @@
   <a class="float-wa" href="https://wa.me/524151035353?text=Quiero%20cotizar%20un%20traslado%0A%0AOrigen%3A%20bestur.mx%20%2A%20HOME-ES" target="_blank" rel="noopener">Cotizar por WhatsApp</a>
 
   <script>
+      // Approved seasonal supplement: service date, once per vehicle/service.
+      function seasonalAmount(date, vehicle){
+        const peak = (date >= '2026-10-30' && date <= '2026-11-02') ||
+          (date >= '2026-12-20' && date <= '2027-01-06');
+        return peak && /^(suburban|van|crafter|hiace(?: \/ transit)?)$/i.test(vehicle || '') ? 500 : 0;
+      }
+      function seasonalRate(rate, date){
+        if(!rate) return rate;
+        const key = Object.hasOwn(rate,'cash') ? 'cash' : 'price';
+        return {...rate, [key]: rate[key] > 0 ? rate[key] + seasonalAmount(date,rate.label || rate.vehicle) : rate[key]};
+      }
+
     (function(){
       const PAGE_CODE = 'HOME-ES';
       const PAGE_LANGUAGE = 'es';
@@ -2736,7 +2749,7 @@
         if(!airportCode || !vehicleKey || !airportPrices[airportCode] || !airportPrices[airportCode].cash[vehicleKey]){
           return {cash:'Cotización directa', card:'Cotización directa', schedule:'Por definir', buffer:0};
         }
-        const base = airportPrices[airportCode].cash[vehicleKey];
+        const base = airportPrices[airportCode].cash[vehicleKey] + seasonalAmount(getVal('qDate'), vehicleKey);
         return {cash:mxn(base), card:mxn(base * 1.16), base, buffer:airportPrices[airportCode].buffer};
       }
 
