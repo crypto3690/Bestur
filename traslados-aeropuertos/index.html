@@ -830,6 +830,7 @@
             </div>
 
             <form class="quick-quote-form" id="quickAirportForm" onsubmit="return false;">
+<p class="seasonal-note" style="grid-column:1/-1">Tarifas de temporada alta: 30 de octubre–2 de noviembre de 2026 y 20 de diciembre de 2026–6 de enero de 2027 (inclusive). Suburban, Hiace / Transit y Crafter: +$500 MXN por servicio y unidad. Sedán sin cambio. Selecciona la fecha del servicio para ver el total ajustado. Se conserva el tratamiento de IVA de tarjeta/factura.</p>
               <div class="quick-row">
                 <div class="field">
                   <label for="quickAirport">Aeropuerto</label>
@@ -1296,6 +1297,18 @@
   </a>
 
   <script>
+      // Approved seasonal supplement: service date, once per vehicle/service.
+      function seasonalAmount(date, vehicle){
+        const peak = (date >= '2026-10-30' && date <= '2026-11-02') ||
+          (date >= '2026-12-20' && date <= '2027-01-06');
+        return peak && /^(suburban|van|crafter|hiace(?: \/ transit)?)$/i.test(vehicle || '') ? 500 : 0;
+      }
+      function seasonalRate(rate, date){
+        if(!rate) return rate;
+        const key = Object.hasOwn(rate,'cash') ? 'cash' : 'price';
+        return {...rate, [key]: rate[key] > 0 ? rate[key] + seasonalAmount(date,rate.label || rate.vehicle) : rate[key]};
+      }
+
     (function(){
       const body=document.body;
       const header=document.getElementById('siteHeader');
@@ -1461,7 +1474,7 @@
       function buildMessage(){
         const airport=val('airport');
         const direction=val('direction');
-        const v=vehicle(val('passengers'),airport);
+        const v=seasonalRate(vehicle(val('passengers'),airport),val('date'));
         const cash=v.cash;
         const card=cash ? Math.round(cash*1.16) : 0;
 
