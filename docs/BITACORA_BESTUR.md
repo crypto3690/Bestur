@@ -14,6 +14,8 @@ Esta bitácora concentra los cambios digitales y los resultados comerciales de b
 
 | 2026-09-10 | / — HOME-ES | Publicar en la home la versión de /prueba/ con asistente guiado, folios y envío directo a Sheets de solicitudes y clics WhatsApp/correo | Habilitar captación desde la principal por instrucción del responsable | Publicado; contenido público verificado | Commit 074d5e2dea974def51337e0765fa7dd115a6aed0. Copia exacta de /prueba/index.html (blob b3ad1607635f2d5dfa5d2fd2514b0752b3287a43), sintaxis JavaScript validada. Contenido HTML público de https://bestur.mx/?release=074d5e2 comprobado idéntico al archivo publicado el 10 de septiembre a las 21:35 (México). Se conserva diseño y tarifas. La respuesta opaca del navegador no acredita guardado; no se generaron leads de prueba reales. |
 
+| 2026-10-29 | BJX — español | Actualizar Suburban a $2,835 MXN en tarjeta y cotizador; importe con IVA redondeado a $3,289 MXN conforme al cálculo existente | Tarifa autorizada por responsable | Actualizado en GitHub; despliegue pendiente de verificar | Commit 44393f4abc532566f372df10e21d09fcb05eb88e. Lectura posterior idéntica al cambio preparado; solo tres sustituciones de tarifa. Siguiente paso: comprobar despliegue público. |
+
 ## 2. Redes sociales
 
 | Fecha | Canal | Publicación / campaña | Objetivo | Inversión | Resultado | Próximo paso |
