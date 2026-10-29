@@ -16,6 +16,8 @@ Esta bitácora concentra los cambios digitales y los resultados comerciales de b
 
 | 2026-10-29 | BJX — español | Actualizar Suburban a $2,835 MXN en tarjeta y cotizador; importe con IVA redondeado a $3,289 MXN conforme al cálculo existente | Tarifa autorizada por responsable | Actualizado en GitHub; despliegue pendiente de verificar | Commit 44393f4abc532566f372df10e21d09fcb05eb88e. Lectura posterior idéntica al cambio preparado; solo tres sustituciones de tarifa. Siguiente paso: comprobar despliegue público. |
 
+| 2026-10-29 | BJX — inglés | Suburban $2,835 MXN efectivo/transferencia y $3,289 MXN con IVA; tarjeta, cotizador y datos estructurados actualizados | Igualar tarifa autorizada en español | Actualizado y verificado en GitHub; despliegue público pendiente | Commit 776dba55171ae37d02e11bb35395848d913af781. Lectura posterior coincide exactamente. Siguiente paso: verificar página pública. |
+
 ## 2. Redes sociales
 
 | Fecha | Canal | Publicación / campaña | Objetivo | Inversión | Resultado | Próximo paso |
